@@ -65,16 +65,16 @@ void draw_smile()
 
 void draw_frown()
 {
-	glNewList(FROWN, GL_COMPILE);
-		glPushAttrib(GL_CURRENT_BIT);
-		glColor3f(1.0f, 0.0f, 1.0f);
-		glBegin(GL_POLYGON);
-			for (int i = 270; i < 450; i++)
-			{
-				glVertex2f(sinf(i * DEGREES) / 1.25f, (cosf(i * DEGREES) / 1.25f) - 0.6f);
-			}
-		glEnd();
-	glEndList();
+    glNewList(FROWN, GL_COMPILE);
+        glPushAttrib(GL_CURRENT_BIT);
+        glColor3f(1.0f, 0.0f, 1.0f);
+        glBegin(GL_POLYGON);
+            for (int i = 270; i < 450; i++)
+            {
+                glVertex2f(sinf(i * DEGREES) / 1.25f, (cosf(i * DEGREES) / 1.25f) - 0.6f);
+            }
+        glEnd();
+    glEndList();
 }
 
 void init()
