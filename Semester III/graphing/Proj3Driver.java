@@ -1,4 +1,4 @@
-package graphing;
+package semester_iii.graphing;
 
 // Proj3Driver.java
 // Alan C. Jamieson

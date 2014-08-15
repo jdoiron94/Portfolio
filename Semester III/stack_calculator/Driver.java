@@ -1,4 +1,4 @@
-package stack_calculator;
+package semester_iii.stack_calculator;
 
 // Proj2Driver.java
 // Alan C. Jamieson
@@ -17,7 +17,7 @@ public class Driver {
         test.processInput("x = -0.5");
         test.processInput("(x^2-(2*x))/(x^2-x-2)");
         /*//Valid Test 1 - operations test
-		System.out.println("Valid Test 1");
+        System.out.println("Valid Test 1");
 		System.out.println("Expected output: ");
 		System.out.println("\t 6");
 		System.out.println("\t -12");

@@ -1,4 +1,4 @@
-package game_database;
+package semester_iii.game_database;
 
 /**
  * Used to represent an RPG video game

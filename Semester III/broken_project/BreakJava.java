@@ -1,4 +1,4 @@
-package broken_project;
+package semester_iii.broken_project;
 
 import java.util.Arrays;
 

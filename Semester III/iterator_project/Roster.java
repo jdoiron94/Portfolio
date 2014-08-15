@@ -1,4 +1,4 @@
-package iterator_project;
+package semester_iii.iterator_project;
 
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -1,4 +1,4 @@
-package stacks;
+package semester_iii.stacks;
 
 import java.util.Stack;
 

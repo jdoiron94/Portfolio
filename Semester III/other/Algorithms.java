@@ -1,4 +1,4 @@
-package other;
+package semester_iii.other;
 
 public class Algorithms {
 

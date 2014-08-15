@@ -1,4 +1,4 @@
-package lab_1;
+package semester_iii.lab_1;
 
 public class Car {
 

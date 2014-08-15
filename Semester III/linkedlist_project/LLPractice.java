@@ -1,4 +1,4 @@
-package linkedlist_project;
+package semester_iii.linkedlist_project;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

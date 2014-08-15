@@ -1,4 +1,4 @@
-package curse_you_alan_the_platypus_project;
+package semester_iii.curse_you_alan_the_platypus_project;
 
 import java.util.ArrayDeque;
 import java.util.Collections;

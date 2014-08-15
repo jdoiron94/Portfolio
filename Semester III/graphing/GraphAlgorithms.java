@@ -1,4 +1,4 @@
-package graphing;
+package semester_iii.graphing;
 
 import java.util.ArrayList;
 import java.util.Arrays;

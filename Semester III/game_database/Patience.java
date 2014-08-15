@@ -1,4 +1,4 @@
-package game_database;
+package semester_iii.game_database;
 
 /**
  * Class used to represent a Patience card game

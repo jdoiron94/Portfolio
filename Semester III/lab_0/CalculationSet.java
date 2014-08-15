@@ -1,4 +1,4 @@
-package lab_0;
+package semester_iii.lab_0;
 
 import java.util.Arrays;
 

@@ -1,8 +1,6 @@
-package other;
+package semester_iii.other;
 
 public class Recursion {
-
-    private static final String NUMERIC = "0123456789abcdef";
 
     private static int count(int n, int count) {
         if (n >= 2) {

@@ -1,4 +1,4 @@
-package stack_calculator;
+package semester_iii.stack_calculator;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -176,7 +176,7 @@ public class StackCalculator {
                             Operator o = operators.peek();
                             if (o == Operator.PARENTHESES || (operator == Operator.EXPONENTIATION && o == Operator.EXPONENTIATION)) {
                                 break;
-                            } else if (operator.getPrecedence() <= o.getPrecedence()) {
+                            } else if ((operator != null ? operator.getPrecedence() : -1) <= o.getPrecedence()) {
                                 builder.append(o.getOperator());
                                 builder.append(' ');
                                 operators.pop();

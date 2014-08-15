@@ -1,4 +1,4 @@
-package game_database;
+package semester_iii.game_database;
 
 import java.io.BufferedReader;
 import java.io.File;

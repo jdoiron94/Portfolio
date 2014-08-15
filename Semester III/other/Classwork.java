@@ -1,4 +1,4 @@
-package other;
+package semester_iii.other;
 
 import java.util.Arrays;
 

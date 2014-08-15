@@ -1,4 +1,4 @@
-package generic_project;
+package semester_iii.generic_project;
 
 import java.util.ArrayList;
 import java.util.Arrays;

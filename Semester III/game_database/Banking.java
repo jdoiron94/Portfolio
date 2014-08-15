@@ -1,4 +1,4 @@
-package game_database;
+package semester_iii.game_database;
 
 /**
  * Class used to represent a Banking card game
@@ -9,7 +9,6 @@ public class Banking extends Card {
     private double bet;
 
     private boolean won = false;
-    private String status = "";
 
     public Banking(int playerCount, String title, String genre, String ageRecommendation, String estimatedTime, int cardCount) {
         super(playerCount, title, genre, ageRecommendation, estimatedTime, cardCount);
@@ -65,6 +64,7 @@ public class Banking extends Card {
         int dealer = getCardValue(1, 11) + getCardValue(1, 11);
         int player = getCardValue(1, 11) + getCardValue(1, 11);
         won = false;
+        String status;
         if (dealer == 21 || dealer > player) {
             status = "You lost the hand";
         } else if (dealer == player) {
