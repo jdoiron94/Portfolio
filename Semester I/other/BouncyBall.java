@@ -4,13 +4,12 @@ import java.util.Scanner;
 
 public class BouncyBall {
 
-    private static double velocityDecay = 0.0;
-    private static double bouncinessFactor = 0.0;
-    private static double currentHeight = 0.0;
-
     private static int time = 1;
-    private static int bounces = 0;
-    private static int rounds = 0;
+    private static int bounces;
+    private static int rounds;
+    private static double velocityDecay;
+    private static double bouncinessFactor;
+    private static double currentHeight;
 
     private static void compute(int world, double velocity) {
         switch (world) {
@@ -43,11 +42,7 @@ public class BouncyBall {
             bounces++;
         }
         if (bounces != 5) {
-            if (time == 1) {
-                System.out.println("\nTime: " + time + " Height: " + currentHeight);
-            } else {
-                System.out.println("Time: " + time + " Height: " + currentHeight);
-            }
+            System.out.println(time == 1 ? "\nTime: " + time + " Height: " + currentHeight : "Time: " + time + " Height: " + currentHeight);
             time++;
         }
         if (bounces < 5) {
@@ -60,17 +55,12 @@ public class BouncyBall {
     }
 
     private static void printMenu() {
-        if (rounds == 0) {
-            System.out.print("*** Planet Selection ***\n        1: Earth\n      2: Discworld\n       3: Krypton\n        0: Quit\n************************\n\nEnter your choice: ");
-        } else {
-            System.out.print("\n*** Planet Selection ***\n        1: Earth\n      2: Discworld\n       3: Krypton\n        0: Quit\n************************\n\nEnter your choice: ");
-
-        }
+        System.out.print(rounds == 0 ? "*** Planet Selection ***\n        1: Earth\n      2: Discworld\n       3: Krypton\n        0: Quit\n************************\n\nEnter your choice: " : "\n*** Planet Selection ***\n        1: Earth\n      2: Discworld\n       3: Krypton\n        0: Quit\n************************\n\nEnter your choice: ");
     }
 
-    public static void main(String[] args) {
+    public static void main(String... args) {
         Scanner scanner = new Scanner(System.in);
-        while (true) {
+        while (velocityDecay != -1 && bouncinessFactor != -1) {
             printMenu();
             int world = scanner.nextInt();
             if (world == 0) {
@@ -89,9 +79,6 @@ public class BouncyBall {
             }
             compute(world, velocity);
             rounds++;
-            if (velocityDecay == -1 || bouncinessFactor == -1) {
-                break;
-            }
         }
     }
 }

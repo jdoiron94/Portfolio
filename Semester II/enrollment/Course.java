@@ -6,17 +6,15 @@ import java.util.Set;
 public class Course {
 
     private final String name;
-
     private FacultyMember facultyMember;
-
     private Set<Student> students;
     private Set<TeachingAssistant> assistants;
 
     public Course(String name) {
         this.name = name;
         facultyMember = new FacultyMember("Not", "Applicable");
-        students = new HashSet<>(0);
-        assistants = new HashSet<>(0);
+        students = new HashSet<>(20);
+        assistants = new HashSet<>(5);
     }
 
     public String getName() {
@@ -27,32 +25,32 @@ public class Course {
         return facultyMember;
     }
 
-    public void setFacultyMember(FacultyMember facultyMember) {
-        this.facultyMember = facultyMember;
-    }
-
     public Set<Student> getStudents() {
         return students;
-    }
-
-    public void setStudents(Set<Student> students) {
-        this.students = students;
     }
 
     public Set<TeachingAssistant> getAssistants() {
         return assistants;
     }
 
+    public void setFacultyMember(FacultyMember facultyMember) {
+        this.facultyMember = facultyMember;
+    }
+
+    public void setStudents(Set<Student> students) {
+        this.students = students;
+    }
+
     public void setAssistants(Set<TeachingAssistant> assistants) {
         this.assistants = assistants;
     }
 
-    protected void drop(Student student) {
-        students.remove(student);
-    }
-
     protected void add(Student student) {
         students.add(student);
+    }
+
+    protected void drop(Student student) {
+        students.remove(student);
     }
 
     @Override

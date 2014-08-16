@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class PiApproximation {
 
-    public static void main(String[] args) {
+    public static void main(String... args) {
         Random random = new Random(System.nanoTime());
         int inside = 0;
         int outside = 0;

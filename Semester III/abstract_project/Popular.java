@@ -2,9 +2,9 @@ package semester_iii.abstract_project;
 
 public class Popular extends BookTemplate implements Book {
 
-    private boolean awards = false;
+    private boolean awards;
 
-    public Popular(String title, String author, String isbn, String subject, boolean awards) {
+    public Popular(boolean awards, String title, String author, String isbn, String subject) {
         super(title, author, isbn, subject);
         this.awards = awards;
     }

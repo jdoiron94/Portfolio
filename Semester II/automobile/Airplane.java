@@ -7,16 +7,12 @@ public class Airplane extends Vehicle {
     private final Engine engine;
     private final Wing[] wings;
 
-    public Airplane(String model, Steering.Type steering, int year, boolean floatable, boolean flyable, Wheel[] wheels, Engine engine, Wing[] wings) {
-        super(model, steering, year, floatable, flyable);
+    public Airplane(int year, boolean floatable, boolean flyable, String model, Steering.Type steering, Wheel[] wheels, Engine engine, Wing[] wings) {
+        super(year, floatable, flyable, model, steering);
         this.steering = steering;
         this.wheels = wheels;
         this.engine = engine;
         this.wings = wings;
-    }
-
-    public Steering.Type getSteering() {
-        return steering;
     }
 
     public Wheel[] getWheels() {
@@ -29,5 +25,10 @@ public class Airplane extends Vehicle {
 
     public Wing[] getWings() {
         return wings;
+    }
+
+    @Override
+    public Steering.Type getSteering() {
+        return steering;
     }
 }

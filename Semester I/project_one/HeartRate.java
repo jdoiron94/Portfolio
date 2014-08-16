@@ -5,21 +5,40 @@ import java.util.GregorianCalendar;
 
 public class HeartRate {
 
-    private String first;
-    private String last;
     private int month;
     private int day;
     private int year;
 
-    public HeartRate() { //Useless constructor, unless using all set methods (which is redundant) - other constructor is better suited for such a task.
-    }
+    private String first;
+    private String last;
 
-    public HeartRate(String first, String last, int month, int day, int year) {
-        this.first = first;
-        this.last = last;
+    public HeartRate(int month, int day, int year, String first, String last) {
         this.month = month;
         this.day = day;
         this.year = year;
+        this.first = first;
+        this.last = last;
+    }
+
+    /**
+     * @return the month of birth
+     */
+    public int getMonth() {
+        return month;
+    }
+
+    /**
+     * @return the day of birth
+     */
+    public int getDay() {
+        return day;
+    }
+
+    /**
+     * @return the year of birth
+     */
+    public int getYear() {
+        return year;
     }
 
     /**
@@ -30,35 +49,10 @@ public class HeartRate {
     }
 
     /**
-     * Sets the first name to the provided parameter.
-     *
-     * @param first The first name to be set
-     */
-    public void setFirst(String first) {
-        this.first = first;
-    }
-
-    /**
      * @return the last name
      */
     public String getLast() {
         return last;
-    }
-
-    /**
-     * Sets the last name to the provided parameter.
-     *
-     * @param last The last name to be set
-     */
-    public void setLast(String last) {
-        this.last = last;
-    }
-
-    /**
-     * @return the month of birth
-     */
-    public int getMonth() {
-        return month;
     }
 
     /**
@@ -71,26 +65,12 @@ public class HeartRate {
     }
 
     /**
-     * @return the day of birth
-     */
-    public int getDay() {
-        return day;
-    }
-
-    /**
      * Sets the day of birth to the provided parameter.
      *
      * @param day The day to be set
      */
     public void setDay(int day) {
         this.day = day;
-    }
-
-    /**
-     * @return the year of birth
-     */
-    public int getYear() {
-        return year;
     }
 
     /**
@@ -103,6 +83,24 @@ public class HeartRate {
     }
 
     /**
+     * Sets the first name to the provided parameter.
+     *
+     * @param first The first name to be set
+     */
+    public void setFirst(String first) {
+        this.first = first;
+    }
+
+    /**
+     * Sets the last name to the provided parameter.
+     *
+     * @param last The last name to be set
+     */
+    public void setLast(String last) {
+        this.last = last;
+    }
+
+    /**
      * Calculates the age using the birthday entered.
      *
      * @return the age of the entered credentials
@@ -112,7 +110,7 @@ public class HeartRate {
         int month = calendar.get(Calendar.MONTH) + 1;
         int day = calendar.get(Calendar.DAY_OF_MONTH);
         int year = calendar.get(Calendar.YEAR);
-        return month > this.month || (month == this.month && day >= this.day) ? year - this.year : year - this.year - 1;
+        return month > this.month || month == this.month && day >= this.day ? year - this.year : year - this.year - 1;
     }
 
     /**

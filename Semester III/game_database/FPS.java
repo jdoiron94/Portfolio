@@ -8,10 +8,9 @@ public class FPS extends Video {
     private int butthurt;
     private int kills;
     private int deaths;
+    private boolean won;
 
-    private boolean won = false;
-
-    public FPS(int playerCount, String title, String genre, String ageRecommendation, String estimatedTime, String console, String installationSize, int butthurt) {
+    public FPS(int playerCount, int butthurt, String title, String genre, String ageRecommendation, String estimatedTime, String console, String installationSize) {
         super(playerCount, title, genre, ageRecommendation, estimatedTime, console, installationSize);
         this.butthurt = butthurt;
     }

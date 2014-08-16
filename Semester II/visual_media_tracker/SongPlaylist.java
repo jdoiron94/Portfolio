@@ -2,46 +2,49 @@ package semester_ii.visual_media_tracker;
 
 import java.io.File;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
 
 public class SongPlaylist {
 
-    private File file = new File("Song Playlist.txt");
-
-    private Set<Song> songs;
+    private final File file = new File("Song Playlist.txt");
+    private final Set<Song> songs;
 
     public SongPlaylist() {
-        songs = new HashSet<>();
+        songs = new HashSet<>(5);
     }
 
-    public void addSong(Song s) {
-        songs.add(s);
+    public void addSong(Song song) {
+        songs.add(song);
     }
 
-    public void removeSong(Song s) {
-        songs.remove(s);
+    public void removeSong(Song song) {
+        songs.remove(song);
     }
 
     public void export() {
         try {
             FileWriter writer = new FileWriter(file);
             for (Song song : songs) {
-                writer.write(song.toString() + "\n");
+                writer.write(song + "\n");
             }
             writer.close();
             System.out.println("Song playlist saved to " + file.getAbsolutePath());
-        } catch (Exception e) {
+        } catch (IOException e) {
             System.out.println("Error exporting song playlist");
             e.printStackTrace();
         }
     }
 
+    @Override
     public String toString() {
-        String s = "Songs:\n";
+        StringBuilder builder = new StringBuilder(500);
+        builder.append("Songs:\n");
         for (Song song : songs) {
-            s = s + song.toString() + "\n";
+            builder.append(song);
+            builder.append('\n');
         }
-        return s;
+        return builder.toString();
     }
 }

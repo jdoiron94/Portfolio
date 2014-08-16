@@ -14,13 +14,18 @@ public abstract class Video extends Game {
         this.installationSize = installationSize;
     }
 
-    public abstract void play();
-
     /**
      * @return Returns the video game's console type
      */
     public String getConsole() {
         return console;
+    }
+
+    /**
+     * @return Returns the installation size of the video game
+     */
+    public String getInstallationSize() {
+        return installationSize;
     }
 
     /**
@@ -33,13 +38,6 @@ public abstract class Video extends Game {
     }
 
     /**
-     * @return Returns the installation size of the video game
-     */
-    public String getInstallationSize() {
-        return installationSize;
-    }
-
-    /**
      * Used to set the installation size of the video game
      *
      * @param installationSize The installation size of the video game
@@ -47,6 +45,8 @@ public abstract class Video extends Game {
     public void setInstallationSize(String installationSize) {
         this.installationSize = installationSize;
     }
+
+    public abstract void play();
 
     /**
      * @return Returns <tt>false</tt> for the time being, is overridden later

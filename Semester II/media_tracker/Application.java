@@ -2,9 +2,9 @@ package semester_ii.media_tracker;
 
 public class Application {
 
-    public static void main(String[] args) {
+    public static void main(String... args) {
         Playlist playlist = new Playlist();
-        Song s1 = new Song("Cynical", "Mr. FijiWiji, CoMa", "Aftermath", "Dubstep", "4:00", 320);
+        Song s1 = new Song(320, "Cynical", "Mr. FijiWiji, CoMa", "Aftermath", "Dubstep", "4:00");
         System.out.println("Song:\n\n" + s1 + "\n");
         Video v1 = new Video("Harry Potter", "J.K. Rowling", "3:00:00");
         System.out.println("Video:\n\n" + v1 + "\n");
@@ -13,7 +13,7 @@ public class Application {
         playlist.addSong(s1);
         playlist.addVideo(v1);
         playlist.addPodcast(p1);
-        Song s2 = new Song("Chaos Storm", "Droptek", "Aftermath", "Dubstep", "4:15", 320);
+        Song s2 = new Song(320, "Chaos Storm", "Droptek", "Aftermath", "Dubstep", "4:15");
         Video v2 = new Video("Ted", "Seth Macfarlane", "1:46:00");
         Podcast p2 = new Podcast("NPR", "NPR Podcast", "www.npr.org", "5:00");
         playlist.addSong(s2);

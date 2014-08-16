@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 /**
  * @author Jacob Doiron
- *         Main file used to test the entirety of the application
+ * Main file used to test the entirety of the application
  */
 public class Application {
 
@@ -20,11 +20,11 @@ public class Application {
      * @return Returns the names of the games from the list (solely the names, strips extraneous info from game objects)
      */
     private static String getNames(List<? extends Game> list) {
-        String names = "";
+        StringBuilder builder = new StringBuilder(500);
         for (int i = 0; i < list.size(); i++) {
-            names += i == list.size() - 1 ? list.get(i).getTitle() : list.get(i).getTitle() + ", ";
+            builder.append(i == list.size() - 1 ? list.get(i).getTitle() : list.get(i).getTitle() + ", ");
         }
-        return names;
+        return builder.toString();
     }
 
     /**
@@ -32,52 +32,52 @@ public class Application {
      *
      * @param args command-line arguments containing the filename
      */
-    public static void main(String[] args) {
+    public static void main(String... args) {
         if (args.length > 0) {
             Scanner scanner = new Scanner(System.in);
             File file = new File(args[0]);
             if (file.exists()) {
                 System.out.println(file.getAbsoluteFile() + " exists");
-                List<Banking> banking = new ArrayList<>();
-                List<Trick> trick = new ArrayList<>();
-                List<Patience> patience = new ArrayList<>();
-                List<Tile> tile = new ArrayList<>();
-                List<Capture> capture = new ArrayList<>();
-                List<Strategy> strategy = new ArrayList<>();
-                List<FPS> fps = new ArrayList<>();
-                List<RPG> rpg = new ArrayList<>();
-                List<Sport> sport = new ArrayList<>();
+                List<Banking> banking = new ArrayList<>(5);
+                List<Trick> trick = new ArrayList<>(5);
+                List<Patience> patience = new ArrayList<>(5);
+                List<Tile> tile = new ArrayList<>(5);
+                List<Capture> capture = new ArrayList<>(5);
+                List<Strategy> strategy = new ArrayList<>(5);
+                List<FPS> fps = new ArrayList<>(5);
+                List<RPG> rpg = new ArrayList<>(5);
+                List<Sport> sport = new ArrayList<>(5);
                 try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
                     String line;
                     while ((line = reader.readLine()) != null) {
-                        if (line.replaceAll("[\\W]|_", "").equals("")) {
+                        if (line.replaceAll("[\\W]|_", "").isEmpty()) {
                             continue;
                         }
                         String[] split = line.split(", ");
                         switch (split[1]) {
                             case "Banking":
-                                banking.add(new Banking(Integer.parseInt(split[2]), split[0], split[1], split[4], split[5], Integer.parseInt(split[6])));
+                                banking.add(new Banking(Integer.parseInt(split[2]), Integer.parseInt(split[6]), split[0], split[1], split[4], split[5]));
                                 break;
                             case "Trick":
-                                trick.add(new Trick(Integer.parseInt(split[2]), split[0], split[1], split[4], split[5], Integer.parseInt(split[6])));
+                                trick.add(new Trick(Integer.parseInt(split[2]), Integer.parseInt(split[6]), split[0], split[1], split[4], split[5]));
                                 break;
                             case "Patience":
-                                patience.add(new Patience(Integer.parseInt(split[2]), split[0], split[1], split[4], split[5], Integer.parseInt(split[6])));
+                                patience.add(new Patience(Integer.parseInt(split[2]), Integer.parseInt(split[6]), split[0], split[1], split[4], split[5]));
                                 break;
                             case "Tile":
-                                tile.add(new Tile(Integer.parseInt(split[2]), split[0], split[1], split[4], split[5], Integer.parseInt(split[3]), split[6], Integer.parseInt(split[7])));
+                                tile.add(new Tile(Integer.parseInt(split[2]), Integer.parseInt(split[3]), Integer.parseInt(split[7]), split[0], split[1], split[4], split[5], split[6]));
                                 break;
                             case "Capture":
-                                capture.add(new Capture(Integer.parseInt(split[2]), split[0], split[1], split[4], split[5], Integer.parseInt(split[7]), split[6], split[3]));
+                                capture.add(new Capture(Integer.parseInt(split[2]), Integer.parseInt(split[7]), split[0], split[1], split[4], split[5], split[6], split[3]));
                                 break;
                             case "Strategy":
-                                strategy.add(new Strategy(Integer.parseInt(split[2]), split[0], split[1], split[4], split[5], Integer.parseInt(split[7]), split[6]));
+                                strategy.add(new Strategy(Integer.parseInt(split[2]), Integer.parseInt(split[7]), split[0], split[1], split[4], split[5], split[6]));
                                 break;
                             case "FPS":
-                                fps.add(new FPS(Integer.parseInt(split[2]), split[0], split[1], split[4], split[5], split[6], split[7], Integer.parseInt(split[3])));
+                                fps.add(new FPS(Integer.parseInt(split[2]), Integer.parseInt(split[3]), split[0], split[1], split[4], split[5], split[6], split[7]));
                                 break;
                             case "RPG":
-                                rpg.add(new RPG(Integer.parseInt(split[2]), split[0], split[1], split[4], split[5], split[6], split[7], Integer.parseInt(split[3])));
+                                rpg.add(new RPG(Integer.parseInt(split[2]), Integer.parseInt(split[3]), split[0], split[1], split[4], split[5], split[6], split[7]));
                                 break;
                             case "Sport":
                                 sport.add(new Sport(Integer.parseInt(split[2]), split[0], split[1], split[4], split[5], split[6], split[7], split[3]));
@@ -85,8 +85,8 @@ public class Application {
                         }
                     }
                     reader.close();
-                } catch (IOException ignored) {
-                    ignored.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
                 System.out.println("\nBanking: " + banking.size() + "\nTrick: " + trick.size() + "\nPatience: " + patience.size() + "\nTile: " + tile.size() + "\nCapture: " + capture.size() + "\nStrategy: " + strategy.size() + "\nFPS: " + fps.size() + "\nRPG: " + rpg.size() + "\nSport: " + sport.size());
                 System.out.println("\nBoard: " + (tile.size() + capture.size() + strategy.size()) + "\nCard: " + (banking.size() + trick.size() + patience.size()) + "\nVideo: " + (fps.size() + rpg.size() + sport.size()));

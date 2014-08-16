@@ -7,15 +7,10 @@ public abstract class Card extends Game {
 
     private int cardCount;
 
-    public Card(int playerCount, String title, String genre, String ageRecommendation, String estimatedTime, int cardCount) {
+    public Card(int playerCount, int cardCount, String title, String genre, String ageRecommendation, String estimatedTime) {
         super(playerCount, title, genre, ageRecommendation, estimatedTime);
         this.cardCount = cardCount;
     }
-
-    /**
-     * Method which will later be used from within children of this class
-     */
-    public abstract void draw();
 
     /**
      * @return Returns the card count
@@ -41,6 +36,11 @@ public abstract class Card extends Game {
     public int getCardValue(int min, int max) {
         return min + (int) (Math.random() * max);
     }
+
+    /**
+     * Method which will later be used from within children of this class
+     */
+    public abstract void draw();
 
     /**
      * @return Returns <tt>false</tt> for the time being, is overridden later

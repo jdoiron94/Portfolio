@@ -1,5 +1,6 @@
 package semester_iii.curse_you_alan_the_platypus_project;
 
+import java.util.AbstractCollection;
 import java.util.ArrayDeque;
 import java.util.Collections;
 
@@ -19,7 +20,10 @@ public class Platypus {
             return a[l] < 0 ? 0 : a[l];
         }
         int c = (l + r) / 2;
-        int lSum = 0, lTemp = 0, rSum = 0, rTemp = 0;
+        int lSum = 0;
+        int lTemp = 0;
+        int rSum = 0;
+        int rTemp = 0;
         for (int i = c; i >= l; i--) {
             lTemp += a[i];
             lSum = lTemp > lSum ? lTemp : lSum;
@@ -53,11 +57,11 @@ public class Platypus {
     /*
      *  Used to test aforementioned methods appropriately
      */
-    public static void main(String[] args) {
+    public static void main(String... args) {
         int[] a = new int[]{-2, 11, -4, 13, -5, 2};
         System.out.println(mcss(a, 0, a.length - 1));
         permute("abc");
-        ArrayDeque<Integer> s = new ArrayDeque<>();
+        AbstractCollection<Integer> s = new ArrayDeque<>(6);
         Collections.addAll(s, 1, 4, 22, -4, 3, 1);
         for (int i : s) {
             System.out.println(i);

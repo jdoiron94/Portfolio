@@ -11,26 +11,32 @@ public class EnrollmentTest {
      * Pardon the fact that there are only two students and two courses,
      * I couldn't be bothered getting more creative when it takes so many lines
      * to essentially write something which could have otherwise been written
-     * using arrays in about half of the time it took to do it using Sets.
+     * using arrays in about half of the time it took to do it using sets.
      */
 
     protected static String getSimplePerson(Set<? extends Person> people) {
-        String simple = "[";
+        StringBuilder builder = new StringBuilder(250);
+        builder.append('[');
         for (Person p : people) {
-            simple += p.getSimpleRepresentation() + ", ";
+            builder.append(p.getSimpleRepresentation());
+            builder.append(", ");
         }
+        String simple = builder.toString();
         return (simple.length() > 2 ? simple.substring(0, simple.length() - 2) : simple) + "]";
     }
 
     protected static String getSimpleCourse(Set<? extends Course> courses) {
-        String simple = "[";
+        StringBuilder builder = new StringBuilder(250);
+        builder.append('[');
         for (Course c : courses) {
-            simple += c.getName() + ", ";
+            builder.append(c.getName());
+            builder.append(", ");
         }
+        String simple = builder.toString();
         return (simple.length() > 2 ? simple.substring(0, simple.length() - 2) : simple) + "]";
     }
 
-    public static void main(String[] args) {
+    public static void main(String... args) {
         Person person = new Person("Jacob", "Doiron");
         System.out.println("Person: " + person + "\n");
         Course compSci = new Course("Comp Sci II");

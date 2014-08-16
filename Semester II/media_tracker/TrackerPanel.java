@@ -16,10 +16,10 @@ public class TrackerPanel extends JPanel {
     public void paintComponent(Graphics g1) {
         super.paintComponent(g1);
         Graphics2D g = (Graphics2D) g1;
-        g.setFont(Constants.FONT);
-        g.setRenderingHints(Constants.HINTS);
+        g.setFont(Constants.font);
+        g.setRenderingHints(Constants.hints);
         FontMetrics metrics = getFontMetrics(g.getFont());
         String text = "Buttons and such for starting, pausing, looping, setting volume, etc., would be placed down here";
-        g.drawString(text, (725 - metrics.stringWidth(text)) / 2, (metrics.getAscent() + (100 - (metrics.getAscent() + metrics.getDescent()))) / 2);
+        g.drawString(text, (725 - metrics.stringWidth(text)) / 2, (metrics.getAscent() + 100 - (metrics.getAscent() + metrics.getDescent())) / 2);
     }
 }

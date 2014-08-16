@@ -9,16 +9,11 @@ public abstract class Board extends Game {
 
     private String boardSize;
 
-    public Board(int playerCount, String title, String genre, String ageRecommendation, String estimatedTime, int pieceCount, String boardSize) {
+    public Board(int playerCount, int pieceCount, String title, String genre, String ageRecommendation, String estimatedTime, String boardSize) {
         super(playerCount, title, genre, ageRecommendation, estimatedTime);
         this.pieceCount = pieceCount;
         this.boardSize = boardSize;
     }
-
-    /**
-     * Will be required and used from within my classes extending Board
-     */
-    public abstract void move();
 
     /**
      * @return Returns the piece count
@@ -28,19 +23,19 @@ public abstract class Board extends Game {
     }
 
     /**
+     * @return Returns the size of the board
+     */
+    public String getBoardSize() {
+        return boardSize;
+    }
+
+    /**
      * Used to set the piece count of the board game
      *
      * @param pieceCount The amount of pieces to be used
      */
     public void setPieceCount(int pieceCount) {
         this.pieceCount = pieceCount;
-    }
-
-    /**
-     * @return Returns the size of the board
-     */
-    public String getBoardSize() {
-        return boardSize;
     }
 
     /**
@@ -58,6 +53,11 @@ public abstract class Board extends Game {
     public int getPieceValue() {
         return (int) (Math.random() * 7);
     }
+
+    /**
+     * Will be required and used from within my classes extending Board
+     */
+    public abstract void move();
 
     /**
      * @return Returns <tt>false</tt> for the time being, is overridden later

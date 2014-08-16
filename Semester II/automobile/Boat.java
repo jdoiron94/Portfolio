@@ -5,17 +5,18 @@ public class Boat extends Vehicle {
     private final Steering.Type steering;
     private final Motor motor;
 
-    public Boat(String model, Steering.Type steering, int year, boolean floatable, boolean flyable, Motor motor) {
-        super(model, steering, year, floatable, flyable);
-        this.motor = motor;
+    public Boat(int year, boolean floatable, boolean flyable, String model, Steering.Type steering, Motor motor) {
+        super(year, floatable, flyable, model, steering);
         this.steering = steering;
-    }
-
-    public Steering.Type getSteering() {
-        return steering;
+        this.motor = motor;
     }
 
     public Motor getMotor() {
         return motor;
+    }
+
+    @Override
+    public Steering.Type getSteering() {
+        return steering;
     }
 }

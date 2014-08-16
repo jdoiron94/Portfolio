@@ -50,6 +50,7 @@ public class Day {
         return false;
     }
 
+    @Override
     public String toString() {
         return String.format("%d/%d/%d", month, day, year);
     }

@@ -4,7 +4,7 @@ import java.util.Stack;
 
 public class Stacks {
 
-    public static void main(String[] args) {
+    public static void main(String... args) {
         Stack<Character> stack = new Stack<>();
         for (char c : "((()())())".toCharArray()) {
             if (c == '(') {

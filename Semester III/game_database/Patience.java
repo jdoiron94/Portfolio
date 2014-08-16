@@ -7,11 +7,10 @@ public class Patience extends Card {
 
     private int remainingCards;
     private int pairs;
+    private boolean won;
 
-    private boolean won = false;
-
-    public Patience(int playerCount, String title, String genre, String ageRecommendation, String estimatedTime, int cardCount) {
-        super(playerCount, title, genre, ageRecommendation, estimatedTime, cardCount);
+    public Patience(int playerCount, int cardCount, String title, String genre, String ageRecommendation, String estimatedTime) {
+        super(playerCount, cardCount, title, genre, ageRecommendation, estimatedTime);
     }
 
     /**

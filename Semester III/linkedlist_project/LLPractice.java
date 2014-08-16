@@ -2,13 +2,14 @@ package semester_iii.linkedlist_project;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 
 public class LLPractice {
 
-    private static final ArrayList<Double> testlist1 = new ArrayList<>();
-    private static final LinkedList<Double> testlist2 = new LinkedList<>();
+    private static final List<Double> testlist1 = new ArrayList<>(1000000);
+    private static final List<Double> testlist2 = new LinkedList<>();
 
-    public static void main(String[] args) {
+    public static void main(String... args) {
         long start = System.nanoTime();
         for (int i = 0; i < 1000000; i++) {
             System.out.println("Add " + i + " AL");

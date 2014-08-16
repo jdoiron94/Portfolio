@@ -2,15 +2,15 @@ package semester_iii.lab_1;
 
 public class Evo extends Car {
 
-    private boolean decals = false;
-    private boolean modified = false;
+    private boolean decals;
+    private boolean modified;
 
-    public Evo(String owner, boolean decals, boolean modified) {
+    public Evo(boolean decals, boolean modified, String owner) {
         super(owner);
-        setMake("Mitsubishi");
-        setModel("Evo");
         this.decals = decals;
         this.modified = modified;
+        setMake("Mitsubishi");
+        setModel("Evo");
     }
 
     public void dyno() {
@@ -21,10 +21,6 @@ public class Evo extends Car {
         System.out.println(modified && (int) (Math.random() * 100) > 35 ? "You won!" : (int) (Math.random() * 100) > 65 ? "You lost." : "You lost.");
     }
 
-    public void modify() {
-        modified = true;
-    }
-
     public boolean hasDecals() {
         return decals;
     }
@@ -33,12 +29,16 @@ public class Evo extends Car {
         return modified;
     }
 
+    public void setDecals(boolean decals) {
+        this.decals = decals;
+    }
+
     public void setModified(boolean modified) {
         this.modified = modified;
     }
 
-    public void setDecals(boolean decals) {
-        this.decals = decals;
+    public void modify() {
+        modified = true;
     }
 
     @Override

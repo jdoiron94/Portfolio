@@ -9,7 +9,7 @@ public class Student extends Person {
 
     public Student(String firstName, String lastName) {
         super(firstName, lastName);
-        courses = new HashSet<>(0);
+        courses = new HashSet<>(5);
     }
 
     public Set<Course> getCourses() {
@@ -20,16 +20,17 @@ public class Student extends Person {
         this.courses = courses;
     }
 
-    public void dropCourse(Course course) {
-        course.drop(this);
-        courses.remove(course);
-    }
-
     public void addCourse(Course course) {
         course.add(this);
         courses.add(course);
     }
 
+    public void dropCourse(Course course) {
+        course.drop(this);
+        courses.remove(course);
+    }
+
+    @Override
     public String getSimpleRepresentation() {
         return super.toString();
     }

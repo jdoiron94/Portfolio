@@ -5,17 +5,17 @@ import java.util.Locale;
 
 public class Invoice {
 
-    private String partNumber;
-    private String partDescription;
-
     private int quantityPurchased;
     private double pricePerItem;
 
-    public Invoice(String partNumber, String partDescription, int quantityPurchased, double pricePerItem) {
-        this.partNumber = partNumber;
-        this.partDescription = partDescription;
+    private String partNumber;
+    private String partDescription;
+
+    public Invoice(int quantityPurchased, double pricePerItem, String partNumber, String partDescription) {
         this.quantityPurchased = quantityPurchased;
         this.pricePerItem = pricePerItem;
+        this.partNumber = partNumber;
+        this.partDescription = partDescription;
     }
 
     public double getInvoiceAmount() {
@@ -24,36 +24,36 @@ public class Invoice {
         return quantityPurchased * pricePerItem;
     }
 
-    public String getPartNumber() {
-        return partNumber;
-    }
-
-    public void setPartNumber(String partNumber) {
-        this.partNumber = partNumber;
-    }
-
-    public String getPartDescription() {
-        return partDescription;
-    }
-
-    public void setPartDescription(String partDescription) {
-        this.partDescription = partDescription;
-    }
-
     public int getQuantityPurchased() {
         return quantityPurchased;
-    }
-
-    public void setQuantityPurchased(int quantityPurchased) {
-        this.quantityPurchased = quantityPurchased;
     }
 
     public double getPricePerItem() {
         return pricePerItem;
     }
 
+    public String getPartNumber() {
+        return partNumber;
+    }
+
+    public String getPartDescription() {
+        return partDescription;
+    }
+
+    public void setQuantityPurchased(int quantityPurchased) {
+        this.quantityPurchased = quantityPurchased;
+    }
+
     public void setPricePerItem(double pricePerItem) {
         this.pricePerItem = pricePerItem;
+    }
+
+    public void setPartNumber(String partNumber) {
+        this.partNumber = partNumber;
+    }
+
+    public void setPartDescription(String partDescription) {
+        this.partDescription = partDescription;
     }
 
     @Override

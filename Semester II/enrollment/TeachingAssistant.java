@@ -9,7 +9,7 @@ public class TeachingAssistant extends Person {
 
     public TeachingAssistant(String firstName, String lastName) {
         super(firstName, lastName);
-        assistedCourses = new HashSet<>(0);
+        assistedCourses = new HashSet<>(5);
     }
 
     public Set<Course> getAssistedCourses() {
@@ -20,6 +20,7 @@ public class TeachingAssistant extends Person {
         this.assistedCourses = assistedCourses;
     }
 
+    @Override
     public String getSimpleRepresentation() {
         return super.toString();
     }

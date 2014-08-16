@@ -2,10 +2,10 @@ package semester_ii.visual_media_tracker;
 
 public class Media {
 
-    private String name;
+    private final String name;
 
-    public Media(String n) {
-        name = n;
+    public Media(String name) {
+        this.name = name;
     }
 
     public String getName() {

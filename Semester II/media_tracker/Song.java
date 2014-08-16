@@ -2,18 +2,22 @@ package semester_ii.media_tracker;
 
 public class Song extends Media {
 
+    private final int bitsize;
+
     private final String artist;
     private final String album;
     private final String genre;
 
-    private final int bitsize;
-
-    public Song(String name, String artist, String album, String genre, String length, int bitsize) {
+    public Song(int bitsize, String name, String artist, String album, String genre, String length) {
         super(name, length);
+        this.bitsize = bitsize;
         this.artist = artist;
         this.album = album;
         this.genre = genre;
-        this.bitsize = bitsize;
+    }
+
+    public int getBitsize() {
+        return bitsize;
     }
 
     public String getArtist() {
@@ -26,10 +30,6 @@ public class Song extends Media {
 
     public String getGenre() {
         return genre;
-    }
-
-    public int getBitsize() {
-        return bitsize;
     }
 
     @Override

@@ -12,15 +12,16 @@ import java.util.Stack;
  */
 public class StackCalculator {
 
-    private final Map<Character, Integer> variables;
+    private char variable = '\n';
+    private boolean assignment;
+
     private String error;
     private String infix;
     private String postfix;
-    private boolean assignment = false;
-    private char variable = '\n';
+    private final Map<Character, Integer> variables;
 
     public StackCalculator() {
-        variables = new HashMap<>();
+        variables = new HashMap<>(5);
     }
 
     /*
@@ -95,7 +96,7 @@ public class StackCalculator {
      *  A simple method which will compute the value of the postfix String and return the result
     */
     private int evaluate() {
-        if (postfix.length() == 0) {
+        if (postfix.isEmpty()) {
             return 0;
         }
         Stack<Integer> operands = new Stack<>();
@@ -108,7 +109,7 @@ public class StackCalculator {
             } else {
                 try {
                     operands.push(variables.get(string.charAt(0)));
-                } catch (Exception ignored) {
+                } catch (RuntimeException ignored) {
                     System.out.println("Undefined variable: " + string.charAt(0));
                 }
             }
@@ -145,9 +146,9 @@ public class StackCalculator {
     */
     private String convert() {
         Stack<Operator> operators = new Stack<>();
-        StringBuilder builder = new StringBuilder();
+        StringBuilder builder = new StringBuilder(150);
         for (String string : infix.split(" ")) {
-            if (string.length() > 0) {
+            if (!string.isEmpty()) {
                 char first = string.charAt(0);
                 if (number(string)) {
                     builder.append(string);
@@ -174,7 +175,7 @@ public class StackCalculator {
                         }
                         for (int i = 0; i < operators.size(); i++) {
                             Operator o = operators.peek();
-                            if (o == Operator.PARENTHESES || (operator == Operator.EXPONENTIATION && o == Operator.EXPONENTIATION)) {
+                            if (o == Operator.PARENTHESES || operator == Operator.EXPONENTIATION && o == Operator.EXPONENTIATION) {
                                 break;
                             } else if ((operator != null ? operator.getPrecedence() : -1) <= o.getPrecedence()) {
                                 builder.append(o.getOperator());
@@ -202,7 +203,7 @@ public class StackCalculator {
     */
     private String clean() {
         infix = infix.replaceAll("\\s+", "");
-        StringBuilder builder = new StringBuilder();
+        StringBuilder builder = new StringBuilder(150);
         for (char character : infix.toCharArray()) {
             if (!validVariable(Character.toString(character)) && !number(Character.toString(character))) {
                 builder.append(' ');
@@ -251,7 +252,7 @@ public class StackCalculator {
     private boolean balancedOperators() {
         String last = "\n";
         for (String string : infix.split(" ")) {
-            if (string.replaceAll("[()]", "").length() != 0) {
+            if (!string.replaceAll("[()]", "").isEmpty()) {
                 if (operator(string) && operator(last)) {
                     return false;
                 }
@@ -266,7 +267,7 @@ public class StackCalculator {
      */
     private boolean validSymbols() {
         for (String string : infix.split(" ")) {
-            if (string.replaceAll("[a-zA-Z]", "").length() > 0 && !number(string) && !operator(string)) {
+            if (!string.replaceAll("[a-zA-Z]", "").isEmpty() && !number(string) && !operator(string)) {
                 error = "Invalid symbol: " + string;
                 return false;
             }
@@ -288,7 +289,7 @@ public class StackCalculator {
     private boolean validVariable(String variable) {
         if (variable.length() == 1) {
             int value = (int) variable.charAt(0);
-            return (value >= 65 && value <= 90) || (value >= 97 && value <= 122);
+            return value >= 65 && value <= 90 || value >= 97 && value <= 122;
         }
         return false;
     }
@@ -312,14 +313,14 @@ public class StackCalculator {
      *  A simple boolean method which determines if a given String represents a number
     */
     private boolean number(String string) {
-        return string.replaceAll("[0-9]", "").length() == 0;
+        return string.replaceAll("[0-9]", "").isEmpty();
     }
 
     /*
      *  A simple boolean method which determines if a given String represents an operator
      */
     private boolean operator(String string) {
-        return string.replaceAll("[=+%/*^()-]", "").length() == 0;
+        return string.replaceAll("[=+%/*^()-]", "").isEmpty();
     }
 
     /*
@@ -339,7 +340,7 @@ public class StackCalculator {
         private final char operator;
         private final int precedence;
 
-        private Operator(char operator, int precedence) {
+        Operator(char operator, int precedence) {
             this.operator = operator;
             this.precedence = precedence;
         }

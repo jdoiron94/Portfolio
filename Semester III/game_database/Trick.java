@@ -10,11 +10,10 @@ import java.util.List;
 public class Trick extends Card {
 
     private int tricks;
+    private boolean won;
 
-    private boolean won = false;
-
-    public Trick(int playerCount, String title, String genre, String ageRecommendation, String estimatedTime, int cardCount) {
-        super(playerCount, title, genre, ageRecommendation, estimatedTime, cardCount);
+    public Trick(int playerCount, int cardCount, String title, String genre, String ageRecommendation, String estimatedTime) {
+        super(playerCount, cardCount, title, genre, ageRecommendation, estimatedTime);
     }
 
     /**

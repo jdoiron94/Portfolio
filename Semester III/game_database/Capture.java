@@ -5,12 +5,12 @@ package semester_iii.game_database;
  */
 public class Capture extends Board {
 
+    private boolean won;
+
     private String boardState;
 
-    private boolean won = false;
-
-    public Capture(int playerCount, String title, String genre, String ageRecommendation, String estimatedTime, int pieceCount, String boardSize, String boardState) {
-        super(playerCount, title, genre, ageRecommendation, estimatedTime, pieceCount, boardSize);
+    public Capture(int playerCount, int pieceCount, String title, String genre, String ageRecommendation, String estimatedTime, String boardSize, String boardState) {
+        super(playerCount, pieceCount, title, genre, ageRecommendation, estimatedTime, boardSize);
         this.boardState = boardState;
     }
 

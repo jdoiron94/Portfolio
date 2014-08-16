@@ -13,9 +13,6 @@ import java.util.List;
  */
 public class GraphAlgorithms {
 
-    public GraphAlgorithms() {
-    }
-
     /*
      *  Method using the Bellman Ford shortest path algorithm
      *  Supplied with an adjacency matrix, a source node, and a destination node
@@ -25,7 +22,7 @@ public class GraphAlgorithms {
         int[] distances = new int[graph.length];
         Arrays.fill(distances, Integer.MAX_VALUE);
         distances[source] = 0;
-        List<Edge> edges = new ArrayList<>();
+        List<Edge> edges = new ArrayList<>(25);
         for (int i = 0; i < graph.length; i++) {
             for (int j = 0; j < graph[i].length; j++) {
                 if (graph[i][j] != 0) {
@@ -33,15 +30,15 @@ public class GraphAlgorithms {
                 }
             }
         }
-        for (int[] vertex : graph) {
+        for (int[] ignored : graph) {
             for (Edge edge : edges) {
-                if (distances[edge.source] != Integer.MAX_VALUE) {
-                    distances[edge.destination] = Math.min(distances[edge.destination], distances[edge.source] + edge.weight);
+                if (distances[edge.getSource()] != Integer.MAX_VALUE) {
+                    distances[edge.getDestination()] = Math.min(distances[edge.getDestination()], distances[edge.getSource()] + edge.getWeight());
                 }
             }
         }
         for (Edge edge : edges) {
-            if (distances[edge.source] != Integer.MAX_VALUE && distances[edge.destination] > distances[edge.source] + edge.weight) {
+            if (distances[edge.getSource()] != Integer.MAX_VALUE && distances[edge.getDestination()] > distances[edge.getSource()] + edge.getWeight()) {
                 System.out.print("Negative cycle detected: ");
                 return -1;
             }
@@ -63,11 +60,7 @@ public class GraphAlgorithms {
         double[][] temporary = new double[graph.length][graph.length];
         for (int i = 0; i < graph.length; i++) {
             for (int j = 0; j < graph.length; j++) {
-                if (graph[i][j] != 0) {
-                    distances[i][j] = graph[i][j];
-                } else {
-                    distances[i][j] = Double.MAX_VALUE;
-                }
+                distances[i][j] = graph[i][j] != 0 ? graph[i][j] : Double.MAX_VALUE;
             }
         }
         for (int i = 0; i < graph.length; i++) {
@@ -117,22 +110,6 @@ public class GraphAlgorithms {
             default:
                 System.out.print("Invalid algorithm");
                 return -1;
-        }
-    }
-
-    /*
-     *  Class used to represent an edge between two nodes, along with the weight of the path
-     */
-    private class Edge {
-
-        private final int source;
-        private final int destination;
-        private final int weight;
-
-        public Edge(int source, int destination, int weight) {
-            this.source = source;
-            this.destination = destination;
-            this.weight = weight;
         }
     }
 }

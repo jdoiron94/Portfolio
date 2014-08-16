@@ -1,14 +1,14 @@
 package semester_ii.media_tracker;
 
-import javax.swing.SwingUtilities;
+import java.awt.EventQueue;
 
 public class MediaTracker {
 
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(new Runnable() {
+    public static void main(String... args) {
+        EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                Constants.FRAME.setVisible(true);
+                Constants.frame.setVisible(true);
             }
         });
     }

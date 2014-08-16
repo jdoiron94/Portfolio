@@ -2,10 +2,10 @@ package semester_iii.abstract_project;
 
 public class Reference extends BookTemplate implements Book {
 
-    private boolean series = false;
-    private boolean recognized = false;
+    private boolean series;
+    private boolean recognized;
 
-    public Reference(String title, String author, String isbn, String subject, boolean series, boolean recognized) {
+    public Reference(boolean series, boolean recognized, String title, String author, String isbn, String subject) {
         super(title, author, isbn, subject);
         this.series = series;
         this.recognized = recognized;

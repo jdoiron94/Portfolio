@@ -1,7 +1,9 @@
 package semester_i.other;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -10,10 +12,10 @@ import java.util.Scanner;
 
 public class Hangman {
 
-    private static final List<String> ANSWERS = new ArrayList<>();
+    private static int correct;
+    private static int incorrect;
 
-    private static int correct = 0;
-    private static int incorrect = 0;
+    private static final List<String> answers = new ArrayList<>(20);
 
     private static void drawStickMan(int incorrect) {
         switch (incorrect) {
@@ -47,34 +49,37 @@ public class Hangman {
             BufferedReader reader = new BufferedReader(new InputStreamReader(new URL("http://www.hangmanproject.x10.mx").openStream()));
             String[] words = reader.readLine().split("<br />");
             reader.close();
-            Collections.addAll(ANSWERS, words);
-        } catch (Exception ignored) {
+            Collections.addAll(answers, words);
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (IOException ignored) {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String... args) {
         Scanner scanner = new Scanner(System.in);
         while (true) {
             int rounds = correct + incorrect;
             if (rounds == 0 || rounds % 20 == 0) {
                 search();
-                if (ANSWERS.size() != 20) {
-                    if (ANSWERS.size() > 0) {
-                        ANSWERS.clear();
+                if (answers.size() != 20) {
+                    if (!answers.isEmpty()) {
+                        answers.clear();
                     }
-                    Collections.addAll(ANSWERS, "BOAT", "TRUCK", "ANIMAL", "ALLIGATOR", "KEYBOARD", "INPUT", "PROGRAMMING", "COMPUTERS", "NETWORKING", "NEUROBIOLOGY", "FIREMEN", "POLICE", "NUMBERS", "BINARY", "HEXADECIMAL", "OCTAL", "WIFE", "HUSBAND", "WEDDING", "MARRIAGE");
+                    Collections.addAll(answers, "BOAT", "TRUCK", "ANIMAL", "ALLIGATOR", "KEYBOARD", "INPUT", "PROGRAMMING", "COMPUTERS", "NETWORKING", "NEUROBIOLOGY", "FIREMEN", "POLICE", "NUMBERS", "BINARY", "HEXADECIMAL", "OCTAL", "WIFE", "HUSBAND", "WEDDING", "MARRIAGE");
                 }
             }
             int guesses = 6;
             int tries = 0;
             int incorrectGuesses = 0;
-            String word = ANSWERS.get((int) (Math.random() * ANSWERS.size()));
+            String word = answers.get((int) (Math.random() * answers.size()));
             String masterWord = word;
-            System.out.println((correct + incorrect != 0 ? "\n----------New Round Commencing!----------" : "----------New Round Commencing!----------")/* + "\nAnswer: " + word + "\n"*/);
-            String blooped = "";
+            System.out.println(correct + incorrect != 0 ? "\n----------New Round Commencing!----------" : "----------New Round Commencing!----------"/* + "\nAnswer: " + word + "\n"*/);
+            StringBuilder builder = new StringBuilder(25);
             for (int i = 0; i < word.length(); i++) {
-                blooped += ".";
+                builder.append('.');
             }
+            String blooped = builder.toString();
             while (guesses > 0) {
                 System.out.print((tries != 0 ? "\nCurrently: " : "Currently: ") + blooped + "\nEnter a letter or solve: ");
                 String input = scanner.nextLine().toUpperCase().trim();
@@ -87,7 +92,7 @@ public class Hangman {
                     } else {
                         incorrectGuesses++;
                         guesses--;
-                        System.out.println("How about no.  You have " + guesses + " incorrect " + (guesses != 1 ? "guesses " : "guess ") + "left.");
+                        System.out.println("How about no. You have " + guesses + " incorrect " + (guesses != 1 ? "guesses " : "guess ") + "left.");
                     }
                 } else if (input.length() == 1) {
                     int activator = word.indexOf(input);
@@ -103,7 +108,7 @@ public class Hangman {
                     } else {
                         incorrectGuesses++;
                         guesses--;
-                        System.out.println("How about no.  You have " + guesses + " incorrect guesses left.");
+                        System.out.println("How about no. You have " + guesses + " incorrect guesses left.");
                     }
                 }
                 if (blooped.equals(masterWord)) {
@@ -118,7 +123,7 @@ public class Hangman {
                     System.out.println("The word was \"" + masterWord + "\"");
                 }
             }
-            ANSWERS.remove(masterWord);
+            answers.remove(masterWord);
             System.out.print("Play again? (Enter anything but 'N' to continue): ");
             String answer = scanner.nextLine().toUpperCase();
             if (answer.contains("N")) {

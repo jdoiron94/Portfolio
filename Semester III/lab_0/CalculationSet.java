@@ -6,11 +6,10 @@ public class CalculationSet {
 
     private final int lowest;
     private final int highest;
-
     private final double median;
     private final double mean;
 
-    public CalculationSet(int[] nums) {
+    public CalculationSet(int... nums) {
         Arrays.sort(nums);
         lowest = nums[0];
         highest = nums[nums.length - 1];

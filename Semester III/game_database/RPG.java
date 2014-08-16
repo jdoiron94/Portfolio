@@ -6,10 +6,9 @@ package semester_iii.game_database;
 public class RPG extends Video {
 
     private int strangeCharacters;
+    private boolean won;
 
-    private boolean won = false;
-
-    public RPG(int playerCount, String title, String genre, String ageRecommendation, String estimatedTime, String console, String installationSize, int strangeCharacters) {
+    public RPG(int playerCount, int strangeCharacters, String title, String genre, String ageRecommendation, String estimatedTime, String console, String installationSize) {
         super(playerCount, title, genre, ageRecommendation, estimatedTime, console, installationSize);
         this.strangeCharacters = strangeCharacters;
     }

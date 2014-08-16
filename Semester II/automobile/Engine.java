@@ -4,7 +4,7 @@ public class Engine extends VehiclePart {
 
     private final int thrustPower;
 
-    public Engine(String partName, int thrustPower) {
+    public Engine(int thrustPower, String partName) {
         super(partName);
         this.thrustPower = thrustPower;
     }

@@ -13,7 +13,7 @@ public class BreakJava {
      * on the amount of memory you are allocating to your program) It will just take an extremely long period of time due to being O(N^3)
      * Using more than 7500 elements is not efficient with this algorithm (7500 takes roughly a minute)
      */
-    private static int subSum(int[] nums) {
+    private static int subSum(int... nums) {
         int max = 0;
         for (int i = 0; i < nums.length; i++) {
             for (int j = i; j < nums.length; j++) {
@@ -35,10 +35,10 @@ public class BreakJava {
      * Fibonacci will have integer overflow (break) using numbers 47 -> ∞
      */
     private static int fib(int n) {
-        return (n == 0 || n == 1) ? n : fib(n - 1) + fib(n - 2);
+        return n == 0 || n == 1 ? n : fib(n - 1) + fib(n - 2);
     }
 
-    public static void main(String[] args) {
+    public static void main(String... args) {
         switch (args[0].toLowerCase()) {
             case "f":
                 System.out.println("Fibonacci of " + Integer.parseInt(args[1]) + " is " + fib(Integer.parseInt(args[1])));

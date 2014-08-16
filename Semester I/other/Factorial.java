@@ -17,7 +17,7 @@ public class Factorial {
         return sum;
     }
 
-    public static void main(String[] args) {
+    public static void main(String... args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter 1337 as the sentinel value\n");
         while (true) {
@@ -27,11 +27,7 @@ public class Factorial {
                 break;
             }
             int factorial = getFactorial(n);
-            if (factorial == -1) {
-                System.out.println("Enter valid numbers only (0+)\n");
-            } else {
-                System.out.println("The factorial of " + n + " is " + factorial + "\n");
-            }
+            System.out.println(factorial == -1 ? "Enter valid numbers only (0+)\n" : "The factorial of " + n + " is " + factorial + "\n");
         }
     }
 }

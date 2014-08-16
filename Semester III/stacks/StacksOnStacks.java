@@ -4,29 +4,29 @@ import java.util.Stack;
 
 public class StacksOnStacks {
 
-	/* infix to postfix
+    /* infix to postfix
        postfix to result
 
-	   postfix evaluation algorithm:
+       postfix evaluation algorithm:
 
-	   - if current char is number, push it
-	     else if char is operator, pop appropriate amount
+       - if current char is number, push it
+         else if char is operator, pop appropriate amount
 
-	   infix to postfix:
-	   - strip whitespace
-	   - deal with multiple character operands
-	   - error handling
+       infix to postfix:
+       - strip whitespace
+       - deal with multiple character operands
+       - error handling
 
-	   infix to postfix algorithm:
+       infix to postfix algorithm:
 
-	   - read a symbol
-	     if:
-	        number -> immediately output
-	        close paren -> pop stack symbols until an open paren appears
-	        operators -> pop all stack symbols until a symbol of lower precedence or a right-associative symbol (exponent) of equal precedence appears, then push the operator
-	        open paren -> push
-	     end of input, pop all remaining stack symbols
-	*/
+       - read a symbol
+         if:
+            number -> immediately output
+            close paren -> pop stack symbols until an open paren appears
+            operators -> pop all stack symbols until a symbol of lower precedence or a right-associative symbol (exponent) of equal precedence appears, then push the operator
+            open paren -> push
+         end of input, pop all remaining stack symbols
+    */
 
     private static boolean palindrome(String s) {
         Stack<Character> stack = new Stack<>();
@@ -61,7 +61,7 @@ public class StacksOnStacks {
         return stack.empty();
     }
 
-    public static void main(String[] args) {
+    public static void main(String... args) {
         System.out.println("Abc palindrome: " + palindrome("abc") + "\nRacecar palindrome: " + palindrome("racecar"));
         System.out.println("Balanced equation: " + equationCheck("4(2+x(3*9))") + "\nUnbalanced equation: " + equationCheck("{4+(5+3+(6-2])}"));
     }

@@ -6,6 +6,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.WindowConstants;
 import java.awt.BorderLayout;
 import java.awt.Component;
@@ -22,7 +23,7 @@ public class MediaFrame extends JFrame {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-        } catch (Exception ignored) {
+        } catch (ClassNotFoundException | IllegalAccessException | InstantiationException | UnsupportedLookAndFeelException ignored) {
             System.err.print("Couldn't set the look and feel to system default");
         }
         JMenu file = new JMenu("File");
@@ -32,7 +33,7 @@ public class MediaFrame extends JFrame {
         JMenuItem newMusicPlaylist = new JMenuItem("Music Playlist");
         newMusicPlaylist.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(final ActionEvent e) {
+            public void actionPerformed(ActionEvent e) {
                 System.out.println("Where you'd open a dialog and ask for a new name for the music playlist before adding a new tab to the left");
             }
         });
@@ -41,7 +42,7 @@ public class MediaFrame extends JFrame {
         JMenuItem newVideoPlaylist = new JMenuItem("Video Playlist");
         newVideoPlaylist.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(final ActionEvent e) {
+            public void actionPerformed(ActionEvent e) {
                 System.out.println("Where you'd open a dialog and ask for a new name for the video playlist before adding a new tab to the left");
             }
         });
@@ -50,7 +51,7 @@ public class MediaFrame extends JFrame {
         JMenuItem newPodcastPlaylist = new JMenuItem("Podcast Playlist");
         newPodcastPlaylist.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(final ActionEvent e) {
+            public void actionPerformed(ActionEvent e) {
                 System.out.println("Where you'd open a dialog and ask for a new name for the podcast playlist before adding a new tab to the left");
             }
         });
@@ -61,7 +62,7 @@ public class MediaFrame extends JFrame {
         JMenuItem hide = new JMenuItem("Hide to tray...");
         hide.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(final ActionEvent e) {
+            public void actionPerformed(ActionEvent e) {
                 System.out.println("Where you'd use TrayIcon and SystemTray to hide to the system tray, if supported");
             }
         });
@@ -71,7 +72,7 @@ public class MediaFrame extends JFrame {
         JMenuItem exit = new JMenuItem("Exit");
         exit.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(final ActionEvent e) {
+            public void actionPerformed(ActionEvent e) {
                 System.out.println("Exiting on error code: 0");
                 System.exit(0);
             }

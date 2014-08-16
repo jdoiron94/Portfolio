@@ -11,11 +11,10 @@ public class Application {
         System.out.print("Enter a name: ");
         String name = scanner.nextLine();
         System.out.print("Enter a color: ");
-        String color = scanner.nextLine();
-        marker[index] = new Marker(name, color);
+        marker[index] = new Marker(name, scanner.nextLine());
     }
 
-    public static void main(String[] args) {
+    public static void main(String... args) {
         for (int i = 0; i < 3; i++) {
             createMarker(i);
             System.out.println();
@@ -27,11 +26,7 @@ public class Application {
             if (selected == 1337) {
                 break;
             }
-            if (selected >= 0 && selected <= 2) {
-                System.out.println("Marker belongs to " + marker[selected].getOwner() + " and the color of the marker itself is " + marker[selected].getColor());
-            } else {
-                System.out.println("Lol, enter a valid number... (0-2)");
-            }
+            System.out.println(selected >= 0 && selected <= 2 ? "Marker belongs to " + marker[selected].getOwner() + " and the color of the marker itself is " + marker[selected].getColor() : "Lol, enter a valid number... (0-2)");
         }
     }
 }

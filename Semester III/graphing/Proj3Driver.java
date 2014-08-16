@@ -9,14 +9,14 @@ package semester_iii.graphing;
 // Name of target class: GraphAlgorithms
 // Name of target method: processGraph()
 
-//testing - for all source and destinations, we assume that the graph starts
-//at vertex 0. Graph entries are formatted row to column. Basically, a nonzero 
-//entry at row n and column m means that there exists a directed edge between 
-//n and m with cost based on the value in the entry.
+// testing - for all source and destinations, we assume that the graph starts
+// at vertex 0. Graph entries are formatted row to column. Basically, a nonzero
+// entry at row n and column m means that there exists a directed edge between
+// n and m with cost based on the value in the entry.
 
 public class Proj3Driver {
 
-    public static void main(String[] args) {
+    public static void main(String... args) {
         GraphAlgorithms g = new GraphAlgorithms();
         int smallValid[][] = {{0, 3},
                 {2, 0}};

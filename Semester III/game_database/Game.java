@@ -7,6 +7,13 @@ import java.util.Comparator;
  */
 public abstract class Game {
 
+    private int playerCount;
+
+    private String title;
+    private String genre;
+    private String ageRecommendation;
+    private String estimatedTime;
+
     /**
      * Comparator later to be used to sort games by their titles
      */
@@ -17,12 +24,6 @@ public abstract class Game {
         }
     };
 
-    private int playerCount;
-    private String title;
-    private String genre;
-    private String ageRecommendation;
-    private String estimatedTime;
-
     public Game(int playerCount, String title, String genre, String ageRecommendation, String estimatedTime) {
         this.playerCount = playerCount;
         this.title = title;
@@ -32,20 +33,38 @@ public abstract class Game {
     }
 
     /**
-     * @return Will return <tt>true</tt> if the player wins the game; otherwise <tt>false</tt>
-     */
-    public abstract boolean isWin();
-
-    /**
-     * @return Will return a String representation of the classes extending Game
-     */
-    public abstract String toString();
-
-    /**
      * @return Returns the player count of the game
      */
     public int getPlayerCount() {
         return playerCount;
+    }
+
+    /**
+     * @return Returns the title of the game
+     */
+    public String getTitle() {
+        return title;
+    }
+
+    /**
+     * @return Returns the genre of the game
+     */
+    public String getGenre() {
+        return genre;
+    }
+
+    /**
+     * @return Returns the age recommendation of the game
+     */
+    public String getAgeRecommendation() {
+        return ageRecommendation;
+    }
+
+    /**
+     * @return Returns the estimated time the game will take to play
+     */
+    public String getEstimatedTime() {
+        return estimatedTime;
     }
 
     /**
@@ -58,26 +77,12 @@ public abstract class Game {
     }
 
     /**
-     * @return Returns the title of the game
-     */
-    public String getTitle() {
-        return title;
-    }
-
-    /**
      * Used to set the title of the game
      *
      * @param title The title of the game
      */
     public void setTitle(String title) {
         this.title = title;
-    }
-
-    /**
-     * @return Returns the genre of the game
-     */
-    public String getGenre() {
-        return genre;
     }
 
     /**
@@ -90,26 +95,12 @@ public abstract class Game {
     }
 
     /**
-     * @return Returns the age recommendation of the game
-     */
-    public String getAgeRecommendation() {
-        return ageRecommendation;
-    }
-
-    /**
      * Used to set the age recommendation of the game
      *
      * @param ageRecommendation The age recommendation of the game
      */
     public void setAgeRecommendation(String ageRecommendation) {
         this.ageRecommendation = ageRecommendation;
-    }
-
-    /**
-     * @return Returns the estimated time the game will take to play
-     */
-    public String getEstimatedTime() {
-        return estimatedTime;
     }
 
     /**
@@ -127,4 +118,14 @@ public abstract class Game {
     public String getRepresentation() {
         return title + " (" + genre + ")\nRecommended ages: " + ageRecommendation + "\nEstimated time: " + estimatedTime + "\nPlayers: " + playerCount;
     }
+
+    /**
+     * @return Will return <tt>true</tt> if the player wins the game; otherwise <tt>false</tt>
+     */
+    public abstract boolean isWin();
+
+    /**
+     * @return Will return a String representation of the classes extending Game
+     */
+    public abstract String toString();
 }

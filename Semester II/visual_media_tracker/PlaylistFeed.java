@@ -11,12 +11,13 @@ import java.awt.Dimension;
 
 public class PlaylistFeed extends JPanel {
 
-    private JList<String> playlists = new JList<>(new String[]{"Music", "Videos", "Pictures"});
+    private final JList<String> playlists = new JList<>(new String[]{"Music", "Videos", "Pictures"});
 
     public PlaylistFeed() {
         setLayout(new BorderLayout(0, 0));
         setPreferredSize(new Dimension(150, 400));
         playlists.addListSelectionListener(new ListSelectionListener() {
+            @Override
             public void valueChanged(ListSelectionEvent e) {
                 Panels.frame.switchPanels(Panels.panels.get(playlists.getSelectedIndex()));
             }
@@ -33,5 +34,6 @@ public class PlaylistFeed extends JPanel {
         }
         model.addElement(playlist);
         playlists.setModel(model);
+        Panels.panels.add(new JPanel());
     }
 }

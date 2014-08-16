@@ -5,12 +5,11 @@ package semester_iii.game_database;
  */
 public class Sport extends Video {
 
-    private String team;
-
     private int scores;
     private int fails;
+    private boolean won;
 
-    private boolean won = false;
+    private String team;
 
     public Sport(int playerCount, String title, String genre, String ageRecommendation, String estimatedTime, String console, String installationSize, String team) {
         super(playerCount, title, genre, ageRecommendation, estimatedTime, console, installationSize);

@@ -7,11 +7,10 @@ public class Strategy extends Board {
 
     private int piecesRemaining;
     private int territories;
+    private boolean won;
 
-    private boolean won = false;
-
-    public Strategy(int playerCount, String title, String genre, String ageRecommendation, String estimatedTime, int pieceCount, String boardSize) {
-        super(playerCount, title, genre, ageRecommendation, estimatedTime, pieceCount, boardSize);
+    public Strategy(int playerCount, int pieceCount, String title, String genre, String ageRecommendation, String estimatedTime, String boardSize) {
+        super(playerCount, pieceCount, title, genre, ageRecommendation, estimatedTime, boardSize);
         piecesRemaining = pieceCount;
     }
 

@@ -5,14 +5,13 @@ package semester_iii.game_database;
  */
 public class Tile extends Board {
 
-    private int tiles;
+    private final int tiles;
     private int pieces = 7;
     private int pairs;
+    private boolean won;
 
-    private boolean won = false;
-
-    public Tile(int playerCount, String title, String genre, String ageRecommendation, String estimatedTime, int pieceCount, String boardSize, int tiles) {
-        super(playerCount, title, genre, ageRecommendation, estimatedTime, pieceCount, boardSize);
+    public Tile(int playerCount, int pieceCount, int tiles, String title, String genre, String ageRecommendation, String estimatedTime, String boardSize) {
+        super(playerCount, pieceCount, title, genre, ageRecommendation, estimatedTime, boardSize);
         this.tiles = tiles;
     }
 

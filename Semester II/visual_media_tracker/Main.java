@@ -2,7 +2,7 @@ package semester_ii.visual_media_tracker;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String... args) {
         Song song1 = new Song("Song1 Name", "Song1 Artist", "Song1 Album", "Song1 Genre");
         Video video1 = new Video("Video1 Name", "Video1 Director");
         Photo photo1 = new Photo("Photo1 Name", "Photo1 Subject");

@@ -43,19 +43,19 @@ public class Application {
                 System.out.println(line);
             }
             reader.close();
-        } catch (IOException ignored) {
-            ignored.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String... args) {
         System.out.println(sum(10, 20, 30) + "\n");
         fibonacci(5);
         System.out.println();
         fibonacciR(5);
         readFile();
         System.out.println();
-        System.out.println(new CalculationSet(new int[]{1, 2, 3, 4}) + "\n");
-        System.out.println(new CalculationSet(new int[]{1, 2, 3, 4, 5}));
+        System.out.println(new CalculationSet(1, 2, 3, 4) + "\n");
+        System.out.println(new CalculationSet(1, 2, 3, 4, 5));
     }
 }

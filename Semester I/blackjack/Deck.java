@@ -6,8 +6,8 @@ import java.util.List;
 
 public class Deck {
 
-    private final List<Card> cards = new ArrayList<Card>(52);
-    private final List<Card> discardedCards = new ArrayList<Card>();
+    private final List<Card> cards = new ArrayList<>(52);
+    private final List<Card> discardedCards = new ArrayList<>(52);
 
     public Deck() {
         create();
@@ -35,18 +35,16 @@ public class Deck {
      * Creates a new deck in order (all suits of one card before moving to next card)
      */
     public void create() {
-        if (discardedCards.size() > 0) {
-            System.out.println("Gathering cards from last game.");
+        if (!discardedCards.isEmpty()) {
             for (Card card : discardedCards) {
                 cards.add(card);
             }
             discardedCards.clear();
         } else {
             for (int i = 1; i < 14; i++) {
-                int value = i <= 10 ? i : 10;
                 String name = i == 1 ? "Ace" : i <= 10 ? String.valueOf(i) : i == 11 ? "Jack" : i == 12 ? "Queen" : i == 13 ? "King" : null;
                 for (Card.Suit suit : Card.Suit.values()) {
-                    cards.add(new Card(value, name, suit));
+                    cards.add(new Card(i <= 10 ? i : 10, name, suit));
                 }
             }
         }
@@ -54,6 +52,7 @@ public class Deck {
 
     /**
      * Shuffles with default Collections class (uses default Random seed)
+     *
      * Shuffles a few more times (human-like), up to 5 times
      */
     public void shuffle() {
@@ -66,11 +65,22 @@ public class Deck {
     }
 
     /**
+     * Takes the topmost card from the deck and then moves it to the discard pile
+     *
+     * @return the newly most picked card
+     */
+    public Card hit() {
+        Card card = cards.get(0);
+        removeCard(card);
+        return card;
+    }
+
+    /**
      * Removes a specific card from the deck
      *
      * @param card the card to be removed from the deck
      */
-    public void removeCard(Card card) {
+    private void removeCard(Card card) {
         cards.remove(card);
         discardedCards.add(card);
     }

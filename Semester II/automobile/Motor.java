@@ -4,7 +4,7 @@ public class Motor extends VehiclePart {
 
     private final int horsepower;
 
-    public Motor(String partName, int horsepower) {
+    public Motor(int horsepower, String partName) {
         super(partName);
         this.horsepower = horsepower;
     }

@@ -7,17 +7,14 @@ import java.util.List;
 public class Panels {
 
     protected static JPanel shown = new MusicFeed();
-
-    protected static PlaylistFeed playlistFeed = new PlaylistFeed();
-    protected static MusicFeed musicFeed = new MusicFeed();
-
-    protected static List<JPanel> panels = new ArrayList<JPanel>();
+    protected static final PlaylistFeed playlistFeed = new PlaylistFeed();
+    protected static final MusicFeed musicFeed = new MusicFeed();
+    protected static final MainFrame frame = new MainFrame();
+    protected static final List<JPanel> panels = new ArrayList<>(5);
 
     static {
         panels.add(musicFeed);
         panels.add(new VideoFeed());
         panels.add(new PictureFeed());
     }
-
-    protected static MainFrame frame = new MainFrame();
 }

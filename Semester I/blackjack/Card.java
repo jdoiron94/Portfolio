@@ -3,6 +3,7 @@ package semester_i.blackjack;
 public class Card {
 
     private final int value;
+
     private final String name;
     private final Suit suit;
 
@@ -31,12 +32,19 @@ public class Card {
     }
 
     /**
-     * Returns the card's sut
+     * Returns the card's suit
      *
      * @return the suit of the card
      */
     public Suit getSuit() {
         return suit;
+    }
+
+    public enum Suit {
+        SPADES,
+        DIAMONDS,
+        CLUBS,
+        HEARTS
     }
 
     /**
@@ -47,12 +55,5 @@ public class Card {
     @Override
     public String toString() {
         return String.format("%s of %s", name, suit);
-    }
-
-    public enum Suit {
-        SPADES,
-        DIAMONDS,
-        CLUBS,
-        HEARTS
     }
 }

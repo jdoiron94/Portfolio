@@ -7,11 +7,10 @@ public class Banking extends Card {
 
     private double money;
     private double bet;
+    private boolean won;
 
-    private boolean won = false;
-
-    public Banking(int playerCount, String title, String genre, String ageRecommendation, String estimatedTime, int cardCount) {
-        super(playerCount, title, genre, ageRecommendation, estimatedTime, cardCount);
+    public Banking(int playerCount, int cardCount, String title, String genre, String ageRecommendation, String estimatedTime) {
+        super(playerCount, cardCount, title, genre, ageRecommendation, estimatedTime);
     }
 
     /**
@@ -22,19 +21,19 @@ public class Banking extends Card {
     }
 
     /**
+     * @return Returns the bet the player has specified for the hand
+     */
+    public double getBet() {
+        return bet;
+    }
+
+    /**
      * Used to set the amount of playing money
      *
      * @param money The amount of money the player wishes to use
      */
     public void setMoney(double money) {
         this.money = money;
-    }
-
-    /**
-     * @return Returns the bet the player has specified for the hand
-     */
-    public double getBet() {
-        return bet;
     }
 
     /**
