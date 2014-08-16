@@ -18,7 +18,7 @@ public class PlaylistFeed extends JPanel {
         setPreferredSize(new Dimension(150, 400));
         playlists.addListSelectionListener(new ListSelectionListener() {
             @Override
-            public void valueChanged(ListSelectionEvent e) {
+            public void valueChanged(ListSelectionEvent event) {
                 Panels.frame.switchPanels(Panels.panels.get(playlists.getSelectedIndex()));
             }
         });

@@ -17,6 +17,7 @@ public class FontContainer extends JPanel {
         add(fontSize, BorderLayout.EAST);
     }
 
+    @SuppressWarnings("MagicConstant")
     public Font getDesiredFont() {
         return new Font(fontFamily.getFontName(), fontStyle.getFontStyle(), fontSize.getFontSize());
     }

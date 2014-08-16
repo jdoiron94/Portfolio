@@ -17,7 +17,7 @@ public class SearchFeed extends JPanel {
         addPlaylist.setPreferredSize(new Dimension(150, 20));
         addPlaylist.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(ActionEvent event) {
                 String entered = JOptionPane.showInputDialog(null, "Enter a name for the playlist:", "New Playlist", JOptionPane.INFORMATION_MESSAGE);
                 if (entered != null && !entered.replace(" ", "").isEmpty()) {
                     Panels.playlistFeed.addPlaylist(entered);
@@ -29,7 +29,7 @@ public class SearchFeed extends JPanel {
         field.setPreferredSize(new Dimension(600, 20));
         field.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(ActionEvent event) {
                 System.out.println("Here is where if we had functionality, we'd search through playlists for: \"" + field.getText() + "\"");
             }
         });

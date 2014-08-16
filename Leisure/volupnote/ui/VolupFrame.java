@@ -23,11 +23,11 @@ public class VolupFrame extends JFrame {
         setTitle("VolupNote v0.1a");
         setLayout(new BorderLayout(0, 0));
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        setIconImage(Context.FACTORY.loadIcon("VolupNote").getImage());
-        Context.fontLoader = new FontLoader();
+        setIconImage(Context.factory.loadIcon("VolupNote").getImage());
+        Context.setFontLoader(new FontLoader());
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-        } catch (final ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ignored) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ignored) {
             System.err.println("Failed to set theme");
         }
         add(tabContainer, BorderLayout.CENTER);
@@ -44,12 +44,12 @@ public class VolupFrame extends JFrame {
         return tabContainer;
     }
 
-    public static void addTab(final VTab tab) {
+    public static void addTab(VTab tab) {
         tabContainer.addTab(tab);
         tabContainer.setSelectedIndex(tabContainer.getTabCount() - 1);
     }
 
-    public static void removeTab(final VTab tab) {
+    public static void removeTab(VTab tab) {
         tabContainer.removeTab(tab);
     }
 }

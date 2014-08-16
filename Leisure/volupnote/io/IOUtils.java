@@ -6,16 +6,16 @@ import java.io.IOException;
 
 public class IOUtils {
 
-    public static String read(final File file) {
-        try (final FileInputStream stream = new FileInputStream(file)) {
-            final StringBuilder builder = new StringBuilder();
+    public static String read(File file) {
+        try (FileInputStream stream = new FileInputStream(file)) {
+            StringBuilder builder = new StringBuilder(100000);
             int content;
             while ((content = stream.read()) != -1) {
                 builder.append((char) content);
             }
             stream.close();
             return builder.toString();
-        } catch (final IOException ignored) {
+        } catch (IOException ignored) {
             System.err.println("Could not read the file: ");
             return null;
         }

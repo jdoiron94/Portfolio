@@ -13,8 +13,8 @@ import javax.swing.text.ViewFactory;
 public class WrapColumnFactory implements ViewFactory {
 
     @Override
-    public View create(final Element element) {
-        final String kind = element.getName();
+    public View create(Element element) {
+        String kind = element.getName();
         if (kind != null) {
             switch (kind) {
                 case AbstractDocument.ContentElementName:

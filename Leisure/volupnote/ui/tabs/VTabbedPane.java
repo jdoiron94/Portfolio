@@ -6,10 +6,10 @@ import java.util.List;
 
 public class VTabbedPane extends JTabbedPane {
 
-    private final List<VTab> tabs = new ArrayList<>();
+    private final List<VTab> tabs = new ArrayList<>(5);
 
-    public VTabbedPane(final VTab... tabs) {
-        for (final VTab tab : tabs) {
+    public VTabbedPane(VTab... tabs) {
+        for (VTab tab : tabs) {
             addTab(tab);
             this.tabs.add(tab);
         }
@@ -19,8 +19,8 @@ public class VTabbedPane extends JTabbedPane {
         return tabs;
     }
 
-    public void addTab(final VTab tab) {
-        for (final VTab t : tabs) {
+    public void addTab(VTab tab) {
+        for (VTab t : tabs) {
             if (t.equals(tab)) {
                 return;
             }
@@ -30,8 +30,8 @@ public class VTabbedPane extends JTabbedPane {
         setTabComponentAt(tabs.size() - 1, new VTabPanel(this, tab));
     }
 
-    public void removeTab(final VTab tab) {
-        final int index = tabs.indexOf(tab);
+    public void removeTab(VTab tab) {
+        int index = tabs.indexOf(tab);
         if (index >= 0) {
             removeTabAt(index);
             tabs.remove(index);

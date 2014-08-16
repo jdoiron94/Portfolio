@@ -19,12 +19,21 @@ public class Pokemon implements Comparable<Pokemon> {
     }
 
     @Override
-    public String toString() {
-        return "new Pokemon(\"" + name + "\", " + relation.getName() + ")";
+    public int compareTo(Pokemon o) {
+        return name.compareTo(o.name);
     }
 
     @Override
-    public int compareTo(Pokemon o) {
-        return name.compareTo(o.getName());
+    public boolean equals(Object o) {
+        if (o instanceof Pokemon) {
+            Pokemon p = (Pokemon) o;
+            return name.equals(p.name) && relation == p.relation;
+        }
+        return false;
+    }
+
+    @Override
+    public String toString() {
+        return "new Pokemon(\"" + name + "\", " + relation.getName() + ")";
     }
 }

@@ -85,8 +85,8 @@ public class Application {
                         }
                     }
                     reader.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
+                } catch (IOException exception) {
+                    exception.printStackTrace();
                 }
                 System.out.println("\nBanking: " + banking.size() + "\nTrick: " + trick.size() + "\nPatience: " + patience.size() + "\nTile: " + tile.size() + "\nCapture: " + capture.size() + "\nStrategy: " + strategy.size() + "\nFPS: " + fps.size() + "\nRPG: " + rpg.size() + "\nSport: " + sport.size());
                 System.out.println("\nBoard: " + (tile.size() + capture.size() + strategy.size()) + "\nCard: " + (banking.size() + trick.size() + patience.size()) + "\nVideo: " + (fps.size() + rpg.size() + sport.size()));

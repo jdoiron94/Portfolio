@@ -31,9 +31,9 @@ public class SongPlaylist {
             }
             writer.close();
             System.out.println("Song playlist saved to " + file.getAbsolutePath());
-        } catch (IOException e) {
+        } catch (IOException exception) {
             System.out.println("Error exporting song playlist");
-            e.printStackTrace();
+            exception.printStackTrace();
         }
     }
 

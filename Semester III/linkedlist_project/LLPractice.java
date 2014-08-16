@@ -6,28 +6,28 @@ import java.util.List;
 
 public class LLPractice {
 
-    private static final List<Double> testlist1 = new ArrayList<>(1000000);
-    private static final List<Double> testlist2 = new LinkedList<>();
+    private static final List<Double> arrayList = new ArrayList<>(1000000);
+    private static final List<Double> linkedList = new LinkedList<>();
 
     public static void main(String... args) {
         long start = System.nanoTime();
         for (int i = 0; i < 1000000; i++) {
             System.out.println("Add " + i + " AL");
-            testlist1.add((int) (Math.random() * testlist1.size()), Math.random() * 1000001);
+            arrayList.add((int) (Math.random() * arrayList.size()), Math.random() * 1000001);
         }
         for (int i = 0; i < 250000; i++) {
             System.out.println("Remove " + i + " AL");
-            testlist1.remove((int) (Math.random() * testlist1.size()));
+            arrayList.remove((int) (Math.random() * arrayList.size()));
         }
         System.out.println("ArrayList insertion and removal time: " + (System.nanoTime() - start) + " nanos");
         start = System.nanoTime();
         for (int i = 0; i < 1000000; i++) {
             System.out.println("Add " + i + " LL");
-            testlist2.add((int) (Math.random() * testlist2.size()), Math.random() * 1000001);
+            linkedList.add((int) (Math.random() * linkedList.size()), Math.random() * 1000001);
         }
         for (int i = 0; i < 250000; i++) {
             System.out.println("Remove " + i + " LL");
-            testlist2.remove((int) (Math.random() * testlist2.size()));
+            linkedList.remove((int) (Math.random() * linkedList.size()));
         }
         System.out.println("ArrayList insertion and removal time: " + (System.nanoTime() - start) + " nanos");
         System.out.println("LinkedList insertion and removal time: " + (System.nanoTime() - start) + " nanos");

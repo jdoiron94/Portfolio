@@ -15,7 +15,7 @@ public class PlaylistPanel extends JPanel {
         final JList<String> list = new JList<>(new String[]{"Default Music Playlist", "Default Video Playlist", "Default Podcast Playlist"});
         list.addListSelectionListener(new ListSelectionListener() {
             @Override
-            public void valueChanged(ListSelectionEvent e) {
+            public void valueChanged(ListSelectionEvent event) {
                 //Constants.frame.remove(Constants.displayed);
                 Constants.displayed = Constants.defaults[list.getSelectedIndex()];
                 //Constants.frame.add(Constants.displayed, BorderLayout.CENTER);

@@ -6,12 +6,12 @@ import java.awt.event.ItemListener;
 
 public class VMenu extends JMenu {
 
-    public VMenu(final String name, final int mnemonic) {
+    public VMenu(String name, int mnemonic) {
         super(name);
         setMnemonic(mnemonic);
         addItemListener(new ItemListener() {
             @Override
-            public void itemStateChanged(final ItemEvent event) {
+            public void itemStateChanged(ItemEvent event) {
                 if (event.getStateChange() == ItemEvent.SELECTED) {
                     requestFocus();
                 }

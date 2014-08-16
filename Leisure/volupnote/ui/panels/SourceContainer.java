@@ -25,13 +25,13 @@ public class SourceContainer extends JPanel {
         setLayout(new BorderLayout(0, 0));
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-        } catch (final ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ignored) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ignored) {
             System.err.println("Failed to set theme");
         }
         //editor.setEditorKit(new WrapEditorKit());
         editor.setContentType("text/java");
         editor.getDocument().putProperty(PlainDocument.tabSizeAttribute, 2);
-        editor.setFont(FontVars.currentFont);
+        editor.setFont(FontVars.getCurrentFont());
         editor.setMargin(new Insets(5, 5, 5, 5));
         add(new JScrollPane(editor), BorderLayout.CENTER);
         setPreferredSize(new Dimension(800, 600));
@@ -41,16 +41,16 @@ public class SourceContainer extends JPanel {
         return editor.getText();
     }
 
-    public void setDesiredFont(final Font font) {
+    public void setDesiredFont(Font font) {
         editor.setFont(font);
     }
 
-    public void setText(final String text) {
-        final Document document = editor.getDocument();
+    public void setText(String text) {
+        Document document = editor.getDocument();
         editor.setDocument(new DefaultStyledDocument());
         try {
             document.insertString(0, text, new SimpleAttributeSet());
-        } catch (final BadLocationException ignored) {
+        } catch (BadLocationException ignored) {
             System.err.println("Error setting text");
         }
         editor.setDocument(document);

@@ -5,49 +5,48 @@ import java.util.List;
 public class Vertex {
 
     private double weight;
-    private boolean visited = false;
+    private boolean visited;
 
-    private Vertex previous;
     private final String name;
-
+    private Vertex previous;
     private final List<Edge> adjacent;
-    
-    public Vertex(int weight, List<Edge> adjacent, String name) {
-        this.weight = weight;
-        this.adjacent = adjacent;
-        this.name = name;
-    }
 
-    public double getWeight() {
-        return weight;
+    public Vertex(double weight, String name, List<Edge> adjacent) {
+        this.weight = weight;
+        this.name = name;
+        this.adjacent = adjacent;
     }
 
     public boolean visited() {
         return visited;
     }
 
-    public Vertex getPrevious() {
-        return previous;
+    public void setVisited(boolean visited) {
+        this.visited = visited;
     }
 
-    public List<Edge> getAdjacent() {
-        return adjacent;
-    }
-
-    public String getName() {
-        return name;
+    public double getWeight() {
+        return weight;
     }
 
     public void setWeight(double weight) {
         this.weight = weight;
     }
 
-    public void setVisited(boolean visited) {
-        this.visited = visited;
+    public String getName() {
+        return name;
+    }
+
+    public Vertex getPrevious() {
+        return previous;
     }
 
     public void setPrevious(Vertex previous) {
         this.previous = previous;
+    }
+
+    public List<Edge> getAdjacent() {
+        return adjacent;
     }
 
     @Override
@@ -59,7 +58,7 @@ public class Vertex {
     public boolean equals(Object o) {
         if (o instanceof Vertex) {
             Vertex vertex = (Vertex) o;
-            return name.equals(vertex.getName()) && adjacent.equals(vertex.getAdjacent()) && previous.equals(vertex.getPrevious()) && weight == vertex.getWeight();
+            return name.equals(vertex.name) && adjacent.equals(vertex.adjacent) && previous.equals(vertex.previous) && weight == vertex.weight;
         }
         return false;
     }

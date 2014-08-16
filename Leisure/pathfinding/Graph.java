@@ -4,15 +4,19 @@ import java.util.List;
 
 public class Graph {
 
+    private final String name;
+
     private final List<Vertex> vertices;
     private final List<Edge> edges;
 
-    private final String name;
-
-    public Graph(List<Vertex> vertices, List<Edge> edges, String name) {
+    public Graph(String name, List<Vertex> vertices, List<Edge> edges) {
+        this.name = name;
         this.vertices = vertices;
         this.edges = edges;
-        this.name = name;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public List<Vertex> getVertices() {
@@ -21,10 +25,6 @@ public class Graph {
 
     public List<Edge> getEdges() {
         return edges;
-    }
-
-    public String getName() {
-        return name;
     }
 
     @Override
@@ -36,15 +36,13 @@ public class Graph {
     public boolean equals(Object o) {
         if (o instanceof Graph) {
             Graph graph = (Graph) o;
-            return vertices.equals(graph.getVertices()) && edges.equals(graph.getEdges()) && name.equals(graph.getName());
+            return vertices.equals(graph.vertices) && edges.equals(graph.edges) && name.equals(graph.name);
         }
         return false;
     }
 
     @Override
     public String toString() {
-        StringBuilder builder = new StringBuilder(name).append('\t');
-        builder.append("Vertices: ").append(vertices.size()).append(", Edges:").append(edges.size());
-        return builder.toString();
+        return name + '\t' + "Vertices: " + vertices.size() + ", Edges:" + edges.size();
     }
 }

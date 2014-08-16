@@ -36,7 +36,7 @@ public class Mondrian extends JFrame {
         JButton button = new JButton("Repaint");
         button.addMouseListener(new MouseAdapter() {
             @Override
-            public void mousePressed(MouseEvent e) {
+            public void mousePressed(MouseEvent event) {
                 painting.repaint();
             }
         });

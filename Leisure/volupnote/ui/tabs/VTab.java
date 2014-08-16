@@ -9,10 +9,9 @@ public class VTab {
     private String name;
     private String path;
     private final Icon icon;
-
     private final SourceContainer editor = new SourceContainer();
 
-    public VTab(final String name, final String path, final Icon icon) {
+    public VTab(String name, String path, Icon icon) {
         this.name = name;
         this.path = path;
         this.icon = icon;
@@ -22,8 +21,16 @@ public class VTab {
         return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public String getPath() {
         return path;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
     }
 
     public Icon getIcon() {
@@ -34,16 +41,8 @@ public class VTab {
         return editor;
     }
 
-    public void setName(final String name) {
-        this.name = name;
-    }
-
-    public void setPath(final String path) {
-        this.path = path;
-    }
-
     @Override
-    public boolean equals(final Object object) {
-        return object instanceof VTab && name.equals(((VTab) object).getName()) && path.equals(((VTab) object).getPath());
+    public boolean equals(Object object) {
+        return object instanceof VTab && name.equals(((VTab) object).name) && path.equals(((VTab) object).path);
     }
 }

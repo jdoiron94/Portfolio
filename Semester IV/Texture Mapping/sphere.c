@@ -42,7 +42,7 @@ image_t read_ppm(char* name)
     /* Open file for reading */
     file = fopen(name, "r");
     if (NULL == file )
-	{
+    {
         fprintf(stderr, "No such file [%s].\n", name);
         exit(1);
     }
@@ -108,7 +108,8 @@ void draw_hemisphere(float start, float finish, int texture)
         float phi_radians = phi * DEGREES_TO_RADIANS;
         float phi_next_radians = (phi + degree_step) * DEGREES_TO_RADIANS;
         glBegin(GL_TRIANGLE_STRIP); {
-            for (float theta = -180.0; theta < 180.0; theta+=degree_step) {
+            for (float theta = -180.0; theta < 180.0; theta+=degree_step)
+            {
                 float theta_radians = theta * DEGREES_TO_RADIANS;
                 if (texture == 1)
                 {

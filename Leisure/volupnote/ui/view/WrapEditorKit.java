@@ -15,7 +15,7 @@ public class WrapEditorKit extends StyledEditorKit {
 
     @Override
     public MutableAttributeSet getInputAttributes() {
-        final MutableAttributeSet attributes = super.getInputAttributes();
+        MutableAttributeSet attributes = super.getInputAttributes();
         attributes.removeAttribute("line_break_attribute");
         return attributes;
     }

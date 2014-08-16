@@ -21,8 +21,8 @@ public class CenteredEditorKit extends StyledEditorKit {
     private class StyledViewFactory implements ViewFactory {
 
         @Override
-        public View create(final Element element) {
-            final String kind = element.getName();
+        public View create(Element element) {
+            String kind = element.getName();
             if (kind != null) {
                 switch (kind) {
                     case AbstractDocument.ContentElementName:

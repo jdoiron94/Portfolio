@@ -43,8 +43,8 @@ public class Application {
                 System.out.println(line);
             }
             reader.close();
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (IOException exception) {
+            exception.printStackTrace();
         }
     }
 

@@ -27,24 +27,24 @@ public class FontFamilyContainer extends JPanel {
 
     public FontFamilyContainer() {
         setLayout(new FlowLayout(FlowLayout.LEFT, 10, 10));
-        final JLabel fontFamily = new JLabel("Font Family:");
+        JLabel fontFamily = new JLabel("Font Family:");
         fonts.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         fonts.setCellRenderer(new CellRenderer());
         fonts.setFixedCellHeight(25);
         fonts.setModel(getModel(false));
         fonts.addListSelectionListener(new ListSelectionListener() {
             @Override
-            public void valueChanged(final ListSelectionEvent event) {
+            public void valueChanged(ListSelectionEvent event) {
                 PreviewContainer.setDesiredFontName(fonts.getSelectedValue());
             }
         });
-        final JScrollPane pane = new JScrollPane(fonts);
+        JScrollPane pane = new JScrollPane(fonts);
         pane.setPreferredSize(new Dimension(200, 200));
-        final JLabel refresh = new JLabel(Context.FACTORY.loadIcon("Refresh"));
+        JLabel refresh = new JLabel(Context.factory.loadIcon("Refresh"));
         refresh.setToolTipText("Refresh the system font list");
         refresh.addMouseListener(new MouseAdapter() {
             @Override
-            public void mousePressed(final MouseEvent event) {
+            public void mousePressed(MouseEvent event) {
                 fonts.setModel(getModel(true));
             }
         });
@@ -58,24 +58,24 @@ public class FontFamilyContainer extends JPanel {
         return fonts.getSelectedValue();
     }
 
-    private DefaultListModel<String> getModel(final boolean update) {
-        if (FontVars.fontModel == null || update) {
-            final DefaultListModel<String> model = new DefaultListModel<>();
-            final Set<Font> fonts = FontVars.fonts == null || update ? new FontLoader().loadFonts() : FontVars.fonts;
-            for (final Font font : fonts) {
+    private DefaultListModel<String> getModel(boolean update) {
+        if (FontVars.getFontModel() == null || update) {
+            DefaultListModel<String> model = new DefaultListModel<>();
+            Set<Font> fonts = FontVars.getFonts() == null || update ? new FontLoader().loadFonts() : FontVars.getFonts();
+            for (Font font : fonts) {
                 model.addElement(font.getFontName());
             }
-            FontVars.fonts = fonts;
-            FontVars.fontModel = model;
+            FontVars.setFonts(fonts);
+            FontVars.setFontModel(model);
         }
-        return FontVars.fontModel;
+        return FontVars.getFontModel();
     }
 
     private class CellRenderer extends DefaultListCellRenderer {
 
         @Override
-        public Component getListCellRendererComponent(final JList<?> list, final Object value, final int index, final boolean isSelected, final boolean cellHasFocus) {
-            final JLabel label = (JLabel) super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
+        public Component getListCellRendererComponent(JList<?> list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
+            JLabel label = (JLabel) super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
             label.setFont(new Font(value.toString(), Font.PLAIN, 15));
             return label;
         }

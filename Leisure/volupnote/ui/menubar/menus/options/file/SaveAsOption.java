@@ -19,27 +19,27 @@ import java.io.IOException;
 public class SaveAsOption extends VMenuItem {
 
     public SaveAsOption() {
-        super("Save As", KeyEvent.VK_A, KeyEvent.VK_S, InputEvent.CTRL_DOWN_MASK | InputEvent.SHIFT_DOWN_MASK);
+        super(KeyEvent.VK_A, KeyEvent.VK_S, InputEvent.CTRL_DOWN_MASK | InputEvent.SHIFT_DOWN_MASK, "Save As");
         addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(final ActionEvent event) {
-                final VTabbedPane pane = VolupFrame.getTabContainer();
-                final VTab active = pane.getTabs().get(pane.getSelectedIndex());
+            public void actionPerformed(ActionEvent event) {
+                VTabbedPane pane = VolupFrame.getTabContainer();
+                VTab active = pane.getTabs().get(pane.getSelectedIndex());
                 if (active != null) {
-                    final JFileChooser chooser = new JFileChooser();
+                    JFileChooser chooser = new JFileChooser();
                     chooser.setAcceptAllFileFilterUsed(false);
                     chooser.setFileFilter(new FileNameExtensionFilter("Java files", "java"));
                     chooser.setCurrentDirectory(new File(active.getPath()).getParentFile());
                     if (chooser.showSaveDialog(null) == JFileChooser.APPROVE_OPTION) {
                         try {
-                            final File updated = chooser.getSelectedFile().getName().contains(".java") ? chooser.getSelectedFile() : new File(chooser.getSelectedFile() + ".java");
-                            final BufferedWriter writer = new BufferedWriter(new FileWriter(updated, false));
+                            File updated = chooser.getSelectedFile().getName().contains(".java") ? chooser.getSelectedFile() : new File(chooser.getSelectedFile() + ".java");
+                            BufferedWriter writer = new BufferedWriter(new FileWriter(updated, false));
                             writer.write(active.getEditor().getText());
                             writer.close();
                             System.out.println("Saved (as) " + updated);
-                        } catch (final IOException ignored) {
+                        } catch (IOException exception) {
                             System.err.println("Error saving file");
-                            ignored.printStackTrace();
+                            exception.printStackTrace();
                         }
                     }
                 }

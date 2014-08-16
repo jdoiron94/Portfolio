@@ -2,15 +2,19 @@ package pathfinding;
 
 public class Edge {
 
+    private final double weight;
+
     private final Vertex source;
     private final Vertex destination;
 
-    private final double weight;
-
-    public Edge(Vertex source, Vertex destination, double weight) {
+    public Edge(double weight, Vertex source, Vertex destination) {
+        this.weight = weight;
         this.source = source;
         this.destination = destination;
-        this.weight = weight;
+    }
+
+    public double getWeight() {
+        return weight;
     }
 
     public Vertex getSource() {
@@ -25,10 +29,6 @@ public class Edge {
         return vertex.equals(source) ? destination : source;
     }
 
-    public double getWeight() {
-        return weight;
-    }
-
     @Override
     public int hashCode() {
         return source.hashCode() + destination.hashCode() + (int) weight;
@@ -38,7 +38,7 @@ public class Edge {
     public boolean equals(Object o) {
         if (o instanceof Edge) {
             Edge edge = (Edge) o;
-            return source.equals(edge.getSource()) && destination.equals(edge.getDestination()) && weight == edge.getWeight();
+            return source.equals(edge.source) && destination.equals(edge.destination) && weight == edge.weight;
         }
         return false;
     }

@@ -31,9 +31,9 @@ public class PhotoPlaylist {
             }
             writer.close();
             System.out.println("Photo playlist saved to " + file.getAbsolutePath());
-        } catch (IOException e) {
+        } catch (IOException exception) {
             System.out.println("Error exporting photo playlist");
-            e.printStackTrace();
+            exception.printStackTrace();
         }
     }
 

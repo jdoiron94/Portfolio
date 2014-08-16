@@ -50,8 +50,8 @@ public class Hangman {
             String[] words = reader.readLine().split("<br />");
             reader.close();
             Collections.addAll(answers, words);
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
+        } catch (MalformedURLException exception) {
+            exception.printStackTrace();
         } catch (IOException ignored) {
         }
     }

@@ -21,24 +21,24 @@ public class FontStyleContainer extends JPanel {
 
     public FontStyleContainer() {
         setLayout(new FlowLayout(FlowLayout.LEFT, 10, 10));
-        final JLabel fontStyle = new JLabel("Font Style:");
+        JLabel fontStyle = new JLabel("Font Style:");
         styles.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         styles.setCellRenderer(new CellRenderer());
         styles.setFixedCellHeight(25);
-        final DefaultListModel<String> model = new DefaultListModel<>();
-        final Object[][] options = {{"Regular", Font.PLAIN}, {"Italic", Font.ITALIC}, {"Bold", Font.BOLD}, {"Bold Italic", Font.BOLD | Font.ITALIC}};
-        for (final Object[] option : options) {
+        DefaultListModel<String> model = new DefaultListModel<>();
+        Object[][] options = {{"Regular", Font.PLAIN}, {"Italic", Font.ITALIC}, {"Bold", Font.BOLD}, {"Bold Italic", Font.BOLD | Font.ITALIC}};
+        for (Object[] option : options) {
             model.addElement((String) option[0]);
         }
         styles.setModel(model);
         styles.setSelectedIndex(0);
         styles.addListSelectionListener(new ListSelectionListener() {
             @Override
-            public void valueChanged(final ListSelectionEvent event) {
+            public void valueChanged(ListSelectionEvent event) {
                 PreviewContainer.setDesiredFontStyle(getFontStyle());
             }
         });
-        final JScrollPane stylePane = new JScrollPane(styles);
+        JScrollPane stylePane = new JScrollPane(styles);
         stylePane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
         stylePane.setPreferredSize(new Dimension(150, 200));
         setPreferredSize(new Dimension(160, 220 + fontStyle.getPreferredSize().height));
@@ -64,9 +64,9 @@ public class FontStyleContainer extends JPanel {
     private class CellRenderer extends DefaultListCellRenderer {
 
         @Override
-        public Component getListCellRendererComponent(final JList<?> list, final Object value, final int index, final boolean isSelected, final boolean cellHasFocus) {
-            final JLabel label = (JLabel) super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
-            final int attribute;
+        public Component getListCellRendererComponent(JList<?> list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
+            JLabel label = (JLabel) super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
+            int attribute;
             switch (value.toString()) {
                 case "Regular":
                     attribute = Font.PLAIN;

@@ -6,7 +6,7 @@ import java.awt.EventQueue;
 
 public class Boot {
 
-    public static void main(final String[] args) {
+    public static void main(String... args) {
         EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {

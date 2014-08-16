@@ -16,16 +16,16 @@ public class Dijkstra {
     }
 
     public void findPath(Vertex source, Vertex destination) {
-        List<Vertex> unvisited = new ArrayList<>();
+        List<Vertex> unvisited = new ArrayList<>(20);
         for (Vertex vertex : graph.getVertices()) {
             vertex.setWeight(Double.POSITIVE_INFINITY);
             vertex.setVisited(false);
             vertex.setPrevious(null);
         }
-        source.setWeight(0D);
+        source.setWeight(0.0);
         unvisited.add(source);
         Vertex vertex = source;
-        while (unvisited.size() > 0 && !destination.visited() && vertex != null) {
+        while (!unvisited.isEmpty() && !destination.visited() && vertex != null) {
             for (Edge edge : vertex.getAdjacent()) {
                 edge.getAdjacent(vertex).setWeight(Math.min(vertex.getWeight(), vertex.getWeight() + edge.getWeight()));
             }
@@ -34,7 +34,7 @@ public class Dijkstra {
             Vertex next = null;
             for (Edge edge : vertex.getAdjacent()) {
                 Vertex vert = edge.getAdjacent(vertex);
-                if (next == null || (!vert.visited() && vert.getWeight() < next.getWeight())) {
+                if (next == null || !vert.visited() && vert.getWeight() < next.getWeight()) {
                     next = vert;
                 }
             }

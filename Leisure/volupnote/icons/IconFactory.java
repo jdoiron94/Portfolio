@@ -6,17 +6,16 @@ import java.util.Map;
 
 public class IconFactory {
 
-    private final Map<String, ImageIcon> icons = new HashMap<>();
+    private final Map<String, ImageIcon> icons = new HashMap<>(5);
 
     public IconFactory() {
-        final String[] IMAGE_NAMES = {"VolupNote", "Font Selector", "Apply", "Cancel", "Refresh"};
-        for (final String image : IMAGE_NAMES) {
+        for (String image : new String[]{"VolupNote", "Font Selector", "Apply", "Cancel", "Refresh"}) {
             icons.put(image, new ImageIcon(getClass().getResource("../resources/images/" + image + ".png")));
             System.out.println(image);
         }
     }
 
-    public ImageIcon loadIcon(final String name) {
+    public ImageIcon loadIcon(String name) {
         return icons.get(name);
     }
 }

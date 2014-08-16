@@ -31,9 +31,9 @@ public class VideoPlaylist {
             }
             writer.close();
             System.out.println("Video playlist saved to " + file.getAbsolutePath());
-        } catch (IOException e) {
+        } catch (IOException exception) {
             System.out.println("Error exporting video playlist");
-            e.printStackTrace();
+            exception.printStackTrace();
         }
     }
 

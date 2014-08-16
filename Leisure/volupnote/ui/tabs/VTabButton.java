@@ -27,14 +27,14 @@ public class VTabButton extends JButton {
         setRolloverEnabled(true);
         addMouseListener(new MouseAdapter() {
             @Override
-            public void mouseEntered(final MouseEvent event) {
+            public void mouseEntered(MouseEvent event) {
                 if (event.getComponent() instanceof AbstractButton) {
                     ((AbstractButton) event.getComponent()).setBorderPainted(true);
                 }
             }
 
             @Override
-            public void mouseExited(final MouseEvent event) {
+            public void mouseExited(MouseEvent event) {
                 if (event.getComponent() instanceof AbstractButton) {
                     ((AbstractButton) event.getComponent()).setBorderPainted(false);
                 }
@@ -42,23 +42,23 @@ public class VTabButton extends JButton {
         });
         addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(final ActionEvent event) {
+            public void actionPerformed(ActionEvent event) {
                 pane.removeTab(tab);
             }
         });
     }
 
     @Override
-    protected void paintComponent(final Graphics graphics) {
+    protected void paintComponent(Graphics graphics) {
         super.paintComponent(graphics);
-        final Graphics2D g = (Graphics2D) graphics.create();
+        Graphics2D g = (Graphics2D) graphics.create();
         g.setStroke(stroke);
         g.setRenderingHints(hints);
         g.setColor(Color.BLACK.darker());
         if (getModel().isRollover()) {
             g.setColor(Color.DARK_GRAY.darker());
         }
-        final int delta = 6;
+        int delta = 6;
         g.drawLine(delta, delta, getWidth() - 7, getHeight() - 7);
         g.drawLine(getWidth() - 7, delta, delta, getHeight() - 7);
         g.dispose();

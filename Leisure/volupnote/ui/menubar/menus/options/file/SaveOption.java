@@ -17,21 +17,21 @@ import java.io.IOException;
 public class SaveOption extends VMenuItem {
 
     public SaveOption() {
-        super("Save", KeyEvent.VK_S, InputEvent.CTRL_DOWN_MASK);
+        super(KeyEvent.VK_S, InputEvent.CTRL_DOWN_MASK, "Save");
         addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(final ActionEvent event) {
-                final VTabbedPane pane = VolupFrame.getTabContainer();
-                final VTab active = pane.getTabs().get(pane.getSelectedIndex());
+            public void actionPerformed(ActionEvent event) {
+                VTabbedPane pane = VolupFrame.getTabContainer();
+                VTab active = pane.getTabs().get(pane.getSelectedIndex());
                 if (active != null) {
                     try {
-                        final BufferedWriter writer = new BufferedWriter(new FileWriter(new File(active.getPath()), false));
+                        BufferedWriter writer = new BufferedWriter(new FileWriter(new File(active.getPath()), false));
                         writer.write(active.getEditor().getText());
                         writer.close();
                         System.out.println("Saved " + active.getPath());
-                    } catch (final IOException ignored) {
+                    } catch (IOException exception) {
                         System.err.println("Error saving file");
-                        ignored.printStackTrace();
+                        exception.printStackTrace();
                     }
                 }
             }

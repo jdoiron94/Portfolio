@@ -1,22 +1,20 @@
 package pokemon.daycare;
 
 import javax.swing.Box;
-import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 import javax.swing.JSpinner;
 import javax.swing.JTextField;
 import javax.swing.SpinnerNumberModel;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.WindowConstants;
 import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.NumberFormat;
@@ -26,6 +24,11 @@ public class DaycareUI extends JFrame {
     public DaycareUI() {
         setTitle("Lappy");
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        try {
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ignored) {
+            System.out.println("Could not load system look and feel");
+        }
         setLayout(new BorderLayout());
         /*JPanel left = new JPanel();
         left.setLayout(new BoxLayout(left, BoxLayout.Y_AXIS));
@@ -37,7 +40,7 @@ public class DaycareUI extends JFrame {
         left.add(Box.createVerticalGlue());
         add(pokemon, left);
         left.add(Box.createVerticalGlue());
-        final JComboBox<String> pokemonList = new JComboBox<>(Holder.POKEMON_NAMES);
+        final JComboBox<String> pokemonList = new JComboBox<>(Holder.pokemonNames);
         right.add(Box.createVerticalGlue());
         add(pokemonList, right);
         right.add(Box.createVerticalGlue());
@@ -67,9 +70,9 @@ public class DaycareUI extends JFrame {
         System.out.print(Holder.binarySearch("Abra"));
         submit.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
-                Relation r = Holder.POKEMON[Holder.binarySearch((String) pokemonList.getSelectedItem())].getRelation();
-                int lapz = (r.getExpTable()[(Integer) levelSpinner.getValue() - 1] - Integer.parseInt(experienceField.getText())) / Integer.parseInt(pathField.getText());
+            public void actionPerformed(ActionEvent event) {
+                Relation relation = Holder.pokemon[Holder.binarySearch((String) pokemonList.getSelectedItem())].getRelation();
+                int lapz = (relation.getExpTable()[(Integer) levelSpinner.getValue() - 1] - Integer.parseInt(experienceField.getText())) / Integer.parseInt(pathField.getText());
                 laps.setText(NumberFormat.getInstance().format(lapz) + (lapz == 1 ? " lap" : " laps"));
             }
         });

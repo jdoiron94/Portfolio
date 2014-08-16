@@ -6,7 +6,7 @@ import java.awt.event.KeyEvent;
 
 public class VMenuItem extends JMenuItem {
 
-    public VMenuItem(final String name, final int mnemonic, final int key, final int modifier) {
+    public VMenuItem(int mnemonic, int key, int modifier, String name) {
         super(mnemonic != KeyEvent.VK_UNDEFINED && key != KeyEvent.VK_UNDEFINED && modifier != KeyEvent.VK_UNDEFINED ? name + "      " : name);
         if (mnemonic != KeyEvent.VK_UNDEFINED) {
             setMnemonic(mnemonic);
@@ -16,7 +16,7 @@ public class VMenuItem extends JMenuItem {
         }
     }
 
-    public VMenuItem(final String name, final int key, final int modifier) {
-        this(name, key, key, modifier);
+    public VMenuItem(int key, int modifier, String name) {
+        this(key, key, modifier, name);
     }
 }

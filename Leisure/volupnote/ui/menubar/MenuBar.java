@@ -16,7 +16,7 @@ public class MenuBar extends JMenuBar {
         add(new HelpMenu());
         addMouseListener(new MouseAdapter() {
             @Override
-            public void mousePressed(final MouseEvent event) {
+            public void mousePressed(MouseEvent event) {
                 requestFocus(true);
             }
         });

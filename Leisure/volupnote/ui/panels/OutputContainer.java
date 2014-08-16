@@ -12,8 +12,7 @@ public class OutputContainer extends JPanel {
 
     public OutputContainer() {
         setLayout(new BorderLayout(0, 0));
-        final Console console = new Console();
-        add(new JScrollPane(console.getPane()), BorderLayout.CENTER);
+        add(new JScrollPane(new Console().getPane()), BorderLayout.CENTER);
         setPreferredSize(new Dimension(800, 150));
     }
 

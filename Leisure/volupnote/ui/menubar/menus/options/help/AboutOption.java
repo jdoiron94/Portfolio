@@ -10,10 +10,10 @@ import java.awt.event.KeyEvent;
 public class AboutOption extends VMenuItem {
 
     public AboutOption() {
-        super("About", KeyEvent.VK_UNDEFINED, KeyEvent.VK_UNDEFINED);
+        super(KeyEvent.VK_UNDEFINED, KeyEvent.VK_UNDEFINED, "About");
         addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(final ActionEvent event) {
+            public void actionPerformed(ActionEvent event) {
                 new AboutFrame().setVisible(true);
             }
         });

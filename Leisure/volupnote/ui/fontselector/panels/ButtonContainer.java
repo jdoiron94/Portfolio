@@ -19,21 +19,21 @@ public class ButtonContainer extends JPanel {
     public ButtonContainer(final FontSelector selector) {
         setLayout(new FlowLayout(FlowLayout.RIGHT, 10, 10));
         setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
-        final JButton apply = new JButton("Apply", Context.FACTORY.loadIcon("Apply"));
+        JButton apply = new JButton("Apply", Context.factory.loadIcon("Apply"));
         apply.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(final ActionEvent event) {
-                FontVars.currentFont = selector.getSelectedFont();
-                for (final VTab tab : VolupFrame.getTabContainer().getTabs()) {
-                    tab.getEditor().setDesiredFont(FontVars.currentFont);
+            public void actionPerformed(ActionEvent event) {
+                FontVars.setCurrentFont(selector.getSelectedFont());
+                for (VTab tab : VolupFrame.getTabContainer().getTabs()) {
+                    tab.getEditor().setDesiredFont(FontVars.getCurrentFont());
                 }
                 selector.dispose();
             }
         });
-        final JButton cancel = new JButton("Cancel", Context.FACTORY.loadIcon("Cancel"));
+        JButton cancel = new JButton("Cancel", Context.factory.loadIcon("Cancel"));
         cancel.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(final ActionEvent event) {
+            public void actionPerformed(ActionEvent event) {
                 selector.dispose();
             }
         });

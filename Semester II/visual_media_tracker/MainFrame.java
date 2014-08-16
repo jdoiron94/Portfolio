@@ -28,7 +28,7 @@ public class MainFrame extends JFrame {
         JMenuItem addColumn = new JMenuItem("Add column");
         addColumn.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(ActionEvent event) {
                 String entered = JOptionPane.showInputDialog(null, "Enter a name for the column:", "Add new column", JOptionPane.INFORMATION_MESSAGE);
                 if (entered != null && !entered.replace(" ", "").isEmpty()) {
                     Panels.musicFeed.addColumn(entered);
@@ -40,7 +40,7 @@ public class MainFrame extends JFrame {
         JMenuItem playlist = new JMenuItem("Playlist");
         playlist.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(ActionEvent event) {
                 String entered = JOptionPane.showInputDialog(null, "Enter a playlist name:", "New playlist", JOptionPane.INFORMATION_MESSAGE);
                 if (entered != null && !entered.replace(" ", "").isEmpty()) {
                     Panels.playlistFeed.addPlaylist(entered);
@@ -52,7 +52,7 @@ public class MainFrame extends JFrame {
         JMenuItem cd = new JMenuItem("CD");
         cd.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(ActionEvent event) {
                 System.out.println("Here's where we'd add a new CD, assuming we supported it");
             }
         });
@@ -60,7 +60,7 @@ public class MainFrame extends JFrame {
         JMenuItem dvd = new JMenuItem("DVD");
         dvd.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(ActionEvent event) {
                 System.out.println("Here's where we'd add a new DVD, assuming we supported it");
             }
         });
@@ -71,7 +71,7 @@ public class MainFrame extends JFrame {
         JMenuItem newsfeed = new JMenuItem("Newsfeed");
         newsfeed.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(ActionEvent event) {
                 System.out.println("Here's where we'd switch to a newsfeed style");
             }
         });
@@ -79,7 +79,7 @@ public class MainFrame extends JFrame {
         JMenuItem orderByUser = new JMenuItem("Order by user");
         orderByUser.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(ActionEvent event) {
                 System.out.println("Here's where we'd switch to an order-by-user style");
             }
         });
@@ -89,7 +89,7 @@ public class MainFrame extends JFrame {
         JMenuItem toADevice = new JMenuItem("To a device");
         toADevice.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(ActionEvent event) {
                 System.out.println("Here's where we'd export to a device");
             }
         });
@@ -97,7 +97,7 @@ public class MainFrame extends JFrame {
         JMenuItem email = new JMenuItem("Email");
         email.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(ActionEvent event) {
                 System.out.println("Here's where we'd export to an email");
             }
         });
@@ -105,7 +105,7 @@ public class MainFrame extends JFrame {
         JMenuItem twitter = new JMenuItem("Twitter");
         twitter.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(ActionEvent event) {
                 System.out.println("Here's where we'd export to Twitter");
             }
         });
@@ -113,7 +113,7 @@ public class MainFrame extends JFrame {
         JMenuItem facebook = new JMenuItem("Facebook");
         facebook.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(ActionEvent event) {
                 System.out.println("Here's where we'd export to Facebook");
             }
         });
@@ -121,7 +121,7 @@ public class MainFrame extends JFrame {
         JMenuItem other = new JMenuItem("Other");
         other.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(ActionEvent event) {
                 System.out.println("Here's where we'd export to some other kind of storage medium");
             }
         });
