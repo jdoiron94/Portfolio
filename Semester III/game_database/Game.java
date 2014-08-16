@@ -7,6 +7,13 @@ import java.util.Comparator;
  */
 public abstract class Game {
 
+    private int playerCount;
+
+    private String title;
+    private String genre;
+    private String ageRecommendation;
+    private String estimatedTime;
+
     /**
      * Comparator later to be used to sort games by their titles
      */
@@ -16,11 +23,6 @@ public abstract class Game {
             return g1.getTitle().compareTo(g2.getTitle());
         }
     };
-    private int playerCount;
-    private String title;
-    private String genre;
-    private String ageRecommendation;
-    private String estimatedTime;
 
     public Game(int playerCount, String title, String genre, String ageRecommendation, String estimatedTime) {
         this.playerCount = playerCount;

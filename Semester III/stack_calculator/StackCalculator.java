@@ -12,12 +12,13 @@ import java.util.Stack;
  */
 public class StackCalculator {
 
-    private final Map<Character, Integer> variables;
     private char variable = '\n';
     private boolean assignment;
+
     private String error;
     private String infix;
     private String postfix;
+    private final Map<Character, Integer> variables;
 
     public StackCalculator() {
         variables = new HashMap<>(5);

@@ -7,8 +7,9 @@ import java.util.List;
 
 public class Roster {
 
-    private final List<String> names = new ArrayList<>(20);
     private int size;
+
+    private final List<String> names = new ArrayList<>(20);
 
     public Roster(String... names) {
         setNames(names);

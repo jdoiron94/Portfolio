@@ -12,9 +12,10 @@ import java.util.Scanner;
 
 public class Hangman {
 
-    private static final List<String> answers = new ArrayList<>(20);
     private static int correct;
     private static int incorrect;
+
+    private static final List<String> answers = new ArrayList<>(20);
 
     private static void drawStickMan(int incorrect) {
         switch (incorrect) {
