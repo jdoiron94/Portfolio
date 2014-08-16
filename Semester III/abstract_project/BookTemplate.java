@@ -18,28 +18,28 @@ public class BookTemplate {
         return title;
     }
 
-    public String getAuthor() {
-        return author;
-    }
-
-    public String getISBN() {
-        return isbn;
-    }
-
-    public String getSubject() {
-        return subject;
-    }
-
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getAuthor() {
+        return author;
     }
 
     public void setAuthor(String author) {
         this.author = author;
     }
 
+    public String getISBN() {
+        return isbn;
+    }
+
     public void setISBN(String isbn) {
         this.isbn = isbn;
+    }
+
+    public String getSubject() {
+        return subject;
     }
 
     public void setSubject(String subject) {

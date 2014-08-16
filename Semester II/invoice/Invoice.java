@@ -28,28 +28,28 @@ public class Invoice {
         return quantityPurchased;
     }
 
-    public double getPricePerItem() {
-        return pricePerItem;
-    }
-
-    public String getPartNumber() {
-        return partNumber;
-    }
-
-    public String getPartDescription() {
-        return partDescription;
-    }
-
     public void setQuantityPurchased(int quantityPurchased) {
         this.quantityPurchased = quantityPurchased;
+    }
+
+    public double getPricePerItem() {
+        return pricePerItem;
     }
 
     public void setPricePerItem(double pricePerItem) {
         this.pricePerItem = pricePerItem;
     }
 
+    public String getPartNumber() {
+        return partNumber;
+    }
+
     public void setPartNumber(String partNumber) {
         this.partNumber = partNumber;
+    }
+
+    public String getPartDescription() {
+        return partDescription;
     }
 
     public void setPartDescription(String partDescription) {

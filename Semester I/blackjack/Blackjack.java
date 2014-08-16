@@ -4,9 +4,8 @@ import java.util.Scanner;
 
 public class Blackjack {
 
-    private static int sum;
-
     private static final Scanner scanner = new Scanner(System.in);
+    private static int sum;
 
     private static void handleAce() {
         System.out.print("Use Ace as 1 (enter 1) or 11 (enter 2): ");

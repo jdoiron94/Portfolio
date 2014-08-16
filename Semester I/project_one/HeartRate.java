@@ -28,40 +28,19 @@ public class HeartRate {
     }
 
     /**
-     * @return the day of birth
-     */
-    public int getDay() {
-        return day;
-    }
-
-    /**
-     * @return the year of birth
-     */
-    public int getYear() {
-        return year;
-    }
-
-    /**
-     * @return the first name
-     */
-    public String getFirst() {
-        return first;
-    }
-
-    /**
-     * @return the last name
-     */
-    public String getLast() {
-        return last;
-    }
-
-    /**
      * Sets the month of birth to the provided parameter.
      *
      * @param month The month to be set
      */
     public void setMonth(int month) {
         this.month = month;
+    }
+
+    /**
+     * @return the day of birth
+     */
+    public int getDay() {
+        return day;
     }
 
     /**
@@ -74,6 +53,13 @@ public class HeartRate {
     }
 
     /**
+     * @return the year of birth
+     */
+    public int getYear() {
+        return year;
+    }
+
+    /**
      * Sets the year of birth to the provided parameter.
      *
      * @param year The year to be set
@@ -83,12 +69,26 @@ public class HeartRate {
     }
 
     /**
+     * @return the first name
+     */
+    public String getFirst() {
+        return first;
+    }
+
+    /**
      * Sets the first name to the provided parameter.
      *
      * @param first The first name to be set
      */
     public void setFirst(String first) {
         this.first = first;
+    }
+
+    /**
+     * @return the last name
+     */
+    public String getLast() {
+        return last;
     }
 
     /**

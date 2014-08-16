@@ -7,7 +7,7 @@ public class Airplane extends Vehicle {
     private final Engine engine;
     private final Wing[] wings;
 
-    public Airplane(int year, boolean floatable, boolean flyable, String model, Steering.Type steering, Wheel[] wheels, Engine engine, Wing[] wings) {
+    public Airplane(int year, boolean floatable, boolean flyable, String model, Steering.Type steering, Wheel[] wheels, Engine engine, Wing... wings) {
         super(year, floatable, flyable, model, steering);
         this.steering = steering;
         this.wheels = wheels;

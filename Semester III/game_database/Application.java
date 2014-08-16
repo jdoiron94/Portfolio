@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 /**
  * @author Jacob Doiron
- * Main file used to test the entirety of the application
+ *         Main file used to test the entirety of the application
  */
 public class Application {
 

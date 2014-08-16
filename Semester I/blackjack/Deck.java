@@ -52,7 +52,7 @@ public class Deck {
 
     /**
      * Shuffles with default Collections class (uses default Random seed)
-     *
+     * <p/>
      * Shuffles a few more times (human-like), up to 5 times
      */
     public void shuffle() {

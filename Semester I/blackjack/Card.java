@@ -40,13 +40,6 @@ public class Card {
         return suit;
     }
 
-    public enum Suit {
-        SPADES,
-        DIAMONDS,
-        CLUBS,
-        HEARTS
-    }
-
     /**
      * Overrides traditional toString derived from Object superclass
      *
@@ -55,5 +48,12 @@ public class Card {
     @Override
     public String toString() {
         return String.format("%s of %s", name, suit);
+    }
+
+    public enum Suit {
+        SPADES,
+        DIAMONDS,
+        CLUBS,
+        HEARTS
     }
 }

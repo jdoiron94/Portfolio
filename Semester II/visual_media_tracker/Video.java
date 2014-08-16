@@ -6,7 +6,7 @@ public class Video extends Media {
 
     public Video(String name, String director) {
         super(name);
-       this.director = director;
+        this.director = director;
     }
 
     public String getDirector() {

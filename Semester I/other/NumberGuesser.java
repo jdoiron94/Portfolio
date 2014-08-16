@@ -21,7 +21,8 @@ public class NumberGuesser {
         int totalGuesses = 0;
         boolean guessed;
         System.out.println("Enter the sentinel value 1337 for the program to force-close.");
-        iterator: while (true) {
+        iterator:
+        while (true) {
             answer = (int) (10 * Math.random()) + 3;
             System.out.println("\n" + "---------------New Round Commencing!---------------");
             //System.out.println("The generated number is: " + answer);

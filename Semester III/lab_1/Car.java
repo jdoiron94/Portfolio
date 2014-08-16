@@ -25,28 +25,28 @@ public class Car {
         return year;
     }
 
-    public String getOwner() {
-        return owner;
-    }
-
-    public String getMake() {
-        return make;
-    }
-
-    public String getModel() {
-        return model;
-    }
-
     public void setYear(int year) {
         this.year = year;
+    }
+
+    public String getOwner() {
+        return owner;
     }
 
     public void setOwner(String owner) {
         this.owner = owner;
     }
 
+    public String getMake() {
+        return make;
+    }
+
     public void setMake(String make) {
         this.make = make;
+    }
+
+    public String getModel() {
+        return model;
     }
 
     public void setModel(String model) {

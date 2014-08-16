@@ -25,20 +25,20 @@ public class Course {
         return facultyMember;
     }
 
-    public Set<Student> getStudents() {
-        return students;
-    }
-
-    public Set<TeachingAssistant> getAssistants() {
-        return assistants;
-    }
-
     public void setFacultyMember(FacultyMember facultyMember) {
         this.facultyMember = facultyMember;
     }
 
+    public Set<Student> getStudents() {
+        return students;
+    }
+
     public void setStudents(Set<Student> students) {
         this.students = students;
+    }
+
+    public Set<TeachingAssistant> getAssistants() {
+        return assistants;
     }
 
     public void setAssistants(Set<TeachingAssistant> assistants) {

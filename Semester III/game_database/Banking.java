@@ -21,19 +21,19 @@ public class Banking extends Card {
     }
 
     /**
-     * @return Returns the bet the player has specified for the hand
-     */
-    public double getBet() {
-        return bet;
-    }
-
-    /**
      * Used to set the amount of playing money
      *
      * @param money The amount of money the player wishes to use
      */
     public void setMoney(double money) {
         this.money = money;
+    }
+
+    /**
+     * @return Returns the bet the player has specified for the hand
+     */
+    public double getBet() {
+        return bet;
     }
 
     /**

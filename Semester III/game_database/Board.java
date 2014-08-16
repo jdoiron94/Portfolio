@@ -23,19 +23,19 @@ public abstract class Board extends Game {
     }
 
     /**
-     * @return Returns the size of the board
-     */
-    public String getBoardSize() {
-        return boardSize;
-    }
-
-    /**
      * Used to set the piece count of the board game
      *
      * @param pieceCount The amount of pieces to be used
      */
     public void setPieceCount(int pieceCount) {
         this.pieceCount = pieceCount;
+    }
+
+    /**
+     * @return Returns the size of the board
+     */
+    public String getBoardSize() {
+        return boardSize;
     }
 
     /**

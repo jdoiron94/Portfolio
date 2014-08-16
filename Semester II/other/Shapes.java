@@ -4,9 +4,8 @@ import java.util.Scanner;
 
 public class Shapes {
 
-    private static int height;
-
     private static final StringBuilder builder = new StringBuilder(1000);
+    private static int height;
 
     private static void createShape(int asterisks, int spaces, boolean tri, boolean newline) {
         if (asterisks != -1 && spaces != -1) {

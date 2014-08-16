@@ -22,19 +22,19 @@ public abstract class Video extends Game {
     }
 
     /**
-     * @return Returns the installation size of the video game
-     */
-    public String getInstallationSize() {
-        return installationSize;
-    }
-
-    /**
      * Used to set the console type
      *
      * @param console The type of console
      */
     public void setConsole(String console) {
         this.console = console;
+    }
+
+    /**
+     * @return Returns the installation size of the video game
+     */
+    public String getInstallationSize() {
+        return installationSize;
     }
 
     /**

@@ -29,12 +29,12 @@ public class Evo extends Car {
         return modified;
     }
 
-    public void setDecals(boolean decals) {
-        this.decals = decals;
-    }
-
     public void setModified(boolean modified) {
         this.modified = modified;
+    }
+
+    public void setDecals(boolean decals) {
+        this.decals = decals;
     }
 
     public void modify() {

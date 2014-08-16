@@ -7,13 +7,6 @@ import java.util.Comparator;
  */
 public abstract class Game {
 
-    private int playerCount;
-
-    private String title;
-    private String genre;
-    private String ageRecommendation;
-    private String estimatedTime;
-
     /**
      * Comparator later to be used to sort games by their titles
      */
@@ -23,6 +16,11 @@ public abstract class Game {
             return g1.getTitle().compareTo(g2.getTitle());
         }
     };
+    private int playerCount;
+    private String title;
+    private String genre;
+    private String ageRecommendation;
+    private String estimatedTime;
 
     public Game(int playerCount, String title, String genre, String ageRecommendation, String estimatedTime) {
         this.playerCount = playerCount;
@@ -40,40 +38,19 @@ public abstract class Game {
     }
 
     /**
-     * @return Returns the title of the game
-     */
-    public String getTitle() {
-        return title;
-    }
-
-    /**
-     * @return Returns the genre of the game
-     */
-    public String getGenre() {
-        return genre;
-    }
-
-    /**
-     * @return Returns the age recommendation of the game
-     */
-    public String getAgeRecommendation() {
-        return ageRecommendation;
-    }
-
-    /**
-     * @return Returns the estimated time the game will take to play
-     */
-    public String getEstimatedTime() {
-        return estimatedTime;
-    }
-
-    /**
      * Used to set the desired player count
      *
      * @param playerCount The amount of players to play the game
      */
     public void setPlayerCount(int playerCount) {
         this.playerCount = playerCount;
+    }
+
+    /**
+     * @return Returns the title of the game
+     */
+    public String getTitle() {
+        return title;
     }
 
     /**
@@ -86,6 +63,13 @@ public abstract class Game {
     }
 
     /**
+     * @return Returns the genre of the game
+     */
+    public String getGenre() {
+        return genre;
+    }
+
+    /**
      * Used to set the genre of the game
      *
      * @param genre The genre of the game
@@ -95,12 +79,26 @@ public abstract class Game {
     }
 
     /**
+     * @return Returns the age recommendation of the game
+     */
+    public String getAgeRecommendation() {
+        return ageRecommendation;
+    }
+
+    /**
      * Used to set the age recommendation of the game
      *
      * @param ageRecommendation The age recommendation of the game
      */
     public void setAgeRecommendation(String ageRecommendation) {
         this.ageRecommendation = ageRecommendation;
+    }
+
+    /**
+     * @return Returns the estimated time the game will take to play
+     */
+    public String getEstimatedTime() {
+        return estimatedTime;
     }
 
     /**

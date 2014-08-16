@@ -7,9 +7,8 @@ import java.util.List;
 
 public class Roster {
 
-    private int size;
-
     private final List<String> names = new ArrayList<>(20);
+    private int size;
 
     public Roster(String... names) {
         setNames(names);
@@ -24,14 +23,14 @@ public class Roster {
         return names;
     }
 
-    public int getSize() {
-        return size;
-    }
-
     public void setNames(String... names) {
         this.names.clear();
         size = names.length;
         Collections.addAll(this.names, names);
+    }
+
+    public int getSize() {
+        return size;
     }
 
     public void setSize(int size) {
