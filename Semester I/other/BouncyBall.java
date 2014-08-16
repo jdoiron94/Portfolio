@@ -64,7 +64,7 @@ public class BouncyBall {
             printMenu();
             int world = scanner.nextInt();
             if (world == 0) {
-                System.out.println("Toodles!");
+                System.out.println("Goodbye!");
                 break;
             }
             while (world < 1 || world > 3) {
@@ -80,5 +80,6 @@ public class BouncyBall {
             compute(world, velocity);
             rounds++;
         }
+        scanner.close();
     }
 }

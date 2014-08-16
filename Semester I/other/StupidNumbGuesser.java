@@ -11,5 +11,6 @@ public class StupidNumbGuesser {
         int answer = (int) (Math.random() * 10) + 3;
         System.out.print("Guess a number, 2-12: ");
         System.out.print(scanner.nextInt() == answer ? encouragement[(int) (Math.random() * encouragement.length)] : discouragement[(int) (Math.random() * discouragement.length)]);
+        scanner.close();
     }
 }

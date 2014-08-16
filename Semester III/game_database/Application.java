@@ -136,6 +136,7 @@ public class Application {
                             break;
                     }
                 }
+                scanner.close();
             } else {
                 System.out.println("Invalid file (" + file.getAbsolutePath() + " does not exist), enter a valid filename next time");
             }

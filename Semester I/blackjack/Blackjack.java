@@ -29,14 +29,14 @@ public class Blackjack {
                 sum += card.getValue();
             }
             while (sum < 21) {
-                System.out.print("Total sum: " + sum + "\nHit (enter 1) or Stand (enter 2): ");
+                System.out.print("Total sum: " + sum + "\nHit (enter 1) or Stay (enter 2): ");
                 if (scanner.nextInt() == 1) {
-                    Card newCard = deck.hit();
-                    System.out.println("New card: " + newCard);
-                    if (newCard.getValue() == 1) {
+                    Card next = deck.hit();
+                    System.out.println("New card: " + next);
+                    if (next.getValue() == 1) {
                         handleAce();
                     } else {
-                        sum += newCard.getValue();
+                        sum += next.getValue();
                     }
                 } else {
                     System.out.println("Staying with " + sum);
@@ -52,5 +52,6 @@ public class Blackjack {
             deck.create();
             System.out.println();
         }
+        scanner.close();
     }
 }

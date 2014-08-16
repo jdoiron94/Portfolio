@@ -20,7 +20,7 @@ public class NumberGuesser {
         int rounds = 0;
         int totalGuesses = 0;
         boolean guessed;
-        System.out.println("Enter the sentinel value 1337 for the program to force-close.");
+        System.out.println("Enter the sentinel value 1337 for the program to force close.");
         iterator:
         while (true) {
             answer = (int) (10 * Math.random()) + 3;
@@ -52,10 +52,10 @@ public class NumberGuesser {
             } while (guesses < 4);
             System.out.println(guessed ? "You guessed the correct number in " + guesses + (guesses > 1 ? " tries" : " try") + ", the number was " + answer + "." : "You never guessed the number, the number was " + answer + ".");
         }
+        scanner.close();
         String avg = String.valueOf((double) totalGuesses / rounds);
         int iAverage = avg.indexOf(".") == avg.length() - 2 && avg.charAt(avg.length() - 1) == '0' ? Integer.parseInt(avg.split("\\.")[0]) : -1;
         double dAverage = iAverage == -1 ? Double.parseDouble(avg) : -1.0;
-        double percentage = (double) rounds / totalGuesses * 100;
-        System.out.println("\nIn " + rounds + (rounds > 1 ? " rounds" : " round") + ", it took you an average of " + (iAverage != -1 ? decimalFormat.format(iAverage) + (iAverage > 1 ? " tries" : " try") : decimalFormat.format(dAverage) + (dAverage > 1 ? " tries" : " try")) + " to guess the number (" + decimalFormat.format(percentage) + "%).");
+        System.out.println("\nIn " + rounds + (rounds > 1 ? " rounds" : " round") + ", it took you an average of " + (iAverage != -1 ? decimalFormat.format(iAverage) + (iAverage > 1 ? " tries" : " try") : decimalFormat.format(dAverage) + (dAverage > 1 ? " tries" : " try")) + " to guess the number (" + decimalFormat.format((double) rounds / totalGuesses * 100) + "%).");
     }
 }

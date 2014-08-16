@@ -16,6 +16,7 @@ public class Application {
         int day = scanner.nextInt();
         System.out.print("Enter year of birth: ");
         HeartRate rate = new HeartRate(month, day, scanner.nextInt(), first, last);
+        scanner.close();
         System.out.print("\n" + String.format("%s %s %d/%d/%d %d years old\nMax heart rate: %d beats per minute\nTarget heart range: %.1f-%.2f beats per minute", rate.getFirst(), rate.getLast(), rate.getMonth(), rate.getDay(), rate.getYear(), rate.getAge(), rate.getMaximumBPM(), rate.getLowRate(), rate.getHighRate()));
     }
 }

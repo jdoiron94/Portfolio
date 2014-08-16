@@ -28,5 +28,6 @@ public class Application {
             }
             System.out.println(selected >= 0 && selected <= 2 ? "Marker belongs to " + marker[selected].getOwner() + " and the color of the marker itself is " + marker[selected].getColor() : "Lol, enter a valid number... (0-2)");
         }
+        scanner.close();
     }
 }

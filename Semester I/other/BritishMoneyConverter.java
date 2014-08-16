@@ -30,6 +30,7 @@ public class BritishMoneyConverter {
         Scanner scanner = new Scanner(System.in);
         System.out.print("How many pennies? ");
         pennies = scanner.nextInt();
+        scanner.close();
         System.out.printf("£%d %ds %dd", calcPounds(), calcShillings(), calcPence());
     }
 }

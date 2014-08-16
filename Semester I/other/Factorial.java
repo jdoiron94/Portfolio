@@ -20,14 +20,13 @@ public class Factorial {
     public static void main(String... args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter 1337 as the sentinel value\n");
-        while (true) {
+        int n = 5;
+        while (n != 1337) {
             System.out.print("Enter the 'n' number: ");
-            int n = scanner.nextInt();
-            if (n == 1337) {
-                break;
-            }
+            n = scanner.nextInt();
             int factorial = getFactorial(n);
             System.out.println(factorial == -1 ? "Enter valid numbers only (0+)\n" : "The factorial of " + n + " is " + factorial + "\n");
         }
+        scanner.close();
     }
 }

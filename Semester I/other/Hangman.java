@@ -58,7 +58,8 @@ public class Hangman {
 
     public static void main(String... args) {
         Scanner scanner = new Scanner(System.in);
-        while (true) {
+        String answer = "Y";
+        while (!answer.equalsIgnoreCase("n")) {
             int rounds = correct + incorrect;
             if (rounds == 0 || rounds % 20 == 0) {
                 search();
@@ -79,9 +80,9 @@ public class Hangman {
             for (int i = 0; i < word.length(); i++) {
                 builder.append('.');
             }
-            String blooped = builder.toString();
+            String hidden = builder.toString();
             while (guesses > 0) {
-                System.out.print((tries != 0 ? "\nCurrently: " : "Currently: ") + blooped + "\nEnter a letter or solve: ");
+                System.out.print((tries != 0 ? "\nCurrently: " : "Currently: ") + hidden + "\nEnter a letter or solve: ");
                 String input = scanner.nextLine().toUpperCase().trim();
                 tries++;
                 if (input.length() > 1) {
@@ -102,7 +103,7 @@ public class Hangman {
                             if (index == -1) {
                                 break;
                             }
-                            blooped = blooped.substring(0, index) + input + blooped.substring(index + 1, blooped.length());
+                            hidden = hidden.substring(0, index) + input + hidden.substring(index + 1, hidden.length());
                             word = word.substring(0, index) + "." + word.substring(index + 1, word.length());
                         }
                     } else {
@@ -111,7 +112,7 @@ public class Hangman {
                         System.out.println("How about no. You have " + guesses + " incorrect guesses left.");
                     }
                 }
-                if (blooped.equals(masterWord)) {
+                if (hidden.equals(masterWord)) {
                     correct++;
                     System.out.println("Correct guess!\n");
                     break;
@@ -125,11 +126,9 @@ public class Hangman {
             }
             answers.remove(masterWord);
             System.out.print("Play again? (Enter anything but 'N' to continue): ");
-            String answer = scanner.nextLine().toUpperCase();
-            if (answer.contains("N")) {
-                break;
-            }
+            answer = scanner.nextLine();
         }
+        scanner.close();
         System.out.println("You ended with " + correct + " correct " + (correct != 1 ? "solutions " : "solution ") + "and " + incorrect + " incorrect " + (incorrect != 1 ? "solutions." : "solution."));
     }
 }

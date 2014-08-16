@@ -18,5 +18,6 @@ public class DateConverter {
         int month = scanner.nextInt();
         System.out.print("Enter a year: ");
         System.out.print(retrieveDate(day, month, scanner.nextInt()));
+        scanner.close();
     }
 }

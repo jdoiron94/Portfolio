@@ -12,6 +12,7 @@ public class Application {
         int day = scanner.nextInt();
         System.out.print("Enter year: ");
         Day date = new Day(month, day, scanner.nextInt());
+        scanner.close();
         System.out.print(date + " is valid: " + date.isValid());
     }
 }

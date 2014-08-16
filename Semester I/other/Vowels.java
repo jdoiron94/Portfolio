@@ -11,6 +11,7 @@ public class Vowels {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter a word or a line of text: ");
         String line = scanner.nextLine();
+        scanner.close();
         Matcher matcher = Pattern.compile("[aeiou]", Pattern.CASE_INSENSITIVE).matcher(line);
         while (matcher.find()) {
             vowels++;
