@@ -18,18 +18,15 @@ public class Crawler {
             for (int i = 0; i < urls.length; i++) {
                 BufferedReader reader = new BufferedReader(new InputStreamReader(urls[i].openStream()));
                 String line;
-                while ((line = reader.readLine()) != null) {
+                while ((line = reader.readLine()) != null && !line.contains("</table>")) {
                     if (line.contains("(Pokémon)")) {
                         pokemon.add(new Pokemon(line.split("/wiki/")[1].split("_")[0], Relation.values()[i >= 3 ? i - 1 : i]));
-                    }
-                    if (line.contains("</table>")) {
-                        break;
                     }
                 }
                 reader.close();
             }
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
+        } catch (MalformedURLException exception) {
+            exception.printStackTrace();
         } catch (IOException ignored) {
         }
         System.out.print(pokemon.size() + ": " + Arrays.toString(pokemon.toArray()));
