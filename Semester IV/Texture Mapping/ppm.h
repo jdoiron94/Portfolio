@@ -5,9 +5,9 @@
 
 typedef struct
 {
-    GLuint rows;
-    GLuint columns;
-    GLubyte* pixels;
+  GLuint rows;
+  GLuint columns;
+  GLubyte* pixels;
 } image_t;
 
 image_t readPPM(char* name);

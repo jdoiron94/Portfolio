@@ -5,10 +5,10 @@
 
 typedef struct
 {
-    GLfloat ambient[4];
-    GLfloat diffuse[4];
-    GLfloat specular[4];
-    GLfloat shininess;
+  GLfloat ambient[4];
+  GLfloat diffuse[4];
+  GLfloat specular[4];
+  GLfloat shininess;
 } material_t;
 
 extern material_t brass;
