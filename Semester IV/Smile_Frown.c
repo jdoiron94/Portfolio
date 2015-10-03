@@ -68,7 +68,7 @@ void idle()
 {
   if (theta <= 0.85f) {
     theta += 0.15f;
-	} else {
+  } else {
     theta = 0.0f;
   }
   glutPostRedisplay();

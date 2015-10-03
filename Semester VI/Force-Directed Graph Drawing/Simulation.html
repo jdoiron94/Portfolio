@@ -1,0 +1,67 @@
+<html>
+<body>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+<script src="springy.js"></script>
+<script src="springyui.js"></script>
+<script>
+ 
+var graph = new Springy.Graph();
+ 
+function graphElement(element, rootNode) {
+	if (element.subs != null) {
+		var root = (rootNode != null ? rootNode : graph.newNode({label: element.label, weight: element.weight}));
+		for (var x in element.subs) {
+			var node = graph.newNode({label: element.subs[x].label, weight: element.subs[x].weight});
+			graph.newEdge(root, node, {color: element.color});
+			graphElement(element.subs[x], node);
+		}
+	}
+}
+ 
+function Element(label, weight, color, subs) {
+	this.label = label;
+	this.weight = weight;
+	this.color = color;
+	this.subs = subs;
+}
+ 
+var a = new Element("New York City, NY", 0, "#FF0000", [
+	new Element("Los Angeles, CA", 2792, "#00FF00", [
+		new Element("Chicago, IL", 2025), 
+        new Element("Philadelphia, PA", 2713),
+        new Element("Baltimore, MD", 2648),
+        new Element("Denver, CO", 1032),
+        new Element("Pittsburgh, PA", 2429)
+	]),
+	new Element("Houston, TX", 1627),
+	new Element("St. Louis, MO", 950),
+	new Element("Miami, FL", 1279),
+	new Element("Atlanta, GA", 866, "#0000FF", [
+        new Element("Portland, IL", 800),
+        new Element("Charlotte, NC", 245),
+        new Element("Cincinnati, OH", 461),
+        new Element("Cleveland, TN", 120),
+        new Element("Virginia Beach, VA", 581)
+    ]),
+	new Element("Boston, MA", 216),
+	new Element("Detroit, MI", 615),
+	new Element("Phoenix, AZ", 2407),
+	new Element("Seattle, WA", 2852),
+	new Element("San Diego, CA", 2761)
+]);
+ 
+graphElement(a);
+ 
+jQuery(function(){
+  var springy = window.springy = jQuery('#canvas').springy({
+    graph: graph,
+    nodeSelected: function(node){
+      console.log('Node selected: ' + JSON.stringify(node.data));
+    }
+  });
+});
+</script>
+ 
+<canvas id="canvas" width=1600 height=900 />
+</body>
+</html>

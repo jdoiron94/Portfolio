@@ -1,0 +1,12 @@
+The size of size_t is 4.
+The size of long is 4.
+The size of void* is 4.
+Initializing the zalloc library.
+First allocation.
+The first block of memory allocated is the 100 bytes starting at 006E3544.
+Second allocation.
+The second block of memory allocated is the 100 bytes starting at 006E35AC.
+The difference between allocated blocks is 104.
+Third allocation.
+The third block of memory allocated is the 100 bytes starting at 006E3614.
+The difference between allocated blocks is 104.

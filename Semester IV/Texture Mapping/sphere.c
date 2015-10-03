@@ -114,7 +114,7 @@ void initSphere() {
       glDisable(GL_TEXTURE_2D);
       draw_hemisphere(0.0, 90.0, 0);
       glBegin(GL_TRIANGLE_FAN); {
-			 point(180.0 * DEGREES_TO_RADIANS, 90.0 * DEGREES_TO_RADIANS);
+       point(180.0 * DEGREES_TO_RADIANS, 90.0 * DEGREES_TO_RADIANS);
         for (float theta = -180.0; theta < 180.0; theta+=degree_step) {
           float theta_radians = theta * DEGREES_TO_RADIANS;
           point(theta_radians, (90.0 - cap_size) * DEGREES_TO_RADIANS);

@@ -2,7 +2,7 @@
 #include <GL/glut.h>
 
 #ifndef M_PI
-	#define M_PI 3.14159
+  #define M_PI 3.14159
 #endif
 
 #define segments 360
@@ -30,7 +30,7 @@ void initCircle()
       glVertex3f(sin(0.0f), cos(0.0f), 0.0f);
       glNormal3f(sin(0.0f), cos(0.0f), 0.0f);
     }
-   glEnd(); 
+   glEnd();
   } glEndList();
   glEnable(GL_DEPTH_TEST);
 }
