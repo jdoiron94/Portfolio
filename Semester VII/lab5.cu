@@ -12,7 +12,7 @@ const int blocksPerGrid = imin(32, (n + threadsPerBlock - 1) / threadsPerBlock);
 
 
 // Takes in three vectors a,b,c and adds a and b into c
-__global__ void vectorAdd(const int *a, const int *b, int *c, int numElements)
+__global__ void vectorAdd(const int *a, const int *b, int *c, const int numElements)
 {
   // Used to hold results, until they can be added into c
     __shared__ int cache[threadsPerBlock];
