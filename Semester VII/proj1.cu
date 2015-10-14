@@ -8,7 +8,7 @@ __global__ void scaleArray(int *array, const int scalar, const int numElements)
 {
 	int index = blockDim.x * blockIdx.x + threadIdx.x;
 	int stride = blockDim.x * gridDim.x;
-	if (index < numElements) {
+	while (index < numElements) {
 		array[index] *= scalar;
 		index += stride;
 	}
