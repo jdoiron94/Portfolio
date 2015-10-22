@@ -1,0 +1,160 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#003399"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/totalBillText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="20dp"
+        android:text="@string/TotalBill"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#ffffff" />
+
+    <TextView
+        android:id="@+id/partySizeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/totalBillField"
+        android:layout_marginTop="20dp"
+        android:text="@string/PartySize"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#ffffff" />
+
+    <TextView
+        android:id="@+id/gratuityText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/partySizeField"
+        android:layout_marginTop="20dp"
+        android:text="@string/Gratuity"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#ffffff" />
+
+    <TextView
+        android:id="@+id/splitBillText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/gratuityField"
+        android:layout_marginTop="20dp"
+        android:text="@string/SplitBill"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#ffffff" />
+
+    <TextView
+        android:id="@+id/hiddenSplitBillText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/splitBillText"
+        android:layout_toEndOf="@+id/gratuityText"
+        android:layout_toRightOf="@+id/gratuityText"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#ffffff" />
+
+    <TextView
+        android:id="@+id/tipText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/splitBillText"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="20dp"
+        android:text="@string/Tip"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#ffffff" />
+
+    <TextView
+        android:id="@+id/hiddenTipText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/gratuityField"
+        android:layout_alignStart="@+id/gratuityField"
+        android:layout_alignTop="@+id/tipText"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#ffffff" />
+
+    <TextView
+        android:id="@+id/totalText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/tipText"
+        android:layout_marginTop="20dp"
+        android:text="@string/Total"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#ffffff" />
+
+    <TextView
+        android:id="@+id/hiddenTotalText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/totalText"
+        android:layout_toEndOf="@+id/gratuityText"
+        android:layout_toRightOf="@+id/gratuityText"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#ffffff" />
+
+    <EditText
+        android:id="@+id/totalBillField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/totalBillText"
+        android:layout_alignBottom="@+id/totalBillText"
+        android:layout_toEndOf="@+id/gratuityText"
+        android:layout_toRightOf="@+id/gratuityText"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:textColor="#ffffff" />
+
+    <EditText
+        android:id="@+id/partySizeField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/partySizeText"
+        android:layout_alignBottom="@+id/partySizeText"
+        android:layout_toEndOf="@+id/gratuityText"
+        android:layout_toRightOf="@+id/gratuityText"
+        android:ems="10"
+        android:inputType="number"
+        android:textColor="#ffffff" />
+
+    <EditText
+        android:id="@+id/gratuityField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/gratuityText"
+        android:layout_alignBottom="@+id/gratuityText"
+        android:layout_toEndOf="@+id/gratuityText"
+        android:layout_toRightOf="@+id/gratuityText"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:id="@+id/calculateButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/hiddenTotalText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="@string/Calculate" />
+
+</RelativeLayout>
