@@ -91,7 +91,9 @@ public class ConvertNumber {
         StringBuilder builder;
         for (String n : args) {
             builder = new StringBuilder();
-            if (recursiveNum(new BigInteger(n), builder, null)) {
+            BigInteger number = new BigInteger(n);
+            boolean success = recursiveNum(number, builder, null);
+            if (success) {
                 System.out.println(n + ": " + builder.toString().replaceAll("\\s+", " ").trim());
             }
         }
