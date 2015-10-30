@@ -20,15 +20,27 @@ public enum Unit {
 
     private final String representation;
 
+    /**
+     * Constructs a mathematical unit with its value and String representation.
+     *
+     * @param value The value the enum represents.
+     * @param representation The value's string equivalence.
+     */
     Unit(BigInteger value, String representation) {
         this.value = value;
         this.representation = representation;
     }
 
+    /**
+     * @return The enum's integer value.
+     */
     public BigInteger getValue() {
         return value;
     }
 
+    /**
+     * @return The enum's integer String representation.
+     */
     public String getRepresentation() {
         return representation;
     }

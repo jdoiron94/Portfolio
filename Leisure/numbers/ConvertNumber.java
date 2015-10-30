@@ -46,7 +46,7 @@ public class ConvertNumber {
      * @param n The current integer value.
      * @param builder The StringBuilder to append text to.
      * @param suffix The suffix to be appended.
-     * @return Returns <t>true</t> if the number was successfully converted to its text equivalent; otherwise <t>false</t>.
+     * @return <t>true</t> if the number was successfully converted to its text equivalent; otherwise <t>false</t>.
      */
     public static boolean recursiveNum(BigInteger n, StringBuilder builder, String suffix) {
         if (suffix != null) {
