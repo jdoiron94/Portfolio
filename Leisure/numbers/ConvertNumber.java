@@ -83,7 +83,7 @@ public class ConvertNumber {
     }
 
     /**
-     * Main function which uses its command line arguments and recursively return their text equivalences.
+     * Main function which uses its command line arguments and recursively returns their text equivalences.
      *
      * @param args The command line arguments to supply.
      */
