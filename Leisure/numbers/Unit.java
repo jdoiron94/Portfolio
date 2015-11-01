@@ -13,8 +13,9 @@ public enum Unit {
     MILLION(new BigInteger("1000000"), " million "),
     BILLION(new BigInteger("1000000000"), " billion "),
     TRILLION(new BigInteger("1000000000000"), " trillion "),
-    QUINTILLION(new BigInteger("1000000000000000"), " quintillion "),
-    SEXTILLION(new BigInteger("1000000000000000000"), " sextillion ");
+    QUADRILLION(new BigInteger("1000000000000000"), " quadrillion "),
+    QUINTILLION(new BigInteger("1000000000000000000"), " quintillion "),
+    SEPTILLION(new BigInteger("1000000000000000000000"), " septillion ");
 
     private final BigInteger value;
 

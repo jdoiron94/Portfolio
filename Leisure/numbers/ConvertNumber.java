@@ -29,12 +29,12 @@ public class ConvertNumber {
 
     private static final Unit[] UNITS = Unit.values();
 
-    private static final BigInteger MIN = new BigInteger("-999999999999999999");
+    private static final BigInteger MIN = new BigInteger("-999999999999999999999");
     private static final BigInteger TWO = new BigInteger("2");
     private static final BigInteger TEN = new BigInteger("10");
     private static final BigInteger TWENTY = new BigInteger("20");
     private static final BigInteger ONE_HUNDRED = new BigInteger("100");
-    private static final BigInteger MAX = new BigInteger("999999999999999999");
+    private static final BigInteger MAX = new BigInteger("999999999999999999999");
 
     /**
      * Converts an integer into its String representation recursively. To accomplish this, it starts by checking if
@@ -44,24 +44,24 @@ public class ConvertNumber {
      * builder's current length is 0 or not.
      *
      * @param n The current integer value.
-     * @param builder The StringBuilder to append text to.
+     * @param text The StringBuilder to append text to.
      * @param suffix The suffix to be appended.
-     * @return <t>true</t> if the number was successfully converted to its text equivalent; otherwise <t>false</t>.
+     * @return The number represented as its text equivalent.
      */
-    public static boolean recursiveNum(BigInteger n, StringBuilder builder, String suffix) {
+    public static String numToText(BigInteger n, String text, String suffix) {
         if (suffix != null) {
-            builder.append(suffix);
+            text += suffix;
         }
         if (n.compareTo(MIN) != -1 && n.compareTo(MAX) != 1) {
             if (n.compareTo(BigInteger.ZERO) == -1) {
-                recursiveNum(n.negate(), builder, "negative ");
+                return numToText(n.negate(), text, "negative ");
             } else if (n.compareTo(TWENTY) == -1) {
-                if ((n.compareTo(BigInteger.ZERO) == 0 && builder.length() == 0) || n.compareTo(BigInteger.ZERO) != 0) {
-                    builder.append(SUB_TWENTY[n.intValue()]);
+                if ((n.compareTo(BigInteger.ZERO) == 0 && text.length() == 0) || n.compareTo(BigInteger.ZERO) != 0) {
+                    return text + SUB_TWENTY[n.intValue()];
                 }
             } else if (n.compareTo(ONE_HUNDRED) == -1) {
-                builder.append(TEN_MULTS[n.divide(TEN).subtract(TWO).intValue()]);
-                recursiveNum(n.mod(TEN), builder, " ");
+                text += TEN_MULTS[n.divide(TEN).subtract(TWO).intValue()];
+                return numToText(n.mod(TEN), text, " ");
             } else {
                 int index = 0;
                 Unit unit;
@@ -72,14 +72,14 @@ public class ConvertNumber {
                     }
                 }
                 unit = UNITS[index];
-                recursiveNum(n.divide(unit.getValue()), builder, null);
-                recursiveNum(n.mod(unit.getValue()), builder, unit.getRepresentation());
+                String first = numToText(n.divide(unit.getValue()), text, null);
+                String second = numToText(n.mod(unit.getValue()), "", unit.getRepresentation());
+                return first + second;
             }
         } else {
-            System.err.println("Error: " + (n.compareTo(MIN) == -1 ? n + " < " + MIN : n + " > " + MAX));
-            return false;
+            throw new IllegalArgumentException(n.compareTo(MIN) == -1 ? n + " < " + MIN : n + " > " + MAX);
         }
-        return true;
+        return text;
     }
 
     /**
@@ -88,13 +88,12 @@ public class ConvertNumber {
      * @param args The command line arguments to supply.
      */
     public static void main(String... args) {
-        StringBuilder builder;
         for (String n : args) {
-            builder = new StringBuilder();
             BigInteger number = new BigInteger(n);
-            boolean success = recursiveNum(number, builder, null);
-            if (success) {
-                System.out.println(n + ": " + builder.toString().replaceAll("\\s+", " ").trim());
+            String answer = numToText(number, "", null);
+            if (answer != null) {
+                String result = answer.replaceAll("\\s+", " ").trim();
+                System.out.println(n + ": " + result);
             }
         }
     }
