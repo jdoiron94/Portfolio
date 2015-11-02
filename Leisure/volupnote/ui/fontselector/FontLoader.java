@@ -1,10 +1,6 @@
 package volupnote.ui.fontselector;
 
-import java.awt.Font;
-import java.awt.FontFormatException;
-import java.awt.GraphicsEnvironment;
-import java.io.File;
-import java.io.IOException;
+import java.awt.*;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.TreeSet;
@@ -17,8 +13,8 @@ public class FontLoader {
         //try {
         //    programmingFonts[0] = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("/resources/fonts/Inconsolata.ttf"));
         //    programmingFonts[1] = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("/resources/fonts/Deja Vu Sans Mono.ttf"));
-            loadFonts();
-            System.out.println("Set programming fonts");
+        loadFonts();
+        System.out.println("Set programming fonts");
         //} catch (FontFormatException | IOException ignored) {
         //    System.err.println("Unable to set fonts");
         //}

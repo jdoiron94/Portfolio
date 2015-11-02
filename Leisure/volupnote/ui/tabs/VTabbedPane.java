@@ -1,6 +1,6 @@
 package volupnote.ui.tabs;
 
-import javax.swing.JTabbedPane;
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 

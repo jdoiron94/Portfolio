@@ -6,13 +6,8 @@ import volupnote.ui.fontselector.FontSelector;
 import volupnote.ui.fontselector.FontVars;
 import volupnote.ui.tabs.VTab;
 
-import javax.swing.JButton;
-import javax.swing.JPanel;
-import java.awt.ComponentOrientation;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import javax.swing.*;
+import java.awt.*;
 
 public class ButtonContainer extends JPanel {
 

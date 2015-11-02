@@ -1,17 +1,7 @@
 package volupnote.ui.fontselector.panels;
 
-import javax.swing.DefaultListCellRenderer;
-import javax.swing.DefaultListModel;
-import javax.swing.JLabel;
-import javax.swing.JList;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.ListSelectionModel;
-import javax.swing.ScrollPaneConstants;
-import java.awt.Component;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.Font;
+import javax.swing.*;
+import java.awt.*;
 
 public class FontStyleContainer extends JPanel {
 

@@ -3,13 +3,8 @@ package volupnote.ui.fontselector.panels;
 import volupnote.ui.fontselector.FontVars;
 import volupnote.ui.view.CenteredEditorKit;
 
-import javax.swing.BorderFactory;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextPane;
-import java.awt.BorderLayout;
-import java.awt.Dimension;
-import java.awt.Font;
+import javax.swing.*;
+import java.awt.*;
 
 public class PreviewContainer extends JPanel {
 

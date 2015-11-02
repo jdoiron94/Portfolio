@@ -5,8 +5,6 @@ import volupnote.ui.menubar.menus.VMenuItem;
 import volupnote.ui.tabs.VTab;
 import volupnote.ui.tabs.VTabbedPane;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
 import java.io.BufferedWriter;

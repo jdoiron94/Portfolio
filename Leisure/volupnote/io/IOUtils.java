@@ -1,22 +1,21 @@
 package volupnote.io;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
 public class IOUtils {
 
     public static String read(File file) {
-        try (FileInputStream stream = new FileInputStream(file)) {
-            StringBuilder builder = new StringBuilder(100000);
-            int content;
-            while ((content = stream.read()) != -1) {
-                builder.append((char) content);
+        try {
+            Path path = file.toPath();
+            byte[] data = Files.readAllBytes(path);
+            if (data != null) {
+                return new String(data, "UTF-8");
             }
-            return builder.toString();
-        } catch (IOException ignored) {
-            System.err.println("Could not read the file: ");
-            return null;
+        } catch (Exception e) {
+            e.printStackTrace();
         }
+        return null;
     }
 }

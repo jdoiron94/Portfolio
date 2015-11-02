@@ -15,7 +15,7 @@ public class FileMenu extends VMenu {
         add(new SaveAsOption());
         add(new OpenOption());
         JMenuItem exit = new JMenuItem("Exit");
-        exit.addActionListener(e-> System.exit(0));
+        exit.addActionListener(e -> System.exit(0));
         add(exit);
     }
 }

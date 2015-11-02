@@ -7,13 +7,8 @@ import volupnote.ui.panels.OutputContainer;
 import volupnote.ui.tabs.VTab;
 import volupnote.ui.tabs.VTabbedPane;
 
-import javax.swing.JFrame;
-import javax.swing.SwingUtilities;
-import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
-import javax.swing.WindowConstants;
-import java.awt.BorderLayout;
-import java.awt.Dimension;
+import javax.swing.*;
+import java.awt.*;
 
 public class VolupFrame extends JFrame {
 

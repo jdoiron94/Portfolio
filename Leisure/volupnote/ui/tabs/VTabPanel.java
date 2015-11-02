@@ -1,9 +1,7 @@
 package volupnote.ui.tabs;
 
-import javax.swing.BorderFactory;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import java.awt.FlowLayout;
+import javax.swing.*;
+import java.awt.*;
 
 public class VTabPanel extends JPanel {
 

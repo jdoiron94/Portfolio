@@ -2,20 +2,9 @@ package volupnote.ui.panels;
 
 import volupnote.ui.fontselector.FontVars;
 
-import javax.swing.JEditorPane;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
-import javax.swing.text.BadLocationException;
-import javax.swing.text.DefaultStyledDocument;
-import javax.swing.text.Document;
-import javax.swing.text.PlainDocument;
-import javax.swing.text.SimpleAttributeSet;
-import java.awt.BorderLayout;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.Insets;
+import javax.swing.*;
+import javax.swing.text.*;
+import java.awt.*;
 
 public class SourceContainer extends JPanel {
 

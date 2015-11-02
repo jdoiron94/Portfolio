@@ -1,7 +1,6 @@
 package volupnote.ui.menubar.menus;
 
-import javax.swing.JMenuItem;
-import javax.swing.KeyStroke;
+import javax.swing.*;
 import java.awt.event.KeyEvent;
 
 public class VMenuItem extends JMenuItem {

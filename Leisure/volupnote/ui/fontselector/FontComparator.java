@@ -1,6 +1,6 @@
 package volupnote.ui.fontselector;
 
-import java.awt.Font;
+import java.awt.*;
 import java.util.Comparator;
 
 public class FontComparator implements Comparator<Font> {

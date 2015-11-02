@@ -4,7 +4,7 @@ import volupnote.ui.menubar.menus.FileMenu;
 import volupnote.ui.menubar.menus.HelpMenu;
 import volupnote.ui.menubar.menus.PreferencesMenu;
 
-import javax.swing.JMenuBar;
+import javax.swing.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 

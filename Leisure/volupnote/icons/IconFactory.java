@@ -1,7 +1,7 @@
 package volupnote.icons;
 
-import javax.swing.ImageIcon;
-import java.awt.*;
+import javax.swing.*;
+import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -13,7 +13,8 @@ public class IconFactory {
         String[] iconNames = {"VolupNote", "Font Selector", "Apply", "Cancel", "Refresh"};
         Class clazz = getClass();
         for (String name : iconNames) {
-            ImageIcon icon = new ImageIcon(clazz.getResource("../resources/images/" + name + ".png"));
+            URL resource = clazz.getResource("../resources/images/" + name + ".png");
+            ImageIcon icon = new ImageIcon(resource);
             icons.put(name, icon);
             System.out.println(name);
         }
