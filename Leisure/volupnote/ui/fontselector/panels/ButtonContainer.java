@@ -20,23 +20,15 @@ public class ButtonContainer extends JPanel {
         setLayout(new FlowLayout(FlowLayout.RIGHT, 10, 10));
         setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
         JButton apply = new JButton("Apply", Context.factory.loadIcon("Apply"));
-        apply.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent event) {
-                FontVars.setCurrentFont(selector.getSelectedFont());
-                for (VTab tab : VolupFrame.getTabContainer().getTabs()) {
-                    tab.getEditor().setDesiredFont(FontVars.getCurrentFont());
-                }
-                selector.dispose();
+        apply.addActionListener(event -> {
+            FontVars.setCurrentFont(selector.getSelectedFont());
+            for (VTab tab : VolupFrame.getTabContainer().getTabs()) {
+                tab.getEditor().setDesiredFont(FontVars.getCurrentFont());
             }
+            selector.dispose();
         });
         JButton cancel = new JButton("Cancel", Context.factory.loadIcon("Cancel"));
-        cancel.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent event) {
-                selector.dispose();
-            }
-        });
+        cancel.addActionListener(event -> selector.dispose());
         setPreferredSize(new Dimension(420, 20 + apply.getPreferredSize().height));
         add(cancel);
         add(apply);

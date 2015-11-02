@@ -17,20 +17,17 @@ public class OpenOption extends VMenuItem {
 
     public OpenOption() {
         super(KeyEvent.VK_O, InputEvent.CTRL_DOWN_MASK, "Open...");
-        addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent event) {
-                JFileChooser chooser = new JFileChooser();
-                chooser.setMultiSelectionEnabled(false);
-                chooser.setAcceptAllFileFilterUsed(false);
-                chooser.setFileFilter(new FileNameExtensionFilter("Java files", "java"));
-                if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
-                    File selected = chooser.getSelectedFile();
-                    if (selected != null) {
-                        VTab tab = new VTab(selected.getName(), selected.getPath(), null);
-                        tab.getEditor().setText(IOUtils.read(selected));
-                        VolupFrame.addTab(tab);
-                    }
+        addActionListener(event -> {
+            JFileChooser chooser = new JFileChooser();
+            chooser.setMultiSelectionEnabled(false);
+            chooser.setAcceptAllFileFilterUsed(false);
+            chooser.setFileFilter(new FileNameExtensionFilter("Java files", "java"));
+            if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
+                File selected = chooser.getSelectedFile();
+                if (selected != null) {
+                    VTab tab = new VTab(selected.getName(), selected.getPath(), null);
+                    tab.getEditor().setText(IOUtils.read(selected));
+                    VolupFrame.addTab(tab);
                 }
             }
         });

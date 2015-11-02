@@ -13,7 +13,6 @@ public class IOUtils {
             while ((content = stream.read()) != -1) {
                 builder.append((char) content);
             }
-            stream.close();
             return builder.toString();
         } catch (IOException ignored) {
             System.err.println("Could not read the file: ");

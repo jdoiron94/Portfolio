@@ -12,16 +12,9 @@ public class FontOption extends JMenuItem {
 
     public FontOption() {
         super("Font", KeyEvent.VK_F);
-        addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent event) {
-                EventQueue.invokeLater(new Runnable() {
-                    @Override
-                    public void run() {
-                        new FontSelector().setVisible(true);
-                    }
-                });
-            }
+        addActionListener(event -> {
+            System.out.println("font clicked");
+            EventQueue.invokeLater(() -> new FontSelector().setVisible(true));
         });
     }
 }

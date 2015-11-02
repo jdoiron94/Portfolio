@@ -8,8 +8,6 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.ScrollPaneConstants;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -32,12 +30,7 @@ public class FontStyleContainer extends JPanel {
         }
         styles.setModel(model);
         styles.setSelectedIndex(0);
-        styles.addListSelectionListener(new ListSelectionListener() {
-            @Override
-            public void valueChanged(ListSelectionEvent event) {
-                PreviewContainer.setDesiredFontStyle(getFontStyle());
-            }
-        });
+        styles.addListSelectionListener(event -> PreviewContainer.setDesiredFontStyle(getFontStyle()));
         JScrollPane stylePane = new JScrollPane(styles);
         stylePane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
         stylePane.setPreferredSize(new Dimension(150, 200));

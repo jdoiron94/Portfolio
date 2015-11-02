@@ -16,6 +16,7 @@ public class FontSelector extends JFrame {
 
     public FontSelector() {
         setTitle("Select Font");
+        System.out.println("loaded font container");
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         setLayout(new BorderLayout(0, 0));
         setIconImage(Context.factory.loadIcon("Font Selector").getImage());

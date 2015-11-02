@@ -40,12 +40,7 @@ public class VTabButton extends JButton {
                 }
             }
         });
-        addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent event) {
-                pane.removeTab(tab);
-            }
-        });
+        addActionListener(event -> pane.removeTab(tab));
     }
 
     @Override

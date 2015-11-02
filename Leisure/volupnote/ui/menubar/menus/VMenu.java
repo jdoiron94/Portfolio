@@ -9,12 +9,9 @@ public class VMenu extends JMenu {
     public VMenu(String name, int mnemonic) {
         super(name);
         setMnemonic(mnemonic);
-        addItemListener(new ItemListener() {
-            @Override
-            public void itemStateChanged(ItemEvent event) {
-                if (event.getStateChange() == ItemEvent.SELECTED) {
-                    requestFocus();
-                }
+        addItemListener(event -> {
+            if (event.getStateChange() == ItemEvent.SELECTED) {
+                requestFocus();
             }
         });
     }

@@ -20,27 +20,24 @@ public class SaveAsOption extends VMenuItem {
 
     public SaveAsOption() {
         super(KeyEvent.VK_A, KeyEvent.VK_S, InputEvent.CTRL_DOWN_MASK | InputEvent.SHIFT_DOWN_MASK, "Save As");
-        addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent event) {
-                VTabbedPane pane = VolupFrame.getTabContainer();
-                VTab active = pane.getTabs().get(pane.getSelectedIndex());
-                if (active != null) {
-                    JFileChooser chooser = new JFileChooser();
-                    chooser.setAcceptAllFileFilterUsed(false);
-                    chooser.setFileFilter(new FileNameExtensionFilter("Java files", "java"));
-                    chooser.setCurrentDirectory(new File(active.getPath()).getParentFile());
-                    if (chooser.showSaveDialog(null) == JFileChooser.APPROVE_OPTION) {
-                        try {
-                            File updated = chooser.getSelectedFile().getName().contains(".java") ? chooser.getSelectedFile() : new File(chooser.getSelectedFile() + ".java");
-                            BufferedWriter writer = new BufferedWriter(new FileWriter(updated, false));
-                            writer.write(active.getEditor().getText());
-                            writer.close();
-                            System.out.println("Saved (as) " + updated);
-                        } catch (IOException exception) {
-                            System.err.println("Error saving file");
-                            exception.printStackTrace();
-                        }
+        addActionListener(event -> {
+            VTabbedPane pane = VolupFrame.getTabContainer();
+            VTab active = pane.getTabs().get(pane.getSelectedIndex());
+            if (active != null) {
+                JFileChooser chooser = new JFileChooser();
+                chooser.setAcceptAllFileFilterUsed(false);
+                chooser.setFileFilter(new FileNameExtensionFilter("Java files", "java"));
+                chooser.setCurrentDirectory(new File(active.getPath()).getParentFile());
+                if (chooser.showSaveDialog(null) == JFileChooser.APPROVE_OPTION) {
+                    try {
+                        File updated = chooser.getSelectedFile().getName().contains(".java") ? chooser.getSelectedFile() : new File(chooser.getSelectedFile() + ".java");
+                        BufferedWriter writer = new BufferedWriter(new FileWriter(updated, false));
+                        writer.write(active.getEditor().getText());
+                        writer.close();
+                        System.out.println("Saved (as) " + updated);
+                    } catch (IOException exception) {
+                        System.err.println("Error saving file");
+                        exception.printStackTrace();
                     }
                 }
             }
