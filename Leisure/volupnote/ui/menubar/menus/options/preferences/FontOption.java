@@ -14,7 +14,8 @@ public class FontOption extends JMenuItem {
         super("Font", KeyEvent.VK_F);
         addActionListener(event -> {
             System.out.println("font clicked");
-            EventQueue.invokeLater(() -> new FontSelector().setVisible(true));
+            FontSelector selector = new FontSelector();
+            selector.setVisible(true);
         });
     }
 }

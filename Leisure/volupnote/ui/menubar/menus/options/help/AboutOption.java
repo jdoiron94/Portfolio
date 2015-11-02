@@ -11,6 +11,9 @@ public class AboutOption extends VMenuItem {
 
     public AboutOption() {
         super(KeyEvent.VK_UNDEFINED, KeyEvent.VK_UNDEFINED, "About");
-        addActionListener(event -> new AboutFrame().setVisible(true));
+        addActionListener(event -> {
+            AboutFrame frame = new AboutFrame();
+            frame.setVisible(true);
+        });
     }
 }

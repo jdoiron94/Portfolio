@@ -1,10 +1,9 @@
 package volupnote.ui.about;
 
-import javax.swing.JFrame;
-import javax.swing.WindowConstants;
+import javax.swing.*;
 import java.awt.BorderLayout;
 
-public class AboutFrame extends JFrame {
+public class AboutFrame extends JDialog {
 
     public AboutFrame() {
         setTitle("About");
@@ -13,6 +12,7 @@ public class AboutFrame extends JFrame {
         //setIconImage();
         add(new InformationContainer());
         pack();
+        setModal(true);
         setResizable(false);
         setLocationRelativeTo(getOwner());
     }
