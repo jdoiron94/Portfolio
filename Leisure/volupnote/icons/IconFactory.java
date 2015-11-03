@@ -1,6 +1,6 @@
 package volupnote.icons;
 
-import javax.swing.*;
+import javax.swing.ImageIcon;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;

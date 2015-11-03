@@ -5,8 +5,11 @@ import volupnote.ui.fontselector.panels.ButtonContainer;
 import volupnote.ui.fontselector.panels.FontContainer;
 import volupnote.ui.fontselector.panels.PreviewContainer;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JDialog;
+import javax.swing.WindowConstants;
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.Font;
 
 public class FontSelector extends JDialog {
 
@@ -16,11 +19,14 @@ public class FontSelector extends JDialog {
         setTitle("Select Font");
         System.out.println("loaded font container");
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-        setLayout(new BorderLayout(0, 0));
+        BorderLayout layout = new BorderLayout(0, 0);
+        setLayout(layout);
         setIconImage(Context.factory.loadIcon("Font Selector").getImage());
+        PreviewContainer preview = new PreviewContainer();
+        ButtonContainer button = new ButtonContainer(this);
         add(fontContainer, BorderLayout.NORTH);
-        add(new PreviewContainer(), BorderLayout.CENTER);
-        add(new ButtonContainer(this), BorderLayout.SOUTH);
+        add(preview, BorderLayout.CENTER);
+        add(button, BorderLayout.SOUTH);
         pack();
         setModal(true);
         setResizable(false);

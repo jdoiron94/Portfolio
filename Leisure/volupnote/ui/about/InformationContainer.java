@@ -1,7 +1,11 @@
 package volupnote.ui.about;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.Font;
 
 public class InformationContainer extends JPanel {
 

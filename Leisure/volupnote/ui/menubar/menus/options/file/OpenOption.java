@@ -5,7 +5,7 @@ import volupnote.ui.VolupFrame;
 import volupnote.ui.menubar.menus.VMenuItem;
 import volupnote.ui.tabs.VTab;
 
-import javax.swing.*;
+import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
@@ -19,7 +19,8 @@ public class OpenOption extends VMenuItem {
             JFileChooser chooser = new JFileChooser();
             chooser.setMultiSelectionEnabled(false);
             chooser.setAcceptAllFileFilterUsed(false);
-            chooser.setFileFilter(new FileNameExtensionFilter("Java files", "java"));
+            FileNameExtensionFilter filter = new FileNameExtensionFilter("Java files", "java");
+            chooser.setFileFilter(filter);
             if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
                 File selected = chooser.getSelectedFile();
                 if (selected != null) {

@@ -2,7 +2,7 @@ package volupnote.ui.menubar.menus.options.preferences;
 
 import volupnote.ui.fontselector.FontSelector;
 
-import javax.swing.*;
+import javax.swing.JMenuItem;
 import java.awt.event.KeyEvent;
 
 public class FontOption extends JMenuItem {

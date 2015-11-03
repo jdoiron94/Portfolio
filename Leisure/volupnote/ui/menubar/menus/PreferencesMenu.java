@@ -8,6 +8,7 @@ public class PreferencesMenu extends VMenu {
 
     public PreferencesMenu() {
         super("Preferences", KeyEvent.VK_P);
-        add(new FontOption());
+        FontOption font = new FontOption();
+        add(font);
     }
 }

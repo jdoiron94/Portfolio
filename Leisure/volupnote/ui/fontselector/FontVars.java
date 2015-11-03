@@ -1,7 +1,7 @@
 package volupnote.ui.fontselector;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.DefaultListModel;
+import java.awt.Font;
 import java.util.Set;
 
 public class FontVars {

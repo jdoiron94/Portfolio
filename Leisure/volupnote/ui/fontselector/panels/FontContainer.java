@@ -1,7 +1,8 @@
 package volupnote.ui.fontselector.panels;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JPanel;
+import java.awt.BorderLayout;
+import java.awt.Font;
 
 public class FontContainer extends JPanel {
 

@@ -1,16 +1,21 @@
 package volupnote.ui.panels;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextPane;
+import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
 
 public class OutputContainer extends JPanel {
 
     public OutputContainer() {
         setLayout(new BorderLayout(0, 0));
-        add(new JScrollPane(new Console().getPane()), BorderLayout.CENTER);
-        setPreferredSize(new Dimension(800, 150));
+        Console console = new Console();
+        JScrollPane pane = new JScrollPane(console.getPane());
+        add(pane, BorderLayout.CENTER);
+        Dimension dimension = new Dimension(800, 150);
+        setPreferredSize(dimension);
     }
 
     public class Console extends ByteArrayOutputStream {

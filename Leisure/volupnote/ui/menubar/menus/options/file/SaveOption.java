@@ -21,7 +21,9 @@ public class SaveOption extends VMenuItem {
             VTab active = pane.getTabs().get(pane.getSelectedIndex());
             if (active != null) {
                 try {
-                    BufferedWriter writer = new BufferedWriter(new FileWriter(new File(active.getPath()), false));
+                    File file = new File(active.getPath());
+                    FileWriter fileWriter = new FileWriter(file, false);
+                    BufferedWriter writer = new BufferedWriter(fileWriter);
                     writer.write(active.getEditor().getText());
                     writer.close();
                     System.out.println("Saved " + active.getPath());

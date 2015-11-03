@@ -8,7 +8,8 @@ import volupnote.ui.tabs.VTab;
 import volupnote.ui.tabs.VTabbedPane;
 
 import javax.swing.*;
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.Dimension;
 
 public class VolupFrame extends JFrame {
 

@@ -2,7 +2,7 @@ package volupnote.ui.tabs;
 
 import volupnote.ui.panels.SourceContainer;
 
-import javax.swing.*;
+import javax.swing.Icon;
 
 public class VTab {
 

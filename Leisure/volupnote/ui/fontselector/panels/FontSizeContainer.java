@@ -5,7 +5,8 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
-import java.awt.*;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -18,7 +19,8 @@ public class FontSizeContainer extends JPanel {
     public FontSizeContainer() {
         Integer[] FONT_SIZES = new Integer[]{8, 9, 10, 11, 12, 14, 16, 18, 20, 22, 24, 26, 28, 36, 48, 72};
         Collections.addAll(sizes, FONT_SIZES);
-        setLayout(new FlowLayout(FlowLayout.LEFT, 0, 10));
+        FlowLayout layout = new FlowLayout(FlowLayout.LEFT, 0, 10);
+        setLayout(layout);
         JLabel sizeLabel = new JLabel("Size:");
         ((JSpinner.DefaultEditor) sizeSpinner.getEditor()).getTextField().setEditable(false);
         sizeSpinner.setPreferredSize(new Dimension(50, 25));
@@ -45,8 +47,11 @@ public class FontSizeContainer extends JPanel {
             }
         });
         JScrollPane sizePane = new JScrollPane(sizeList);
-        sizePane.setPreferredSize(new Dimension(50, 165));
-        setPreferredSize(new Dimension(60, 30 + sizeLabel.getPreferredSize().height + sizeSpinner.getPreferredSize().height + sizePane.getPreferredSize().height));
+        Dimension paneDims = new Dimension(50, 165);
+        sizePane.setPreferredSize(paneDims);
+        Dimension dimension = new Dimension(60, 30 + sizeLabel.getPreferredSize().height +
+                sizeSpinner.getPreferredSize().height + sizePane.getPreferredSize().height);
+        setPreferredSize(dimension);
         add(sizeLabel);
         add(sizeSpinner);
         add(sizePane);

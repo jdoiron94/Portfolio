@@ -7,9 +7,13 @@ import volupnote.ui.fontselector.FontVars;
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
-import java.awt.*;
+import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.geom.Arc2D;
 import java.util.Set;
 
 public class FontFamilyContainer extends JPanel {
@@ -17,10 +21,12 @@ public class FontFamilyContainer extends JPanel {
     private final JList<String> fonts = new JList<>();
 
     public FontFamilyContainer() {
-        setLayout(new FlowLayout(FlowLayout.LEFT, 10, 10));
+        FlowLayout layout = new FlowLayout(FlowLayout.LEFT, 10, 10);
+        setLayout(layout);
         JLabel fontFamily = new JLabel("Font Family:");
+        CellRenderer renderer = new CellRenderer();
         fonts.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        fonts.setCellRenderer(new CellRenderer());
+        fonts.setCellRenderer(renderer);
         fonts.setFixedCellHeight(25);
         fonts.setModel(getModel(false));
         fonts.addListSelectionListener(new ListSelectionListener() {
@@ -30,7 +36,8 @@ public class FontFamilyContainer extends JPanel {
             }
         });
         JScrollPane pane = new JScrollPane(fonts);
-        pane.setPreferredSize(new Dimension(200, 200));
+        Dimension paneDims = new Dimension(200, 200);
+        pane.setPreferredSize(paneDims);
         JLabel refresh = new JLabel(Context.factory.loadIcon("Refresh"));
         refresh.setToolTipText("Refresh the system font list");
         refresh.addMouseListener(new MouseAdapter() {
@@ -40,7 +47,8 @@ public class FontFamilyContainer extends JPanel {
             }
         });
         pane.setCorner(JScrollPane.LOWER_RIGHT_CORNER, refresh);
-        setPreferredSize(new Dimension(210, 230 + fontFamily.getPreferredSize().height));
+        Dimension dimension = new Dimension(210, 230 + fontFamily.getPreferredSize().height);
+        setPreferredSize(dimension);
         add(fontFamily);
         add(pane);
     }
@@ -67,7 +75,8 @@ public class FontFamilyContainer extends JPanel {
         @Override
         public Component getListCellRendererComponent(JList<?> list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
             JLabel label = (JLabel) super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
-            label.setFont(new Font(value.toString(), Font.PLAIN, 15));
+            Font font = new Font(value.toString(), Font.PLAIN, 15);
+            label.setFont(font);
             return label;
         }
     }

@@ -1,6 +1,7 @@
 package volupnote.ui.fontselector;
 
-import java.awt.*;
+import java.awt.Font;
+import java.awt.GraphicsEnvironment;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.TreeSet;

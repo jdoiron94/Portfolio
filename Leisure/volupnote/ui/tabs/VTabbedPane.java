@@ -1,6 +1,6 @@
 package volupnote.ui.tabs;
 
-import javax.swing.*;
+import javax.swing.JTabbedPane;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,7 +27,8 @@ public class VTabbedPane extends JTabbedPane {
         }
         addTab(tab.getName(), tab.getIcon(), tab.getEditor(), tab.getPath());
         tabs.add(tab);
-        setTabComponentAt(tabs.size() - 1, new VTabPanel(this, tab));
+        VTabPanel panel = new VTabPanel(this, tab);
+        setTabComponentAt(tabs.size() - 1, panel);
     }
 
     public void removeTab(VTab tab) {

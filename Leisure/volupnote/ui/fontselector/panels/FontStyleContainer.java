@@ -1,20 +1,26 @@
 package volupnote.ui.fontselector.panels;
 
 import javax.swing.*;
-import java.awt.*;
+import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.Font;
 
 public class FontStyleContainer extends JPanel {
 
     private final JList<String> styles = new JList<>();
 
     public FontStyleContainer() {
-        setLayout(new FlowLayout(FlowLayout.LEFT, 10, 10));
+        FlowLayout layout = new FlowLayout(FlowLayout.LEFT, 10, 10);
+        setLayout(layout);
         JLabel fontStyle = new JLabel("Font Style:");
+        CellRenderer renderer = new CellRenderer();
         styles.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        styles.setCellRenderer(new CellRenderer());
+        styles.setCellRenderer(renderer);
         styles.setFixedCellHeight(25);
         DefaultListModel<String> model = new DefaultListModel<>();
-        Object[][] options = {{"Regular", Font.PLAIN}, {"Italic", Font.ITALIC}, {"Bold", Font.BOLD}, {"Bold Italic", Font.BOLD | Font.ITALIC}};
+        Object[][] options = {{"Regular", Font.PLAIN}, {"Italic", Font.ITALIC}, {"Bold", Font.BOLD},
+                {"Bold Italic", Font.BOLD | Font.ITALIC}};
         for (Object[] option : options) {
             model.addElement((String) option[0]);
         }
@@ -23,8 +29,10 @@ public class FontStyleContainer extends JPanel {
         styles.addListSelectionListener(event -> PreviewContainer.setDesiredFontStyle(getFontStyle()));
         JScrollPane stylePane = new JScrollPane(styles);
         stylePane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-        stylePane.setPreferredSize(new Dimension(150, 200));
-        setPreferredSize(new Dimension(160, 220 + fontStyle.getPreferredSize().height));
+        Dimension styleDims = new Dimension(150, 200);
+        stylePane.setPreferredSize(styleDims);
+        Dimension dimension = new Dimension(160, 220 + fontStyle.getPreferredSize().height);
+        setPreferredSize(dimension);
         add(fontStyle);
         add(stylePane);
     }
@@ -66,7 +74,8 @@ public class FontStyleContainer extends JPanel {
                 default:
                     attribute = Font.PLAIN;
             }
-            label.setFont(new Font(getFont().getFontName(), attribute, 15));
+            Font font = new Font(getFont().getFontName(), attribute, 15);
+            label.setFont(font);
             return label;
         }
     }

@@ -6,13 +6,17 @@ import volupnote.ui.fontselector.FontSelector;
 import volupnote.ui.fontselector.FontVars;
 import volupnote.ui.tabs.VTab;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JButton;
+import javax.swing.JPanel;
+import java.awt.ComponentOrientation;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
 
 public class ButtonContainer extends JPanel {
 
     public ButtonContainer(final FontSelector selector) {
-        setLayout(new FlowLayout(FlowLayout.RIGHT, 10, 10));
+        FlowLayout layout = new FlowLayout(FlowLayout.RIGHT, 10, 10);
+        setLayout(layout);
         setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
         JButton apply = new JButton("Apply", Context.factory.loadIcon("Apply"));
         apply.addActionListener(event -> {
@@ -24,7 +28,8 @@ public class ButtonContainer extends JPanel {
         });
         JButton cancel = new JButton("Cancel", Context.factory.loadIcon("Cancel"));
         cancel.addActionListener(event -> selector.dispose());
-        setPreferredSize(new Dimension(420, 20 + apply.getPreferredSize().height));
+        Dimension size = new Dimension(420, 20 + apply.getPreferredSize().height);
+        setPreferredSize(size);
         add(cancel);
         add(apply);
     }

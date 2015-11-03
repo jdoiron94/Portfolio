@@ -2,7 +2,7 @@ package volupnote;
 
 import volupnote.ui.VolupFrame;
 
-import java.awt.*;
+import java.awt.EventQueue;
 
 public class Boot {
 

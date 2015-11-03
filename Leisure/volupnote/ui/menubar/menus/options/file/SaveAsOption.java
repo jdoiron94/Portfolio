@@ -5,7 +5,7 @@ import volupnote.ui.menubar.menus.VMenuItem;
 import volupnote.ui.tabs.VTab;
 import volupnote.ui.tabs.VTabbedPane;
 
-import javax.swing.*;
+import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
@@ -24,12 +24,16 @@ public class SaveAsOption extends VMenuItem {
             if (active != null) {
                 JFileChooser chooser = new JFileChooser();
                 chooser.setAcceptAllFileFilterUsed(false);
-                chooser.setFileFilter(new FileNameExtensionFilter("Java files", "java"));
-                chooser.setCurrentDirectory(new File(active.getPath()).getParentFile());
+                FileNameExtensionFilter filter = new FileNameExtensionFilter("Java files", "java");
+                chooser.setFileFilter(filter);
+                File directory = new File(active.getPath()).getParentFile();
+                chooser.setCurrentDirectory(directory);
                 if (chooser.showSaveDialog(null) == JFileChooser.APPROVE_OPTION) {
                     try {
-                        File updated = chooser.getSelectedFile().getName().contains(".java") ? chooser.getSelectedFile() : new File(chooser.getSelectedFile() + ".java");
-                        BufferedWriter writer = new BufferedWriter(new FileWriter(updated, false));
+                        File updated = chooser.getSelectedFile().getName().contains(".java")
+                                ? chooser.getSelectedFile() : new File(chooser.getSelectedFile() + ".java");
+                        FileWriter fileWriter = new FileWriter(updated, false);
+                        BufferedWriter writer = new BufferedWriter(fileWriter);
                         writer.write(active.getEditor().getText());
                         writer.close();
                         System.out.println("Saved (as) " + updated);

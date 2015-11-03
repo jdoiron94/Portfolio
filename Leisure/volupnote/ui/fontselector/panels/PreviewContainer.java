@@ -2,24 +2,34 @@ package volupnote.ui.fontselector.panels;
 
 import volupnote.ui.fontselector.FontVars;
 import volupnote.ui.view.CenteredEditorKit;
+import volupnote.ui.view.CenteredView;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.BorderFactory;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextPane;
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.Font;
 
 public class PreviewContainer extends JPanel {
 
     private static final JTextPane preview = new JTextPane();
 
     public PreviewContainer() {
-        setLayout(new BorderLayout(0, 0));
-        setPreferredSize(new Dimension(420, 100));
+        BorderLayout layout = new BorderLayout(0, 0);
+        setLayout(layout);
+        Dimension dimension = new Dimension(420, 100);
+        setPreferredSize(dimension);
         setBorder(BorderFactory.createTitledBorder("Preview:"));
-        preview.setEditorKit(new CenteredEditorKit());
+        CenteredEditorKit kit = new CenteredEditorKit();
+        preview.setEditorKit(kit);
         preview.setFont(FontVars.getCurrentFont());
         preview.setText("aAbBcCdDeEfF");
         preview.setEditable(false);
         JScrollPane pane = new JScrollPane(preview);
-        pane.setPreferredSize(new Dimension(420, 100));
+        Dimension paneDims = new Dimension(420, 100);
+        pane.setPreferredSize(paneDims);
         add(pane, BorderLayout.CENTER);
     }
 

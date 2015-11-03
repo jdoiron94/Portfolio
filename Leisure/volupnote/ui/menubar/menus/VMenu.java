@@ -1,6 +1,6 @@
 package volupnote.ui.menubar.menus;
 
-import javax.swing.*;
+import javax.swing.JMenu;
 import java.awt.event.ItemEvent;
 
 public class VMenu extends JMenu {

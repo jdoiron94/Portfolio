@@ -8,6 +8,7 @@ public class HelpMenu extends VMenu {
 
     public HelpMenu() {
         super("Help", KeyEvent.VK_H);
-        add(new AboutOption());
+        AboutOption about = new AboutOption();
+        add(about);
     }
 }
