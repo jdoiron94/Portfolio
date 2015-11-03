@@ -16,11 +16,6 @@ public class SourceContainer extends JPanel {
     public SourceContainer() {
         BorderLayout layout = new BorderLayout(0, 0);
         setLayout(layout);
-        try { // move to before eventqueue invoke, do mac title bar property
-            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ignored) {
-            System.err.println("Failed to set theme");
-        }
         Insets inset = new Insets(5, 5, 5, 5);
         //editor.setEditorKit(new WrapEditorKit());
         editor.setContentType("text/java");

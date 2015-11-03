@@ -21,11 +21,6 @@ public class VolupFrame extends JFrame {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setIconImage(Context.factory.loadIcon("VolupNote").getImage());
         Context.setFontLoader(new FontLoader());
-        try {
-            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ignored) {
-            System.err.println("Failed to set theme");
-        }
         add(tabContainer, BorderLayout.CENTER);
         add(new OutputContainer(), BorderLayout.SOUTH);
         SwingUtilities.updateComponentTreeUI(this);
