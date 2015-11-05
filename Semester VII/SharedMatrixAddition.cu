@@ -337,9 +337,9 @@ int main()
 
   printf("\nDevice matrices freed\n");
 
-  free(host_a);
-  free(host_b);
-  free(host_c);
+  freeHostMatrix(host_a);
+  freeHostMatrix(host_b);
+  freeHostMatrix(host_c);
 
   free(host_a_flat);
   free(host_b_flat);
