@@ -3,12 +3,11 @@
 
 #define WIDTH 800
 #define HEIGHT 608
-#define ITERATIONS 100
 
 __global__ void kernel(char *buffer) {
 	const int row = (blockIdx.y * blockDim.y) + threadIdx.y;
 	const int column = (blockIdx.x * blockDim.x) + threadIdx.x;
-	const int offset = column + (row * gridDim.x * blockDim.x);
+	const int offset = (row * gridDim.x * blockDim.x) + column;
 	if(column >= WIDTH || row >= HEIGHT) {
 		return;
 	}
@@ -16,14 +15,14 @@ __global__ void kernel(char *buffer) {
 	const float y0 = (((float) row / HEIGHT) * 3.5F) - 1.75F;
 	float x = 0.0F;
 	float y = 0.0F;
-	float xtemp;
+	float temporary_x;
 	int i;
-	for (i = 0; i < ITERATIONS && (x * x) + (y * y) <= 4.0F; i++) { 
-		xtemp = (x * x) - (y * y) + x0;
+	for (i = 0; i < 100 && (x * x) + (y * y) <= 4.0F; i++) { 
+		temporary_x = (x * x) - (y * y) + x0;
 		y = (2.0F * x * y) + y0;
-		x = xtemp;
+		x = temporary_x;
 	}
-	int color = (i * 5);
+	int color = i * 5;
 	if (color >= 256) {
 		color = 0;
 	}
