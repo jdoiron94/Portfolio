@@ -54,6 +54,7 @@ void kernel(unsigned char *buffer) {
 			buffer[index] = 0;
 			buffer[index + 1] = (x * 256) / 800 * juliaValue;
 			buffer[index + 2] = (y * 256) / 608 * juliaValue;
+			buffer[index + 3] = 255;
 		}
 	}
 }

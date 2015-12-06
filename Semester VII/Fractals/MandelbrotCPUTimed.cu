@@ -29,31 +29,29 @@ struct Complex {
 	}
 };
 
-int julia(const int x, const int y) {
-	const float column = (((float) x / WIDTH) * 3.5F) - 1.75F;
-	const float row = (((float) y / HEIGHT) * 3.5F) - 1.75F;
-
-	Complex c(-0.8F, 0.15F);
-	Complex a(column, row);
-
-	for (int i = 0; i < 200; i++) {
-		a = (a * a) + c;
-		if (a.magnitude2() > 1000) {
-			return 0;
-		}
-	}
-	return 1;
-}
-
 void kernel(unsigned char *buffer) {
-	for (int x = 0; x < WIDTH; x++) {
-		for (int y = 0; y < HEIGHT; y++) {
-			const int offset = (y * WIDTH) + x;
-			const int juliaValue = julia(x, y);
+	for (int column = 0; column < WIDTH; column++) {
+		for (int row = 0; row < HEIGHT; row++) {
+			const int offset = (row * WIDTH) + column;
+			const float x0 = (((float) column / WIDTH) * 3.5F) - 2.5F;
+			const float y0 = (((float) row / HEIGHT) * 3.5F) - 1.75F;
+			float x = 0.0F;
+			float y = 0.0F;
+			float temporary_x;
+			int i;
+			for (i = 0; i < 100 && (x * x) + (y * y) <= 4.0F; i++) { 
+				temporary_x = (x * x) - (y * y) + x0;
+				y = (2.0F * x * y) + y0;
+				x = temporary_x;
+			}
+			int color = i * 5;
+			if (color >= 256) {
+				color = 0;
+			}
 			const int index = offset * 4;
 			buffer[index] = 0;
-			buffer[index + 1] = (x * 256) / 800 * juliaValue;
-			buffer[index + 2] = (y * 256) / 608 * juliaValue;
+			buffer[index + 1] = color;
+			buffer[index + 2] = 0;
 			buffer[index + 3] = 255;
 		}
 	}
@@ -63,8 +61,10 @@ int main(void) {
 	CPUBitmap bitmap(WIDTH, HEIGHT);
 	time_t start = time(0);
 	unsigned char *buffer = bitmap.get_ptr();
-	kernel(buffer);
+	for (int i = 0; i < 1000; i++) {
+		kernel(buffer);
+	}
 	time_t end = time(0);
-	printf("Julia fractal created in %03.0f secs\n", difftime(end, start));
+	printf("Mandelbrot fractal created 1000x in %03.0f secs\n", difftime(end, start));
 	bitmap.display_and_exit();
 }
