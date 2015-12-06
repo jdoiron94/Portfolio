@@ -4,7 +4,7 @@
 #define WIDTH 800
 #define HEIGHT 608
 
-__global__ void kernel(char *buffer) {
+__global__ void kernel(unsigned char *buffer) {
 	const int row = (blockIdx.y * blockDim.y) + threadIdx.y;
 	const int column = (blockIdx.x * blockDim.x) + threadIdx.x;
 	const int offset = (row * gridDim.x * blockDim.x) + column;
@@ -26,12 +26,14 @@ __global__ void kernel(char *buffer) {
 	if (color >= 256) {
 		color = 0;
 	}
-	buffer[(offset * 4) + 1] = color;
+	const int index = offset * 4;
+	buffer[index] = 0;
+	buffer[index + 1] = color;
 }
 
 int main(void) {
 	CPUBitmap bitmap(WIDTH, HEIGHT);
-	char *dev_bitmap;
+	unsigned char *dev_bitmap;
 	float elapsed;
 	
 	dim3 block_size(16, 16);
