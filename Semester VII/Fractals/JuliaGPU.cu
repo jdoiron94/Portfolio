@@ -80,7 +80,9 @@ int main(void) {
 
   HANDLE_ERROR(cudaEventRecord(start, 0));
 
-  kernel<<<grid_size, block_size>>>(dev_bitmap);
+  for (int i = 0; i < 1000; i++) {
+    kernel<<<grid_size, block_size>>>(dev_bitmap);
+  }
 
   HANDLE_ERROR(cudaMemcpy(bitmap.get_ptr(), dev_bitmap, bitmap.image_size(), cudaMemcpyDeviceToHost));
 
@@ -89,7 +91,7 @@ int main(void) {
 
   HANDLE_ERROR(cudaEventElapsedTime(&elapsed, start, stop));
 
-  printf("Julia fractal created and copied back to host memory in %3.1f ms\n", elapsed);
+  printf("Julia fractal created 1000x in %05.1f ms\n", elapsed);
 
   bitmap.display_and_exit();
 

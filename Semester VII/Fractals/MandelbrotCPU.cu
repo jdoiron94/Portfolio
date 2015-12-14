@@ -66,8 +66,10 @@ int main(void) {
   CPUBitmap bitmap(WIDTH, HEIGHT);
   time_t start = time(0);
   unsigned char *buffer = bitmap.get_ptr();
-  kernel(buffer);
+  for (int i = 0; i < 1000; i++) {
+    kernel(buffer);
+  }
   time_t end = time(0);
-  printf("Mandelbrot fractal created in %03.0f secs\n", difftime(end, start));
+  printf("Mandelbrot fractal created 1000x in %03.0f secs\n", difftime(end, start));
   bitmap.display_and_exit();
 }
